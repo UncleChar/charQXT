@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.dataManager = [[DataManager alloc]init];
+//    self.dataManager = [[DataManager alloc]init];
     
     AppEngineManager *engineManager = [[AppEngineManager alloc]init];
 //    engineManager.mainTabBarController.notiBadgeValue = @"5";

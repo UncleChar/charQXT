@@ -90,13 +90,13 @@
 }
 
 
-+ (instancetype)sheetWithEntry:(FileModel *)entry buttonTitles:(NSArray *)buttonTitles redButtonIndex:(NSInteger)redButtonIndex clicked:(CharActionSheetBlock)clicked {
++ (instancetype)sheetWithEntry:(EntryModel *)entry buttonTitles:(NSArray *)buttonTitles redButtonIndex:(NSInteger)redButtonIndex clicked:(CharActionSheetBlock)clicked {
     
     return [[self alloc] initWithEntry:entry buttonTitles:buttonTitles redButtonIndex:redButtonIndex clicked:clicked];
 }
 
 
-- (instancetype)initWithEntry:(FileModel *)entry
+- (instancetype)initWithEntry:(EntryModel *)entry
                  buttonTitles:(NSArray *)buttonTitles
                redButtonIndex:(NSInteger)redButtonIndex
                       clicked:(CharActionSheetBlock)clicked{
@@ -145,10 +145,53 @@
         [bottomView addSubview:titleBgView];
         
         UIImageView *iv = [[UIImageView alloc]initWithFrame:CGRectMake(20, 10, 40, 40)];
-        iv.image = [UIImage imageNamed:@"file_shared"];
+        if ([self.entry.fileAttribute isEqualToString:@"note"]) {
+            
+            iv.image = [UIImage imageNamed:@"file_note"];
+        }
+        if ([self.entry.fileAttribute isEqualToString:@"txt"]) {
+            
+            iv.image = [UIImage imageNamed:@"preview_txt_icon"];
+        }
+        if ([self.entry.fileAttribute isEqualToString:@"doc"]) {
+            
+            iv.image = [UIImage imageNamed:@"preview_doc_icon"];
+        }
+        if ([self.entry.fileAttribute isEqualToString:@"pic"]) {
+            
+            iv.image = [UIImage imageNamed:@"preview_pic_icon"];
+        }
+        if ([self.entry.fileAttribute isEqualToString:@"pdf"]) {
+            
+            iv.image = [UIImage imageNamed:@"preview_pdf_icon"];
+        }
+        if ([self.entry.fileAttribute isEqualToString:@"floder"]) {
+            
+            iv.image = [UIImage imageNamed:@"file_personal"];
+        }
+        if ([self.entry.fileAttribute isEqualToString:@"isShareFloder"]) {
+            
+            iv.image = [UIImage imageNamed:@"file_shared"];
+        }
+        if ([self.entry.fileAttribute isEqualToString:@"excel"]) {
+            
+            iv.image = [UIImage imageNamed:@"preview_xls_icon"];
+        }
+        if ([self.entry.fileAttribute isEqualToString:@"zip"]) {
+            
+            iv.image = [UIImage imageNamed:@"preview_rar_icon"];
+        }
+        if ([self.entry.fileAttribute isEqualToString:@"ppt"]) {
+            
+            iv.image = [UIImage imageNamed:@"preview_ppt_icon"];
+        }
+        if ([self.entry.fileAttribute isEqualToString:@"video"]) {
+            
+            iv.image = [UIImage imageNamed:@"preview_video_icon"];
+        }
         [titleBgView addSubview:iv];
         
-        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(iv.frame) + 5, 10, 100, 40)];
+        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(iv.frame) + 5, 10, kScreenWidth - 40 - CGRectGetMaxX(iv.frame) - 5, 40)];
         titleLabel.text = self.entry.fileName;
         [titleBgView addSubview:titleLabel];
         // 标题

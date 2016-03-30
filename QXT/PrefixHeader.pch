@@ -12,6 +12,7 @@
 //
 //#import "Users.h"
 #import "FileModel.h"
+#import "EntryModel.h"
 #import "VCTools.h"
 #import "SBJSON.h"
 #import "SVProgressHUD.h"

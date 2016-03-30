@@ -7,7 +7,7 @@
 //
 
 #import "AllContactsViewController.h"
-#import "NDDefaultSearchViewController.h"
+
 #import "ContactTableViewCell.h"
 #import "NDSearchTool.h"
 @interface AllContactsViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
@@ -431,7 +431,7 @@
 
 - (void)ww {
 
-    [self.navigationController pushViewController:[[NDDefaultSearchViewController alloc]init] animated:YES];
+//    [self.navigationController pushViewController:[[NDDefaultSearchViewController alloc]init] animated:YES];
 }
 
 @end

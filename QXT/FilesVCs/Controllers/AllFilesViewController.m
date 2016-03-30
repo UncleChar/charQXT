@@ -12,7 +12,7 @@
 #import "CharActionSheet.h"
 #import "FFNavbarMenu.h"
 #import "NDSearchTool.h"
-#import "FileModel.h"
+#import "EntryModel.h"
 @interface AllFilesViewController ()<ASIHTTPRequestDelegate,FFNavbarMenuDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,FileBtnSelectedDelegate>
 {
 
@@ -121,7 +121,7 @@
                 _selectAllBtn.titleLabel.numberOfLines = 0;
                 [_selectAllBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                 [_selectAllBtn setTitle:@"取消全选" forState:UIControlStateSelected];
-                _selectAllBtn.backgroundColor = [ConfigUITools colorWithR:90 G:192 B:246 A:1];
+                _selectAllBtn.backgroundColor = [ConfigUITools colorWithR:33 G:126 B:198 A:1];
                 _selectAllBtn.tag = i + 300;
                 [_selectAllBtn addTarget:self action:@selector(selectedBottomBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [_editView addSubview:_selectAllBtn];
@@ -133,7 +133,7 @@
                 btn.layer.cornerRadius = 2;
                 btn.layer.masksToBounds = 1;
                 [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-                btn.backgroundColor = [ConfigUITools colorWithR:90 G:192 B:246 A:1];
+                btn.backgroundColor = [ConfigUITools colorWithR:33 G:126 B:198 A:1];
                 btn.tag = i + 300;
                 [btn addTarget:self action:@selector(selectedBottomBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [_editView addSubview:btn];
@@ -153,7 +153,7 @@
     [super viewDidLoad];
     if([self respondsToSelector:@selector(setEdgesForExtendedLayout:)])
     {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.edgesForExtendedLayout = UIRectEdgeBottom;
     }
     self.numberOfItemsInRow = 1;
     [self initArray];
@@ -164,22 +164,106 @@
 
 - (void)initArray {
 
-    if (nil == _requestDataArray) {
+    if (nil == _dataSource) {
         
-        _requestDataArray = [NSMutableArray arrayWithCapacity:0];
+        _dataSource = [NSMutableArray arrayWithCapacity:0];
     }
    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"stockList" ofType:@"plist"];
-    NSArray *fileArray = [NSArray arrayWithContentsOfFile:path];
-
-    for (NSDictionary *dict in fileArray) {
-
-        FileModel *model = [[FileModel alloc]init];
-        model.isSelected = NO;
-        model.fileName = dict[@"name"];
-        [_requestDataArray addObject:model];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"stockList" ofType:@"plist"];
+//    NSArray *fileArray = [NSArray arrayWithContentsOfFile:path];
+//
+//    for (NSDictionary *dict in fileArray) {
+//
+//        EntryModel *model = [[EntryModel alloc]init];
+//        model.isSelected = NO;
+//        model.fileName = dict[@"name"];
+//        [_requestDataArray addObject:model];
+//    }
+    if (self.isRootVC) {
+        
+        for (int i = 0 ; i < 100; i ++) {
+            
+            EntryModel *model = [[EntryModel alloc]init];
+            model.isSelected = NO;
+            NSString *fileName;
+            NSString *fileArtb;
+            
+            NSInteger k = arc4random() % 11 + 1;
+            switch (k) {
+                case 1:
+                    fileName = [NSString stringWithFormat:@"测试笔记_1735.note"];
+                    fileArtb = @"note";
+                    break;
+                    
+                case 2:
+                    fileName = [NSString stringWithFormat:@"测试Txt_12515.txt"];
+                    fileArtb = @"txt";
+                    
+                    break;
+                case 3:
+                    fileName = [NSString stringWithFormat:@"关于习大大在莅临灵利的指导.doc"];
+                    fileArtb = @"doc";
+                    
+                    break;
+                case 4:
+                    fileName = [NSString stringWithFormat:@"我的图片.jpg"];
+                    fileArtb = @"pic";
+                    
+                    break;
+                case 5:
+                    fileName = [NSString stringWithFormat:@"线性规划形成.pdf"];
+                    fileArtb = @"pdf";
+                    
+                    break;
+                case 6:
+                    
+                    fileName = [NSString stringWithFormat:@"文件夹的测试"];
+                    fileArtb = @"floder";
+                    break;
+                case 7:
+                    fileName = [NSString stringWithFormat:@"分享文件夹的诞生"];
+                    fileArtb = @"isShareFloder";
+                    
+                    break;
+                case 8:
+                    
+                    fileName = [NSString stringWithFormat:@"习大大的工资单.excel"];
+                    fileArtb = @"excel";
+                    break;
+                case 9:
+                    
+                    fileName = [NSString stringWithFormat:@"种子压缩包.zip"];
+                    fileArtb = @"zip";
+                    break;
+                    
+                case 10:
+                    
+                    fileName = [NSString stringWithFormat:@"李克强在灵利的演讲稿.ppt"];
+                    fileArtb = @"ppt";
+                    break;
+                    
+                case 11:
+                    
+                    fileName = [NSString stringWithFormat:@"卧虎藏龙.video"];
+                    fileArtb = @"video";
+                    break;
+                default:
+                    break;
+            }
+            
+            model.fileName = fileName;
+            model.fileAttribute = fileArtb;
+            [_dataSource addObject:model];
+            
+        }
+        
+        
+    }else {
+    
+    
+    
     }
-
+    
     
 
 }
@@ -226,7 +310,7 @@
 
     if (!_fileTableView) {
         
-        _fileTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64 ) style:UITableViewStylePlain];
+        _fileTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64) style:UITableViewStylePlain];
         _fileTableView.delegate = self;
         _fileTableView.dataSource = self;
         _fileTableView.contentOffset = CGPointMake(0, 44);
@@ -268,7 +352,7 @@
 
     if (_fileTableView == tableView) {
         
-       return _requestDataArray.count;
+       return _dataSource.count;
     }
     
     return self.searchDataSource.count;
@@ -292,7 +376,7 @@
     }
 
     if (_fileTableView == tableView) {
-       cell.model = _requestDataArray[indexPath.row];
+       cell.model = _dataSource[indexPath.row];
     } else {
         cell.model = _searchDataSource[indexPath.row];
 
@@ -302,6 +386,11 @@
     cell.btnCleckddelegate = self;
     cell.selectionStyle = 3;
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    return 60;
 }
 #pragma mark --tableviewEditdelegate
 
@@ -318,7 +407,7 @@
         
         if (_fileTableView == tableView) {
             
-            [_requestDataArray removeObjectAtIndex:indexPath.row];
+            [_dataSource removeObjectAtIndex:indexPath.row];
             
             [_fileTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
             
@@ -357,7 +446,7 @@
     AllFilesViewController *allFvc = [[AllFilesViewController alloc]init];
     if (_fileTableView == tableView) {
         
-        allFvc.dataSource = self.requestDataArray;
+        allFvc.dataSource = self.dataSource;
         
     }else {
         
@@ -373,7 +462,7 @@
 
 
 
-- (void)tableViewMoreBtnClickedWithModel:(FileModel *)model {
+- (void)tableViewMoreBtnClickedWithModel:(EntryModel *)model {
 
     NSLog(@"ai ?? - %i",model.isSelected);
 
@@ -388,26 +477,26 @@
 {
     self.searchDataSource = (NSMutableArray *)[[NDSearchTool tool] searchWithFieldArray:@[@"fileName"]
                                                                             inputString:searchText
-                                                                                inArray:self.requestDataArray];
+                                                                                inArray:self.dataSource];
     [self.searchDisplayController.searchResultsTableView reloadData];
 }
 
 
 
 
-- (void)btnSelected:(UIButton *)btn withModel:(FileModel *)model {
+- (void)btnSelected:(UIButton *)btn withModel:(EntryModel *)model {
     
-    if ([model isKindOfClass:[FileModel class]]) {
+    if ([model isKindOfClass:[EntryModel class]]) {
         
         
     }
  
     
 }
-- (void)btnUnSelected:(UIButton *)btn withModel:(FileModel *)model {
+- (void)btnUnSelected:(UIButton *)btn withModel:(EntryModel *)model {
 
 
-    if ([model isKindOfClass:[FileModel class]]) {
+    if ([model isKindOfClass:[EntryModel class]]) {
         
         
     }
@@ -535,7 +624,7 @@
 }
 
 
-- (void)sheetViewWithModel:(FileModel *)model {
+- (void)sheetViewWithModel:(EntryModel *)model {
     
     
     CharActionSheet *sheet = [CharActionSheet sheetWithEntry:model buttonTitles:@[@"协作共享", @"查看协作人",@"链接分享",@"重命名",@"移动",@"复制"] redButtonIndex:-1 clicked:^(NSInteger buttonIndex) {
@@ -580,7 +669,7 @@
             
                 isSeleAll = NO;
             }
-            for (FileModel *model in _requestDataArray) {
+            for (EntryModel *model in _dataSource) {
                 
                 model.isSelected = isSeleAll;
             }
@@ -593,7 +682,7 @@
         case 5:
         {
         
-            for (FileModel *model in _requestDataArray) {
+            for (EntryModel *model in _dataSource) {
                 
                 model.isSelected = NO;
             }

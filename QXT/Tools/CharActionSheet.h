@@ -12,7 +12,7 @@ typedef void(^CharActionSheetBlock)(NSInteger buttonIndex);
 
 @property (nonatomic, copy) NSString *title;
 
-@property (nonatomic, strong) FileModel *entry;
+@property (nonatomic, strong) EntryModel *entry;
 
 @property (nonatomic, assign) NSInteger redButtonIndex;
 
@@ -57,7 +57,7 @@ typedef void(^CharActionSheetBlock)(NSInteger buttonIndex);
  *
  *  Tip: 如果没有红色按钮, redButtonIndex 给 `-1` 即可
  */
-+ (instancetype)sheetWithEntry:(FileModel *)entry
++ (instancetype)sheetWithEntry:(EntryModel *)entry
                   buttonTitles:(NSArray *)buttonTitles
                 redButtonIndex:(NSInteger)redButtonIndex
                        clicked:(CharActionSheetBlock)clicked;
@@ -72,7 +72,7 @@ typedef void(^CharActionSheetBlock)(NSInteger buttonIndex);
  *
  *  Tip: 如果没有红色按钮, redButtonIndex 给 `-1` 即可
  */
-- (instancetype)initWithEntry:(FileModel *)entry
+- (instancetype)initWithEntry:(EntryModel *)entry
                  buttonTitles:(NSArray *)buttonTitles
                redButtonIndex:(NSInteger)redButtonIndex
                       clicked:(CharActionSheetBlock)clicked;

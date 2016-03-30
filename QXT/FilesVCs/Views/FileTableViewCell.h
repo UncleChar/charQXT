@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class FileModel;
+
 @protocol FileBtnSelectedDelegate <NSObject>
 
-- (void)tableViewMoreBtnClickedWithModel:(FileModel *)model;
-- (void)btnSelected:(UIButton *)btn withModel:(FileModel *)model;
-- (void)btnUnSelected:(UIButton *)btn withModel:(FileModel *)model;
+- (void)tableViewMoreBtnClickedWithModel:(EntryModel *)model;
+- (void)btnSelected:(UIButton *)btn withModel:(EntryModel *)model;
+- (void)btnUnSelected:(UIButton *)btn withModel:(EntryModel *)model;
 
 
 @end
@@ -21,7 +21,7 @@
 
 @property (nonatomic ,weak) id<FileBtnSelectedDelegate>  btnCleckddelegate;
 
-@property (nonatomic, strong) FileModel *model;
+@property (nonatomic, strong) EntryModel *model;
 @property (nonatomic, assign) BOOL isNeedSort;
 
 @end

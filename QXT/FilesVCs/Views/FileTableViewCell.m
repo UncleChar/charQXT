@@ -55,25 +55,27 @@
 //    [self.contentView addSubview:urgLabel];
     
     indexIV = [[UIImageView alloc]init];
-    indexIV.image = [UIImage imageNamed:@"file_shared@2x"];
+    indexIV.layer.cornerRadius = 2;
+    indexIV.layer.masksToBounds = 1;
+//    indexIV.image = [UIImage imageNamed:@"preview_doc_icon"];
     [self.contentView addSubview:indexIV];
     
     
     nameLabel = [[UILabel alloc]init];
     nameLabel.textColor = [UIColor blackColor];
     nameLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
-    nameLabel.font = [UIFont systemFontOfSize:12];
+    nameLabel.font = [UIFont systemFontOfSize:15];
     [self.contentView addSubview:nameLabel];
     
     
         urgLabel = [[UILabel alloc]init];
         urgLabel.text = @"uncleChar 于 2016-3-24 13:35 上传";
         urgLabel.textAlignment = 0;
-        urgLabel.font = [UIFont systemFontOfSize:10];
+        urgLabel.font = [UIFont systemFontOfSize:12];
         urgLabel.textColor = [UIColor lightGrayColor];
         [self.contentView addSubview:urgLabel];
     
-     moreBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 44, 0, 44, 44)];
+     moreBtn = [[UIButton alloc]initWithFrame:CGRectMake(kScreenWidth - 44, 8, 44, 44)];
     [moreBtn setImage:[UIImage imageNamed:@"list_arrow"] forState:UIControlStateNormal];
 
 
@@ -89,7 +91,7 @@
     [self.contentView addSubview:selectedBtn];
 
 }
-- (void)setModel:(FileModel *)model {
+- (void)setModel:(EntryModel *)model {
 
     _model = model;
 //    NSLog(@"--- %i",_model.isSelected);
@@ -101,7 +103,51 @@
     }else {
         selectedBtn.selected = NO;
     }
-    
+
+    if ([model.fileAttribute isEqualToString:@"note"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"file_note"];
+    }
+    if ([model.fileAttribute isEqualToString:@"txt"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_txt_icon"];
+    }
+    if ([model.fileAttribute isEqualToString:@"doc"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_doc_icon"];
+    }
+    if ([model.fileAttribute isEqualToString:@"pic"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_pic_icon"];
+    }
+    if ([model.fileAttribute isEqualToString:@"pdf"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_pdf_icon"];
+    }
+    if ([model.fileAttribute isEqualToString:@"floder"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"file_personal"];
+    }
+    if ([model.fileAttribute isEqualToString:@"isShareFloder"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"file_shared"];
+    }
+    if ([model.fileAttribute isEqualToString:@"excel"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_xls_icon"];
+    }
+    if ([model.fileAttribute isEqualToString:@"zip"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_rar_icon"];
+    }
+    if ([model.fileAttribute isEqualToString:@"ppt"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_ppt_icon"];
+    }
+    if ([model.fileAttribute isEqualToString:@"video"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_video_icon"];
+    }
 
 }
 
@@ -159,17 +205,17 @@
     
     if (_isNeedSort) {
        
-        selectedBtn.frame = CGRectMake(7, 7, 30, 30);
-        indexIV.frame = CGRectMake(44, 7, 30, 30);
-        nameLabel.frame = CGRectMake(84, 5, 200, 20);
-        urgLabel.frame = CGRectMake(94 , 30, 200, 14);
+        selectedBtn.frame = CGRectMake(10, 15, 30, 30);
+        indexIV.frame = CGRectMake(50, 10, 40, 40);
+        nameLabel.frame = CGRectMake(100, 5, 200, 30);
+        urgLabel.frame = CGRectMake(110 , 40, 200, 20);
         
     }else {
 
         selectedBtn.frame = CGRectMake(0, 0, 0, 0);
-        indexIV.frame = CGRectMake(20, 7, 30, 30);
-        nameLabel.frame = CGRectMake(60, 5, 200, 20);
-        urgLabel.frame = CGRectMake(70 , 30, 200, 14);
+        indexIV.frame = CGRectMake(10, 10, 40, 40);
+        nameLabel.frame = CGRectMake(60, 5, 200, 30);
+        urgLabel.frame = CGRectMake(70 , 40, 200, 20);
 
     }
 }
