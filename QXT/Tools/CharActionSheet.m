@@ -145,6 +145,8 @@
         [bottomView addSubview:titleBgView];
         
         UIImageView *iv = [[UIImageView alloc]initWithFrame:CGRectMake(20, 10, 40, 40)];
+//        iv.layer.cornerRadius = 3;
+//        iv.layer.masksToBounds = 1;
         if ([self.entry.fileAttribute isEqualToString:@"note"]) {
             
             iv.image = [UIImage imageNamed:@"file_note"];

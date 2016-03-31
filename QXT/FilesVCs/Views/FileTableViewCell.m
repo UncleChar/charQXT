@@ -55,7 +55,7 @@
 //    [self.contentView addSubview:urgLabel];
     
     indexIV = [[UIImageView alloc]init];
-    indexIV.layer.cornerRadius = 2;
+    indexIV.layer.cornerRadius = 1;
     indexIV.layer.masksToBounds = 1;
 //    indexIV.image = [UIImage imageNamed:@"preview_doc_icon"];
     [self.contentView addSubview:indexIV];
@@ -85,8 +85,8 @@
     [self.contentView addSubview:moreBtn];
     
     selectedBtn = [[UIButton alloc]init];
-    [selectedBtn setBackgroundImage:[UIImage imageNamed:@"kssz_kqsz"] forState:UIControlStateNormal];
-    [selectedBtn setBackgroundImage:[UIImage imageNamed:@"kssz_kqsz_d"] forState:UIControlStateSelected];
+    [selectedBtn setBackgroundImage:[UIImage imageNamed:@"common_checxbox_null"] forState:UIControlStateNormal];
+    [selectedBtn setBackgroundImage:[UIImage imageNamed:@"common_checxbox_sel"] forState:UIControlStateSelected];
     [selectedBtn addTarget:self action:@selector(selectedBtnClecked:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:selectedBtn];
 
@@ -205,7 +205,7 @@
     
     if (_isNeedSort) {
        
-        selectedBtn.frame = CGRectMake(10, 15, 30, 30);
+        selectedBtn.frame = CGRectMake(10, 17.5, 25, 25);
         indexIV.frame = CGRectMake(50, 10, 40, 40);
         nameLabel.frame = CGRectMake(100, 5, 200, 30);
         urgLabel.frame = CGRectMake(110 , 40, 200, 20);

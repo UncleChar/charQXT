@@ -16,13 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-//    self.dataManager = [[DataManager alloc]init];
-    
+
     AppEngineManager *engineManager = [[AppEngineManager alloc]init];
-//    engineManager.mainTabBarController.notiBadgeValue = @"5";
-//    engineManager.mainTabBarController.viewControllers[1].tabBarItem.badgeValue = @"7";
-//    [engineManager.mainTabBarController refreshBargeWithNmuber:11];
+
     NSLog(@"AppStart---%@",engineManager.mainTabBarController.notiBadgeValue);
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
@@ -80,8 +76,6 @@
 - (void)refreshBargeWithNmuber:(NSInteger)number {
 
     UIViewController *vc =  [AppEngineManager sharedInstance].viewVCArrary[0];
-    
-    NSLog(@"vc   START  %@",vc);
     
     if(number < 100){
         vc.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",number];

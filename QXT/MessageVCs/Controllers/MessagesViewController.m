@@ -125,6 +125,7 @@
     [_messageTableView reloadData];
     UIViewController *vc =  [AppEngineManager sharedInstance].viewVCArrary[0];
     vc.tabBarItem.badgeValue = nil;
+    [SVProgressHUD showSuccessWithStatus:@"标记成功"];
 
 }
 

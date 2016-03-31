@@ -9,6 +9,7 @@
 #import "AllContactsViewController.h"
 
 #import "ContactTableViewCell.h"
+#import "ContactDetailInfoVC.h"
 #import "NDSearchTool.h"
 @interface AllContactsViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 {
@@ -69,7 +70,7 @@
     _localSearchDict = [NSMutableDictionary dictionaryWithCapacity:0];//本地搜索后的字典
     
     _searchDataSource = [NSMutableArray arrayWithCapacity:0];//作为所有搜索后的结果数组
-    NSArray *modelArray = @[@{@"portrait":@"1",@"name":@"1"},@{@"portrait":@"2",@"name":@"花无缺"},@{@"portrait":@"3",@"name":@"东方不败"},@{@"portrait":@"4",@"name":@"任我行"},@{@"portrait":@"5",@"name":@"逍遥王"},@{@"portrait":@"6",@"name":@"阿离"},@{@"portrait":@"13",@"name":@"百草堂"},@{@"portrait":@"8",@"name":@"三味书屋"},@{@"portrait":@"9",@"name":@"彩彩"},@{@"portrait":@"10",@"name":@"陈晨"},@{@"portrait":@"11",@"name":@"多多"},@{@"portrait":@"12",@"name":@"峨嵋山"},@{@"portrait":@"7",@"name":@"哥哥"},@{@"portrait":@"14",@"name":@"林俊杰"},@{@"portrait":@"15",@"name":@"足球"},@{@"portrait":@"16",@"name":@"58赶集"},@{@"portrait":@"17",@"name":@"搜房网"},@{@"portrait":@"18",@"name":@"欧弟"},@{@"portrait":@"19",@"name":@"小胖"},@{@"portrait":@"20",@"name":@"蒙奇.D.路飞"},@{@"portrait":@"21",@"name":@"鸣人"},@{@"portrait":@"22",@"name":@"佐助"},@{@"portrait":@"23",@"name":@"自来也"}];
+    NSArray *modelArray = @[@{@"portrait":@"12",@"name":@"125"},@{@"portrait":@"2",@"name":@"多弗朗明哥"},@{@"portrait":@"3",@"name":@"蒙奇.D.多拉格"},@{@"portrait":@"4",@"name":@"乌索普"},@{@"portrait":@"5",@"name":@"弗兰奇"},@{@"portrait":@"6",@"name":@"西尔巴兹.雷利"},@{@"portrait":@"13",@"name":@"诺诺罗亚.卓洛"},@{@"portrait":@"8",@"name":@"乔巴"},@{@"portrait":@"9",@"name":@"波斯卡帝.D.艾斯"},@{@"portrait":@"10",@"name":@"陈晨"},@{@"portrait":@"11",@"name":@"多多"},@{@"portrait":@"12",@"name":@"峨嵋山"},@{@"portrait":@"7",@"name":@"山治"},@{@"portrait":@"14",@"name":@"香克斯"},@{@"portrait":@"15",@"name":@"罗宾"},@{@"portrait":@"16",@"name":@"58赶集"},@{@"portrait":@"17",@"name":@"搜房网"},@{@"portrait":@"18",@"name":@"欧弟"},@{@"portrait":@"19",@"name":@"小胖"},@{@"portrait":@"20",@"name":@"蒙奇.D.路飞"},@{@"portrait":@"21",@"name":@"鸣人"},@{@"portrait":@"22",@"name":@"佐助"},@{@"portrait":@"23",@"name":@"自来也"}];
    
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"stockList" ofType:@"plist"];
 //    NSArray *fileArray = [NSArray arrayWithContentsOfFile:path];
@@ -79,6 +80,13 @@
         FileModel *model = [[FileModel alloc]init];
         model.isSelected = NO;
         model.avatarId = [dict objectForKey:@"portrait"];
+        if ([model.avatarId integerValue]%2 == 0) {
+            model.sex = YES;
+        }else {
+        
+            model.sex = NO;
+        }
+        
         model.fileName = dict[@"name"];
         [_requestDataSource addObject:model];
         [_contactDict setObject:model forKey:model.fileName];
@@ -291,6 +299,11 @@
         }
         
     }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;//cell的右边有一个小箭头，距离右边有十几像素；
+    
+//    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;//cell右边有一个蓝色的圆形button；
+    
+//    cell.accessoryType = UITableViewCellAccessoryCheckmark;//cell右边的形状是对号；
     cell.selectionStyle = 3;
     return cell;
 }
@@ -301,20 +314,39 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-//    AllFilesViewController *allFvc = [[AllFilesViewController alloc]init];
-//    if (_fileTableView == tableView) {
-//        
-//        allFvc.dataSource = self.requestDataArray;
-//        
-//    }else {
-//        
-//        allFvc.dataSource = self.searchDataSource;
-//        
-//    }
-//    allFvc.isRootVC = NO;
-//    allFvc.title = [allFvc.dataSource[indexPath.row] fileName];
-//    NSLog(@"CLICKED : %@",[allFvc.dataSource[indexPath.row] fileName]);
-//    [self.navigationController pushViewController:allFvc animated:YES];
+    ContactDetailInfoVC *Convc = [[ContactDetailInfoVC alloc]init];
+    
+    if (_contactTableView == tableView) {
+        
+        if (_Index == 0) {
+            NSString *str = _indexTitleArr[indexPath.section];
+            Convc.model =  [_contactDict objectForKey: [_dict objectForKey:str][indexPath.row]];
+            
+        }else {
+            
+            NSString *str = _indexLocalTitleArr[indexPath.section];
+            Convc.model =  [_localDict objectForKey: [_ldict objectForKey:str][indexPath.row]];
+            
+        }
+        
+    } else {
+        
+        if (_Index == 0) {
+            NSString *str = _indexSearchTitleArr[indexPath.section];
+            Convc.model =  [_searchDict objectForKey: [_sdict objectForKey:str][indexPath.row]];
+            
+        }else {
+            
+            NSString *str = _indexLocalSearchTitleArr[indexPath.section];
+            Convc.model =  [_localSearchDict objectForKey: [_lsdict objectForKey:str][indexPath.row]];
+            
+        }
+        
+    }
+    
+
+    NSLog(@"section %ld  roe %ld",indexPath.section,indexPath.row);
+    [self.navigationController pushViewController:Convc animated:YES];
     
 }
 

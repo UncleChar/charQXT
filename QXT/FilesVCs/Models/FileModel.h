@@ -12,4 +12,5 @@
 @property (nonatomic, assign) BOOL       isSelected;
 @property (nonatomic, strong) NSString   *fileName;
 @property (nonatomic, strong) NSString   *avatarId;
+@property (nonatomic, assign) BOOL       sex;
 @end

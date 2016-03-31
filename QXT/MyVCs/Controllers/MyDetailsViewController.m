@@ -10,10 +10,16 @@
 #import "AboutMyTableViewCell.h"
 #import "QYTableViewHeader.h"
 #import "QYNavigationBar.h"
+#import "OtherJumpVc.h"
+
+#define kBgH      kScreenHeight / 3
+#define KLevelH  (kScreenHeight / 3 - 64) / 4
+#define kLabelAlpha  0.9
 @interface MyDetailsViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
 
     NSArray  *titleArray;
+    NSArray  *picArray;
 
 }
 @property(nonatomic,strong)UITableView* tableView;
@@ -42,7 +48,11 @@
 
     
     
-    titleArray = @[@"我的离线文件",@"我的团队",@"设置",@"清空缓存",@"我的XXX",@"我的XX11XXXX",@"我的XX22XXXX",@"我的XX33XXXX",@"我的XX44XXXX"];
+//    titleArray = @[@"我的离线文件",@"我的团队",@"设置",@"清空缓存",@"我的XXX",@"我的XX11XXXX",@"我的XX22XXXX",@"我的XX33XXXX",@"我的XX44XXXX"];
+    
+    titleArray = [[NSMutableArray alloc]initWithObjects:@"最近讨论",@"传输列表",@"离线列表",@"回收中心",@"我的团队",@"系统设置",@"退出登录", nil];
+    picArray = [[NSMutableArray alloc]initWithObjects:@"main_menu_comment_btn@2x.png",@"main_menu_transfer_icon.png",@"iPhone_main_menu_offline_icon@2x.png",@"main_menu_recycle_icon.png",@"main_menu_btn_team@2x.png",@"main_menu_setting_icon.png",@"main_menu_logout_icon.png", nil];
+    
     
     [self.view addSubview: self.tableView];
     
@@ -54,7 +64,7 @@
 
 - (UIView *)navigationCustomBar {
 
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
     self.NavbgImg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
     self.NavbgImg.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.NavbgImg];
@@ -71,7 +81,7 @@
 
 - (void)configHeaderItems {
     
-    _bigImageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+    _bigImageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kBgH)];
     _bigImageView.image=[UIImage imageNamed:@"1212.jpg"];
     _bigImageView.clipsToBounds=YES;
     //    _bigImageView.alpha = 0.7;
@@ -82,41 +92,41 @@
     smallView.clipsToBounds=YES;
     smallView.contentMode=UIViewContentModeScaleAspectFill;
     
-    UILabel *naLabe = [[UILabel  alloc]initWithFrame:CGRectMake(120, 64, kScreenWidth - 120, 30)];
+    UILabel *naLabe = [[UILabel  alloc]initWithFrame:CGRectMake(120, 64, kScreenWidth - 120, KLevelH)];
     naLabe.backgroundColor = [UIColor clearColor];
-    naLabe.text = @"我叫张三(中天科技)";
-    naLabe.font = [UIFont systemFontOfSize:14];
-    naLabe.alpha = 0.85;
+    naLabe.text = @"解海龙(灵利科技)";
+    naLabe.font = [UIFont systemFontOfSize:15];
+    naLabe.alpha = kLabelAlpha;
     naLabe.textColor = [UIColor whiteColor];
     [_bigImageView addSubview:naLabe];
     
-    UILabel *phoneLabel = [[UILabel  alloc]initWithFrame:CGRectMake(120, 94, kScreenWidth - 140, 30)];
+    UILabel *phoneLabel = [[UILabel  alloc]initWithFrame:CGRectMake(120, CGRectGetMaxY(naLabe.frame), kScreenWidth - 140, KLevelH)];
     phoneLabel.backgroundColor = [UIColor clearColor];
     phoneLabel.text = @"手机号:18888888888";
-    phoneLabel.font = [UIFont systemFontOfSize:12];
-    phoneLabel.alpha = 0.85;
+    phoneLabel.font = [UIFont systemFontOfSize:13];
+    phoneLabel.alpha = kLabelAlpha;
     phoneLabel.textColor = [UIColor whiteColor];
     [_bigImageView addSubview:phoneLabel];
     
-    UILabel *emailLabel = [[UILabel  alloc]initWithFrame:CGRectMake(120, 124, kScreenWidth - 120, 30)];
+    UILabel *emailLabel = [[UILabel  alloc]initWithFrame:CGRectMake(120, CGRectGetMaxY(phoneLabel.frame), kScreenWidth - 120, KLevelH)];
     emailLabel.backgroundColor = [UIColor clearColor];
     emailLabel.text = @"邮箱:xhljob@sharpinteract.com";
-    emailLabel.font = [UIFont systemFontOfSize:12];
-    emailLabel.alpha = 0.85;
+    emailLabel.font = [UIFont systemFontOfSize:13];
+    emailLabel.alpha = kLabelAlpha;
     emailLabel.textColor = [UIColor whiteColor];
     [_bigImageView addSubview:emailLabel];
     
-    UIView *spaceProgressView = [[UIView alloc]initWithFrame:CGRectMake(120, 165, kScreenWidth - 160, 8)];
+    UIView *spaceProgressView = [[UIView alloc]initWithFrame:CGRectMake(120, CGRectGetMaxY(emailLabel.frame) + KLevelH / 2 - 4, kScreenWidth - 160, 8)];
     spaceProgressView.layer.cornerRadius = 4;
     spaceProgressView.layer.masksToBounds = 1;
-    spaceProgressView.alpha = 0.85;
+    spaceProgressView.alpha = kLabelAlpha;
     spaceProgressView.backgroundColor = [UIColor whiteColor];
     [_bigImageView addSubview:spaceProgressView];
     
-    UIView *usedspaceProgressView = [[UIView alloc]initWithFrame:CGRectMake(120, 165, CGRectGetWidth(spaceProgressView.frame)*0.36, 8)];
+    UIView *usedspaceProgressView = [[UIView alloc]initWithFrame:CGRectMake(120, CGRectGetMaxY(emailLabel.frame) + KLevelH / 2 - 4, CGRectGetWidth(spaceProgressView.frame)*0.36, 8)];
     usedspaceProgressView.layer.cornerRadius = 4;
     usedspaceProgressView.layer.masksToBounds = 1;
-    usedspaceProgressView.alpha = 0.85;
+    usedspaceProgressView.alpha = kLabelAlpha;
     usedspaceProgressView.backgroundColor = [ConfigUITools colorWithR:30 G:199 B:91 A:1];
     [_bigImageView addSubview:usedspaceProgressView];
     
@@ -140,17 +150,10 @@
         
         cell = [[AboutMyTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    if (indexPath.row == titleArray.count - 1) {
-      
-        cell.name = @"退出登录";
-//        cell.avatarStr = @"tim.jpg";
-        
-    }else {
-    
+
         cell.name = titleArray[indexPath.row];
-        cell.avatarStr = @"tim.jpg";
-        
-    }
+        cell.avatarStr = picArray[indexPath.row];
+
     
     return cell;
 }
@@ -160,7 +163,16 @@
     return 70;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    OtherJumpVc *otvc = [[OtherJumpVc alloc]init];
+    otvc.title = titleArray[indexPath.row];
+    [self.navigationController pushViewController:otvc animated:YES];
+    
+    
+
+}
 
 
 
@@ -181,10 +193,10 @@
     //导航栏
     if (offsetY > -19) {
         
-        if (offsetY < 136) {
+        if (offsetY < (kBgH - 64)) {
             self.NavbgImg.hidden = NO;
             
-            self.NavbgImg.backgroundColor = [ConfigUITools colorWithR:33 G:126 B:198 A:offsetY/136];
+            self.NavbgImg.backgroundColor = [ConfigUITools colorWithR:33 G:126 B:198 A:offsetY/(kBgH - 64)];
         }
         else{
             self.NavbgImg.backgroundColor = [ConfigUITools colorWithR:33 G:126 B:198 A:1];
@@ -204,6 +216,18 @@
 -(void)viewDidLayoutSubviews
 {
     [_headView resizeView];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+
+    [super viewWillDisappear:YES];
+    self.navigationController.navigationBarHidden = NO;
+}
+- (void)viewWillAppear:(BOOL)animated {
+
+
+    [super viewWillAppear:YES];
+     self.navigationController.navigationBarHidden = YES;
 }
 @end
 

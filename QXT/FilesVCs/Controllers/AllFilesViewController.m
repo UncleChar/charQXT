@@ -298,7 +298,6 @@
     if (_searchDisplayController) {
         return _searchDisplayController;
     }
-    
     _searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
     _searchDisplayController.searchResultsTableView.dataSource = self;
     _searchDisplayController.searchResultsTableView.delegate = self;
