@@ -60,7 +60,7 @@
 #pragma mark 设置所有的分栏元素项
 - (void)setTabBarItems {
     
-    NSArray *titleArr = @[@"文件",@"消息",@"通讯录",@"关于我"];
+    NSArray *titleArr = @[@"文件",@"消息",@"同事",@"关于我"];
     NSArray *normalImgArr = @[@"home-拷贝",@"heart",@"iconfont-icon-拷贝-2",@"iconfont-wodexuanzhong-拷贝"];
     NSArray *selectedImgArr = @[@"tabbar_items_1_selected@2x",@"heart-拷贝",@"tabbar_items_3_selected@2x",@"tabbar_items_3_selected@2x"];
     //循环设置信息

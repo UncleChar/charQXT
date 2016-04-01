@@ -19,6 +19,59 @@
 		9D74D2AF1CAA1A110090B8A0 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D74D2AE1CAA1A110090B8A0 /* bg.png */; };
 		9D74D2B51CAA1D570090B8A0 /* ok.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D74D2B41CAA1D570090B8A0 /* ok.jpg */; };
 		9D74D2B71CAA1FD20090B8A0 /* 1212.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D74D2B61CAA1FD20090B8A0 /* 1212.jpg */; };
+		9D83D7571CAE0B17004A8B2A /* add_friend_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D7561CAE0B17004A8B2A /* add_friend_icon@2x.png */; };
+		9D83D7591CAE0B28004A8B2A /* addfriend_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D7581CAE0B28004A8B2A /* addfriend_icon@2x.png */; };
+		9D83D75D1CAE0CE1004A8B2A /* mbox_addmember_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D75C1CAE0CE1004A8B2A /* mbox_addmember_icon@2x.png */; };
+		9D83D7701CAE1CA0004A8B2A /* UIImage+UzysExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D7601CAE1CA0004A8B2A /* UIImage+UzysExtension.m */; };
+		9D83D7711CAE1CA0004A8B2A /* UzysAppearanceConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D7621CAE1CA0004A8B2A /* UzysAppearanceConfig.m */; };
+		9D83D7721CAE1CA0004A8B2A /* UzysAssetPickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D7631CAE1CA0004A8B2A /* UzysAssetPickerController.bundle */; };
+		9D83D7731CAE1CA0004A8B2A /* UzysAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D7651CAE1CA0004A8B2A /* UzysAssetsPickerController.m */; };
+		9D83D7741CAE1CA0004A8B2A /* UzysAssetsPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D7661CAE1CA0004A8B2A /* UzysAssetsPickerController.xib */; };
+		9D83D7751CAE1CA0004A8B2A /* UzysAssetsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D7691CAE1CA0004A8B2A /* UzysAssetsViewCell.m */; };
+		9D83D7761CAE1CA0004A8B2A /* UzysGroupPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D76B1CAE1CA0004A8B2A /* UzysGroupPickerView.m */; };
+		9D83D7771CAE1CA0004A8B2A /* UzysGroupViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D76D1CAE1CA0004A8B2A /* UzysGroupViewCell.m */; };
+		9D83D7781CAE1CA0004A8B2A /* UzysWrapperPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D76F1CAE1CA0004A8B2A /* UzysWrapperPickerController.m */; };
+		9D83D77A1CAE1DFC004A8B2A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D83D7791CAE1DFC004A8B2A /* AVFoundation.framework */; };
+		9D83D77C1CAE1E38004A8B2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D83D77B1CAE1E38004A8B2A /* UIKit.framework */; };
+		9D83D77E1CAE1E40004A8B2A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D83D77D1CAE1E40004A8B2A /* AssetsLibrary.framework */; };
+		9D83D7801CAE1E4C004A8B2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D83D77F1CAE1E4C004A8B2A /* Foundation.framework */; };
+		9D83D7D41CAE4DE3004A8B2A /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D7D11CAE4DE3004A8B2A /* DACircularProgressView.m */; };
+		9D83D7D51CAE4DE3004A8B2A /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D7D31CAE4DE3004A8B2A /* DALabeledCircularProgressView.m */; };
+		9D83D81E1CAE4E52004A8B2A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D83D81D1CAE4E51004A8B2A /* ImageIO.framework */; };
+		9D83D8201CAE4E59004A8B2A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D83D81F1CAE4E59004A8B2A /* MessageUI.framework */; };
+		9D83D8221CAE4E61004A8B2A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D83D8211CAE4E61004A8B2A /* Security.framework */; };
+		9D83D8241CAE4E72004A8B2A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D83D8231CAE4E72004A8B2A /* QuartzCore.framework */; };
+		9D83D8261CAE4E9A004A8B2A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D83D8251CAE4E9A004A8B2A /* libz.tbd */; };
+		9D83D8601CAE4F5B004A8B2A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D8281CAE4F5B004A8B2A /* InfoPlist.strings */; };
+		9D83D8611CAE4F5B004A8B2A /* pop-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D82A1CAE4F5B004A8B2A /* pop-Info.plist */; };
+		9D83D8621CAE4F5B004A8B2A /* POPAnimatableProperty.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D82F1CAE4F5B004A8B2A /* POPAnimatableProperty.mm */; };
+		9D83D8631CAE4F5B004A8B2A /* POPAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8311CAE4F5B004A8B2A /* POPAnimation.mm */; };
+		9D83D8641CAE4F5B004A8B2A /* POPAnimationEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8331CAE4F5B004A8B2A /* POPAnimationEvent.mm */; };
+		9D83D8651CAE4F5B004A8B2A /* POPAnimationExtras.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8361CAE4F5B004A8B2A /* POPAnimationExtras.mm */; };
+		9D83D8661CAE4F5B004A8B2A /* POPAnimationRuntime.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D83A1CAE4F5B004A8B2A /* POPAnimationRuntime.mm */; };
+		9D83D8671CAE4F5B004A8B2A /* POPAnimationTracer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D83C1CAE4F5B004A8B2A /* POPAnimationTracer.mm */; };
+		9D83D8681CAE4F5B004A8B2A /* POPAnimator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D83F1CAE4F5B004A8B2A /* POPAnimator.mm */; };
+		9D83D8691CAE4F5B004A8B2A /* POPBasicAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8421CAE4F5B004A8B2A /* POPBasicAnimation.mm */; };
+		9D83D86A1CAE4F5B004A8B2A /* POPCGUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8451CAE4F5B004A8B2A /* POPCGUtils.mm */; };
+		9D83D86B1CAE4F5B004A8B2A /* POPCustomAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8471CAE4F5B004A8B2A /* POPCustomAnimation.mm */; };
+		9D83D86C1CAE4F5B004A8B2A /* POPDecayAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8491CAE4F5B004A8B2A /* POPDecayAnimation.mm */; };
+		9D83D86D1CAE4F5B004A8B2A /* POPGeometry.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D84D1CAE4F5B004A8B2A /* POPGeometry.mm */; };
+		9D83D86E1CAE4F5B004A8B2A /* POPLayerExtras.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D84F1CAE4F5B004A8B2A /* POPLayerExtras.mm */; };
+		9D83D86F1CAE4F5B004A8B2A /* POPMath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8511CAE4F5B004A8B2A /* POPMath.mm */; };
+		9D83D8701CAE4F5B004A8B2A /* POPPropertyAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8531CAE4F5B004A8B2A /* POPPropertyAnimation.mm */; };
+		9D83D8711CAE4F5B004A8B2A /* POPSpringAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8561CAE4F5B004A8B2A /* POPSpringAnimation.mm */; };
+		9D83D8721CAE4F5B004A8B2A /* POPVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D85A1CAE4F5B004A8B2A /* POPVector.mm */; };
+		9D83D8731CAE4F5B004A8B2A /* TransformationMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D85D1CAE4F5B004A8B2A /* TransformationMatrix.cpp */; };
+		9D83D8851CAE59C9004A8B2A /* IDMCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8761CAE59C9004A8B2A /* IDMCaptionView.m */; };
+		9D83D8861CAE59C9004A8B2A /* IDMPBLocalizations.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D8781CAE59C9004A8B2A /* IDMPBLocalizations.bundle */; };
+		9D83D8871CAE59C9004A8B2A /* IDMPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D87A1CAE59C9004A8B2A /* IDMPhoto.m */; };
+		9D83D8881CAE59C9004A8B2A /* IDMPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D87B1CAE59C9004A8B2A /* IDMPhotoBrowser.bundle */; };
+		9D83D8891CAE59C9004A8B2A /* IDMPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D87D1CAE59C9004A8B2A /* IDMPhotoBrowser.m */; };
+		9D83D88A1CAE59C9004A8B2A /* IDMTapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8801CAE59C9004A8B2A /* IDMTapDetectingImageView.m */; };
+		9D83D88B1CAE59C9004A8B2A /* IDMTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8821CAE59C9004A8B2A /* IDMTapDetectingView.m */; };
+		9D83D88C1CAE59C9004A8B2A /* IDMZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8841CAE59C9004A8B2A /* IDMZoomingScrollView.m */; };
+		9D83D8A01CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D8961CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton.png */; };
+		9D83D8A11CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D8971CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton@2x.png */; };
 		9D86D8561CA2275900D2E514 /* RequestBlockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D86D8551CA2275900D2E514 /* RequestBlockManager.m */; };
 		9D86D85A1CA2320800D2E514 /* ConfigCoustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D86D8591CA2320800D2E514 /* ConfigCoustomView.m */; };
 		9D86D85D1CA2395500D2E514 /* CustonVCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D86D85C1CA2395500D2E514 /* CustonVCView.m */; };
@@ -201,6 +254,111 @@
 		9D74D2AE1CAA1A110090B8A0 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		9D74D2B41CAA1D570090B8A0 /* ok.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ok.jpg; sourceTree = "<group>"; };
 		9D74D2B61CAA1FD20090B8A0 /* 1212.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1212.jpg; sourceTree = "<group>"; };
+		9D83D7561CAE0B17004A8B2A /* add_friend_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_friend_icon@2x.png"; sourceTree = "<group>"; };
+		9D83D7581CAE0B28004A8B2A /* addfriend_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addfriend_icon@2x.png"; sourceTree = "<group>"; };
+		9D83D75C1CAE0CE1004A8B2A /* mbox_addmember_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mbox_addmember_icon@2x.png"; sourceTree = "<group>"; };
+		9D83D75F1CAE1CA0004A8B2A /* UIImage+UzysExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UzysExtension.h"; sourceTree = "<group>"; };
+		9D83D7601CAE1CA0004A8B2A /* UIImage+UzysExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UzysExtension.m"; sourceTree = "<group>"; };
+		9D83D7611CAE1CA0004A8B2A /* UzysAppearanceConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysAppearanceConfig.h; sourceTree = "<group>"; };
+		9D83D7621CAE1CA0004A8B2A /* UzysAppearanceConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UzysAppearanceConfig.m; sourceTree = "<group>"; };
+		9D83D7631CAE1CA0004A8B2A /* UzysAssetPickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UzysAssetPickerController.bundle; sourceTree = "<group>"; };
+		9D83D7641CAE1CA0004A8B2A /* UzysAssetsPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysAssetsPickerController.h; sourceTree = "<group>"; };
+		9D83D7651CAE1CA0004A8B2A /* UzysAssetsPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UzysAssetsPickerController.m; sourceTree = "<group>"; };
+		9D83D7661CAE1CA0004A8B2A /* UzysAssetsPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UzysAssetsPickerController.xib; sourceTree = "<group>"; };
+		9D83D7671CAE1CA0004A8B2A /* UzysAssetsPickerController_Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysAssetsPickerController_Configuration.h; sourceTree = "<group>"; };
+		9D83D7681CAE1CA0004A8B2A /* UzysAssetsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysAssetsViewCell.h; sourceTree = "<group>"; };
+		9D83D7691CAE1CA0004A8B2A /* UzysAssetsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UzysAssetsViewCell.m; sourceTree = "<group>"; };
+		9D83D76A1CAE1CA0004A8B2A /* UzysGroupPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysGroupPickerView.h; sourceTree = "<group>"; };
+		9D83D76B1CAE1CA0004A8B2A /* UzysGroupPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UzysGroupPickerView.m; sourceTree = "<group>"; };
+		9D83D76C1CAE1CA0004A8B2A /* UzysGroupViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysGroupViewCell.h; sourceTree = "<group>"; };
+		9D83D76D1CAE1CA0004A8B2A /* UzysGroupViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UzysGroupViewCell.m; sourceTree = "<group>"; };
+		9D83D76E1CAE1CA0004A8B2A /* UzysWrapperPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysWrapperPickerController.h; sourceTree = "<group>"; };
+		9D83D76F1CAE1CA0004A8B2A /* UzysWrapperPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UzysWrapperPickerController.m; sourceTree = "<group>"; };
+		9D83D7791CAE1DFC004A8B2A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9D83D77B1CAE1E38004A8B2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9D83D77D1CAE1E40004A8B2A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		9D83D77F1CAE1E4C004A8B2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9D83D7D01CAE4DE3004A8B2A /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
+		9D83D7D11CAE4DE3004A8B2A /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
+		9D83D7D21CAE4DE3004A8B2A /* DALabeledCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DALabeledCircularProgressView.h; sourceTree = "<group>"; };
+		9D83D7D31CAE4DE3004A8B2A /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DALabeledCircularProgressView.m; sourceTree = "<group>"; };
+		9D83D81D1CAE4E51004A8B2A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		9D83D81F1CAE4E59004A8B2A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		9D83D8211CAE4E61004A8B2A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9D83D8231CAE4E72004A8B2A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9D83D8251CAE4E9A004A8B2A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		9D83D8291CAE4F5B004A8B2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9D83D82A1CAE4F5B004A8B2A /* pop-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pop-Info.plist"; sourceTree = "<group>"; };
+		9D83D82B1CAE4F5B004A8B2A /* pop-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "pop-Prefix.pch"; sourceTree = "<group>"; };
+		9D83D82C1CAE4F5B004A8B2A /* POP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POP.h; sourceTree = "<group>"; };
+		9D83D82D1CAE4F5B004A8B2A /* POPAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAction.h; sourceTree = "<group>"; };
+		9D83D82E1CAE4F5B004A8B2A /* POPAnimatableProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimatableProperty.h; sourceTree = "<group>"; };
+		9D83D82F1CAE4F5B004A8B2A /* POPAnimatableProperty.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPAnimatableProperty.mm; sourceTree = "<group>"; };
+		9D83D8301CAE4F5B004A8B2A /* POPAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimation.h; sourceTree = "<group>"; };
+		9D83D8311CAE4F5B004A8B2A /* POPAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPAnimation.mm; sourceTree = "<group>"; };
+		9D83D8321CAE4F5B004A8B2A /* POPAnimationEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimationEvent.h; sourceTree = "<group>"; };
+		9D83D8331CAE4F5B004A8B2A /* POPAnimationEvent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPAnimationEvent.mm; sourceTree = "<group>"; };
+		9D83D8341CAE4F5B004A8B2A /* POPAnimationEventInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimationEventInternal.h; sourceTree = "<group>"; };
+		9D83D8351CAE4F5B004A8B2A /* POPAnimationExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimationExtras.h; sourceTree = "<group>"; };
+		9D83D8361CAE4F5B004A8B2A /* POPAnimationExtras.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPAnimationExtras.mm; sourceTree = "<group>"; };
+		9D83D8371CAE4F5B004A8B2A /* POPAnimationInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimationInternal.h; sourceTree = "<group>"; };
+		9D83D8381CAE4F5B004A8B2A /* POPAnimationPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimationPrivate.h; sourceTree = "<group>"; };
+		9D83D8391CAE4F5B004A8B2A /* POPAnimationRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimationRuntime.h; sourceTree = "<group>"; };
+		9D83D83A1CAE4F5B004A8B2A /* POPAnimationRuntime.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPAnimationRuntime.mm; sourceTree = "<group>"; };
+		9D83D83B1CAE4F5B004A8B2A /* POPAnimationTracer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimationTracer.h; sourceTree = "<group>"; };
+		9D83D83C1CAE4F5B004A8B2A /* POPAnimationTracer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPAnimationTracer.mm; sourceTree = "<group>"; };
+		9D83D83D1CAE4F5B004A8B2A /* POPAnimationTracerInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimationTracerInternal.h; sourceTree = "<group>"; };
+		9D83D83E1CAE4F5B004A8B2A /* POPAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimator.h; sourceTree = "<group>"; };
+		9D83D83F1CAE4F5B004A8B2A /* POPAnimator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPAnimator.mm; sourceTree = "<group>"; };
+		9D83D8401CAE4F5B004A8B2A /* POPAnimatorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimatorPrivate.h; sourceTree = "<group>"; };
+		9D83D8411CAE4F5B004A8B2A /* POPBasicAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPBasicAnimation.h; sourceTree = "<group>"; };
+		9D83D8421CAE4F5B004A8B2A /* POPBasicAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPBasicAnimation.mm; sourceTree = "<group>"; };
+		9D83D8431CAE4F5B004A8B2A /* POPBasicAnimationInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPBasicAnimationInternal.h; sourceTree = "<group>"; };
+		9D83D8441CAE4F5B004A8B2A /* POPCGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPCGUtils.h; sourceTree = "<group>"; };
+		9D83D8451CAE4F5B004A8B2A /* POPCGUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPCGUtils.mm; sourceTree = "<group>"; };
+		9D83D8461CAE4F5B004A8B2A /* POPCustomAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPCustomAnimation.h; sourceTree = "<group>"; };
+		9D83D8471CAE4F5B004A8B2A /* POPCustomAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPCustomAnimation.mm; sourceTree = "<group>"; };
+		9D83D8481CAE4F5B004A8B2A /* POPDecayAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDecayAnimation.h; sourceTree = "<group>"; };
+		9D83D8491CAE4F5B004A8B2A /* POPDecayAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPDecayAnimation.mm; sourceTree = "<group>"; };
+		9D83D84A1CAE4F5B004A8B2A /* POPDecayAnimationInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDecayAnimationInternal.h; sourceTree = "<group>"; };
+		9D83D84B1CAE4F5B004A8B2A /* POPDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDefines.h; sourceTree = "<group>"; };
+		9D83D84C1CAE4F5B004A8B2A /* POPGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPGeometry.h; sourceTree = "<group>"; };
+		9D83D84D1CAE4F5B004A8B2A /* POPGeometry.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPGeometry.mm; sourceTree = "<group>"; };
+		9D83D84E1CAE4F5B004A8B2A /* POPLayerExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPLayerExtras.h; sourceTree = "<group>"; };
+		9D83D84F1CAE4F5B004A8B2A /* POPLayerExtras.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPLayerExtras.mm; sourceTree = "<group>"; };
+		9D83D8501CAE4F5B004A8B2A /* POPMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPMath.h; sourceTree = "<group>"; };
+		9D83D8511CAE4F5B004A8B2A /* POPMath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPMath.mm; sourceTree = "<group>"; };
+		9D83D8521CAE4F5B004A8B2A /* POPPropertyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPPropertyAnimation.h; sourceTree = "<group>"; };
+		9D83D8531CAE4F5B004A8B2A /* POPPropertyAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPPropertyAnimation.mm; sourceTree = "<group>"; };
+		9D83D8541CAE4F5B004A8B2A /* POPPropertyAnimationInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPPropertyAnimationInternal.h; sourceTree = "<group>"; };
+		9D83D8551CAE4F5B004A8B2A /* POPSpringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPSpringAnimation.h; sourceTree = "<group>"; };
+		9D83D8561CAE4F5B004A8B2A /* POPSpringAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPSpringAnimation.mm; sourceTree = "<group>"; };
+		9D83D8571CAE4F5B004A8B2A /* POPSpringAnimationInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPSpringAnimationInternal.h; sourceTree = "<group>"; };
+		9D83D8581CAE4F5B004A8B2A /* POPSpringSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPSpringSolver.h; sourceTree = "<group>"; };
+		9D83D8591CAE4F5B004A8B2A /* POPVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPVector.h; sourceTree = "<group>"; };
+		9D83D85A1CAE4F5B004A8B2A /* POPVector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPVector.mm; sourceTree = "<group>"; };
+		9D83D85C1CAE4F5B004A8B2A /* FloatConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatConversion.h; sourceTree = "<group>"; };
+		9D83D85D1CAE4F5B004A8B2A /* TransformationMatrix.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = TransformationMatrix.cpp; sourceTree = "<group>"; };
+		9D83D85E1CAE4F5B004A8B2A /* TransformationMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformationMatrix.h; sourceTree = "<group>"; };
+		9D83D85F1CAE4F5B004A8B2A /* UnitBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitBezier.h; sourceTree = "<group>"; };
+		9D83D8751CAE59C9004A8B2A /* IDMCaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDMCaptionView.h; sourceTree = "<group>"; };
+		9D83D8761CAE59C9004A8B2A /* IDMCaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDMCaptionView.m; sourceTree = "<group>"; };
+		9D83D8771CAE59C9004A8B2A /* IDMPBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDMPBConstants.h; sourceTree = "<group>"; };
+		9D83D8781CAE59C9004A8B2A /* IDMPBLocalizations.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IDMPBLocalizations.bundle; sourceTree = "<group>"; };
+		9D83D8791CAE59C9004A8B2A /* IDMPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDMPhoto.h; sourceTree = "<group>"; };
+		9D83D87A1CAE59C9004A8B2A /* IDMPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDMPhoto.m; sourceTree = "<group>"; };
+		9D83D87B1CAE59C9004A8B2A /* IDMPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IDMPhotoBrowser.bundle; sourceTree = "<group>"; };
+		9D83D87C1CAE59C9004A8B2A /* IDMPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDMPhotoBrowser.h; sourceTree = "<group>"; };
+		9D83D87D1CAE59C9004A8B2A /* IDMPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDMPhotoBrowser.m; sourceTree = "<group>"; };
+		9D83D87E1CAE59C9004A8B2A /* IDMPhotoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDMPhotoProtocol.h; sourceTree = "<group>"; };
+		9D83D87F1CAE59C9004A8B2A /* IDMTapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDMTapDetectingImageView.h; sourceTree = "<group>"; };
+		9D83D8801CAE59C9004A8B2A /* IDMTapDetectingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDMTapDetectingImageView.m; sourceTree = "<group>"; };
+		9D83D8811CAE59C9004A8B2A /* IDMTapDetectingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDMTapDetectingView.h; sourceTree = "<group>"; };
+		9D83D8821CAE59C9004A8B2A /* IDMTapDetectingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDMTapDetectingView.m; sourceTree = "<group>"; };
+		9D83D8831CAE59C9004A8B2A /* IDMZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDMZoomingScrollView.h; sourceTree = "<group>"; };
+		9D83D8841CAE59C9004A8B2A /* IDMZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDMZoomingScrollView.m; sourceTree = "<group>"; };
+		9D83D8961CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IDMPhotoBrowser_customDoneButton.png; sourceTree = "<group>"; };
+		9D83D8971CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IDMPhotoBrowser_customDoneButton@2x.png"; sourceTree = "<group>"; };
 		9D86D8541CA2275900D2E514 /* RequestBlockManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestBlockManager.h; sourceTree = "<group>"; };
 		9D86D8551CA2275900D2E514 /* RequestBlockManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestBlockManager.m; sourceTree = "<group>"; };
 		9D86D8571CA2287E00D2E514 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
@@ -466,6 +624,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D83D8261CAE4E9A004A8B2A /* libz.tbd in Frameworks */,
+				9D83D8241CAE4E72004A8B2A /* QuartzCore.framework in Frameworks */,
+				9D83D8221CAE4E61004A8B2A /* Security.framework in Frameworks */,
+				9D83D8201CAE4E59004A8B2A /* MessageUI.framework in Frameworks */,
+				9D83D81E1CAE4E52004A8B2A /* ImageIO.framework in Frameworks */,
+				9D83D7801CAE1E4C004A8B2A /* Foundation.framework in Frameworks */,
+				9D83D77E1CAE1E40004A8B2A /* AssetsLibrary.framework in Frameworks */,
+				9D83D77C1CAE1E38004A8B2A /* UIKit.framework in Frameworks */,
+				9D83D77A1CAE1DFC004A8B2A /* AVFoundation.framework in Frameworks */,
 				9DD0D9DD1C9F9AF3006ACF3B /* libz.1.2.5.tbd in Frameworks */,
 				9DD0D9DB1C9F9AE3006ACF3B /* CoreGraphics.framework in Frameworks */,
 				9DD0D9D91C9F9ADA006ACF3B /* MobileCoreServices.framework in Frameworks */,
@@ -492,6 +659,143 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D83D75E1CAE1CA0004A8B2A /* UzysAssetzPicker */ = {
+			isa = PBXGroup;
+			children = (
+				9D83D75F1CAE1CA0004A8B2A /* UIImage+UzysExtension.h */,
+				9D83D7601CAE1CA0004A8B2A /* UIImage+UzysExtension.m */,
+				9D83D7611CAE1CA0004A8B2A /* UzysAppearanceConfig.h */,
+				9D83D7621CAE1CA0004A8B2A /* UzysAppearanceConfig.m */,
+				9D83D7631CAE1CA0004A8B2A /* UzysAssetPickerController.bundle */,
+				9D83D7641CAE1CA0004A8B2A /* UzysAssetsPickerController.h */,
+				9D83D7651CAE1CA0004A8B2A /* UzysAssetsPickerController.m */,
+				9D83D7661CAE1CA0004A8B2A /* UzysAssetsPickerController.xib */,
+				9D83D7671CAE1CA0004A8B2A /* UzysAssetsPickerController_Configuration.h */,
+				9D83D7681CAE1CA0004A8B2A /* UzysAssetsViewCell.h */,
+				9D83D7691CAE1CA0004A8B2A /* UzysAssetsViewCell.m */,
+				9D83D76A1CAE1CA0004A8B2A /* UzysGroupPickerView.h */,
+				9D83D76B1CAE1CA0004A8B2A /* UzysGroupPickerView.m */,
+				9D83D76C1CAE1CA0004A8B2A /* UzysGroupViewCell.h */,
+				9D83D76D1CAE1CA0004A8B2A /* UzysGroupViewCell.m */,
+				9D83D76E1CAE1CA0004A8B2A /* UzysWrapperPickerController.h */,
+				9D83D76F1CAE1CA0004A8B2A /* UzysWrapperPickerController.m */,
+			);
+			path = UzysAssetzPicker;
+			sourceTree = "<group>";
+		};
+		9D83D7CF1CAE4DE3004A8B2A /* DACircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				9D83D7D01CAE4DE3004A8B2A /* DACircularProgressView.h */,
+				9D83D7D11CAE4DE3004A8B2A /* DACircularProgressView.m */,
+				9D83D7D21CAE4DE3004A8B2A /* DALabeledCircularProgressView.h */,
+				9D83D7D31CAE4DE3004A8B2A /* DALabeledCircularProgressView.m */,
+			);
+			path = DACircularProgress;
+			sourceTree = "<group>";
+		};
+		9D83D8271CAE4F5B004A8B2A /* pop */ = {
+			isa = PBXGroup;
+			children = (
+				9D83D8281CAE4F5B004A8B2A /* InfoPlist.strings */,
+				9D83D82A1CAE4F5B004A8B2A /* pop-Info.plist */,
+				9D83D82B1CAE4F5B004A8B2A /* pop-Prefix.pch */,
+				9D83D82C1CAE4F5B004A8B2A /* POP.h */,
+				9D83D82D1CAE4F5B004A8B2A /* POPAction.h */,
+				9D83D82E1CAE4F5B004A8B2A /* POPAnimatableProperty.h */,
+				9D83D82F1CAE4F5B004A8B2A /* POPAnimatableProperty.mm */,
+				9D83D8301CAE4F5B004A8B2A /* POPAnimation.h */,
+				9D83D8311CAE4F5B004A8B2A /* POPAnimation.mm */,
+				9D83D8321CAE4F5B004A8B2A /* POPAnimationEvent.h */,
+				9D83D8331CAE4F5B004A8B2A /* POPAnimationEvent.mm */,
+				9D83D8341CAE4F5B004A8B2A /* POPAnimationEventInternal.h */,
+				9D83D8351CAE4F5B004A8B2A /* POPAnimationExtras.h */,
+				9D83D8361CAE4F5B004A8B2A /* POPAnimationExtras.mm */,
+				9D83D8371CAE4F5B004A8B2A /* POPAnimationInternal.h */,
+				9D83D8381CAE4F5B004A8B2A /* POPAnimationPrivate.h */,
+				9D83D8391CAE4F5B004A8B2A /* POPAnimationRuntime.h */,
+				9D83D83A1CAE4F5B004A8B2A /* POPAnimationRuntime.mm */,
+				9D83D83B1CAE4F5B004A8B2A /* POPAnimationTracer.h */,
+				9D83D83C1CAE4F5B004A8B2A /* POPAnimationTracer.mm */,
+				9D83D83D1CAE4F5B004A8B2A /* POPAnimationTracerInternal.h */,
+				9D83D83E1CAE4F5B004A8B2A /* POPAnimator.h */,
+				9D83D83F1CAE4F5B004A8B2A /* POPAnimator.mm */,
+				9D83D8401CAE4F5B004A8B2A /* POPAnimatorPrivate.h */,
+				9D83D8411CAE4F5B004A8B2A /* POPBasicAnimation.h */,
+				9D83D8421CAE4F5B004A8B2A /* POPBasicAnimation.mm */,
+				9D83D8431CAE4F5B004A8B2A /* POPBasicAnimationInternal.h */,
+				9D83D8441CAE4F5B004A8B2A /* POPCGUtils.h */,
+				9D83D8451CAE4F5B004A8B2A /* POPCGUtils.mm */,
+				9D83D8461CAE4F5B004A8B2A /* POPCustomAnimation.h */,
+				9D83D8471CAE4F5B004A8B2A /* POPCustomAnimation.mm */,
+				9D83D8481CAE4F5B004A8B2A /* POPDecayAnimation.h */,
+				9D83D8491CAE4F5B004A8B2A /* POPDecayAnimation.mm */,
+				9D83D84A1CAE4F5B004A8B2A /* POPDecayAnimationInternal.h */,
+				9D83D84B1CAE4F5B004A8B2A /* POPDefines.h */,
+				9D83D84C1CAE4F5B004A8B2A /* POPGeometry.h */,
+				9D83D84D1CAE4F5B004A8B2A /* POPGeometry.mm */,
+				9D83D84E1CAE4F5B004A8B2A /* POPLayerExtras.h */,
+				9D83D84F1CAE4F5B004A8B2A /* POPLayerExtras.mm */,
+				9D83D8501CAE4F5B004A8B2A /* POPMath.h */,
+				9D83D8511CAE4F5B004A8B2A /* POPMath.mm */,
+				9D83D8521CAE4F5B004A8B2A /* POPPropertyAnimation.h */,
+				9D83D8531CAE4F5B004A8B2A /* POPPropertyAnimation.mm */,
+				9D83D8541CAE4F5B004A8B2A /* POPPropertyAnimationInternal.h */,
+				9D83D8551CAE4F5B004A8B2A /* POPSpringAnimation.h */,
+				9D83D8561CAE4F5B004A8B2A /* POPSpringAnimation.mm */,
+				9D83D8571CAE4F5B004A8B2A /* POPSpringAnimationInternal.h */,
+				9D83D8581CAE4F5B004A8B2A /* POPSpringSolver.h */,
+				9D83D8591CAE4F5B004A8B2A /* POPVector.h */,
+				9D83D85A1CAE4F5B004A8B2A /* POPVector.mm */,
+				9D83D85B1CAE4F5B004A8B2A /* WebCore */,
+			);
+			path = pop;
+			sourceTree = "<group>";
+		};
+		9D83D85B1CAE4F5B004A8B2A /* WebCore */ = {
+			isa = PBXGroup;
+			children = (
+				9D83D85C1CAE4F5B004A8B2A /* FloatConversion.h */,
+				9D83D85D1CAE4F5B004A8B2A /* TransformationMatrix.cpp */,
+				9D83D85E1CAE4F5B004A8B2A /* TransformationMatrix.h */,
+				9D83D85F1CAE4F5B004A8B2A /* UnitBezier.h */,
+			);
+			path = WebCore;
+			sourceTree = "<group>";
+		};
+		9D83D8741CAE59C9004A8B2A /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				9D83D88D1CAE59E7004A8B2A /* CustomImages */,
+				9D83D8751CAE59C9004A8B2A /* IDMCaptionView.h */,
+				9D83D8761CAE59C9004A8B2A /* IDMCaptionView.m */,
+				9D83D8771CAE59C9004A8B2A /* IDMPBConstants.h */,
+				9D83D8781CAE59C9004A8B2A /* IDMPBLocalizations.bundle */,
+				9D83D8791CAE59C9004A8B2A /* IDMPhoto.h */,
+				9D83D87A1CAE59C9004A8B2A /* IDMPhoto.m */,
+				9D83D87B1CAE59C9004A8B2A /* IDMPhotoBrowser.bundle */,
+				9D83D87C1CAE59C9004A8B2A /* IDMPhotoBrowser.h */,
+				9D83D87D1CAE59C9004A8B2A /* IDMPhotoBrowser.m */,
+				9D83D87E1CAE59C9004A8B2A /* IDMPhotoProtocol.h */,
+				9D83D87F1CAE59C9004A8B2A /* IDMTapDetectingImageView.h */,
+				9D83D8801CAE59C9004A8B2A /* IDMTapDetectingImageView.m */,
+				9D83D8811CAE59C9004A8B2A /* IDMTapDetectingView.h */,
+				9D83D8821CAE59C9004A8B2A /* IDMTapDetectingView.m */,
+				9D83D8831CAE59C9004A8B2A /* IDMZoomingScrollView.h */,
+				9D83D8841CAE59C9004A8B2A /* IDMZoomingScrollView.m */,
+			);
+			path = PhotoBrowser;
+			sourceTree = "<group>";
+		};
+		9D83D88D1CAE59E7004A8B2A /* CustomImages */ = {
+			isa = PBXGroup;
+			children = (
+				9D83D8961CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton.png */,
+				9D83D8971CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton@2x.png */,
+			);
+			path = CustomImages;
+			sourceTree = "<group>";
+		};
 		9D86D8631CA265E900D2E514 /* CTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +885,15 @@
 		9DD0D8891C9F84DD006ACF3B = {
 			isa = PBXGroup;
 			children = (
+				9D83D8251CAE4E9A004A8B2A /* libz.tbd */,
+				9D83D8231CAE4E72004A8B2A /* QuartzCore.framework */,
+				9D83D8211CAE4E61004A8B2A /* Security.framework */,
+				9D83D81F1CAE4E59004A8B2A /* MessageUI.framework */,
+				9D83D81D1CAE4E51004A8B2A /* ImageIO.framework */,
+				9D83D77F1CAE1E4C004A8B2A /* Foundation.framework */,
+				9D83D77D1CAE1E40004A8B2A /* AssetsLibrary.framework */,
+				9D83D77B1CAE1E38004A8B2A /* UIKit.framework */,
+				9D83D7791CAE1DFC004A8B2A /* AVFoundation.framework */,
 				9DD0D8941C9F84DD006ACF3B /* QXT */,
 				9DD0D8AE1C9F84DE006ACF3B /* QXTTests */,
 				9DD0D8B91C9F84DE006ACF3B /* QXTUITests */,
@@ -664,6 +977,10 @@
 		9DD0D8C81C9F86BF006ACF3B /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				9D83D8741CAE59C9004A8B2A /* PhotoBrowser */,
+				9D83D8271CAE4F5B004A8B2A /* pop */,
+				9D83D7CF1CAE4DE3004A8B2A /* DACircularProgress */,
+				9D83D75E1CAE1CA0004A8B2A /* UzysAssetzPicker */,
 				9DCA14761CA90066006BB95A /* HeaderAnimation */,
 				9D86D88A1CA2876500D2E514 /* FFNavbarMenu */,
 				9D9A2E7F1CA123F6007739F0 /* RWDropdownMenu */,
@@ -820,6 +1137,9 @@
 				9DD0D97E1C9F8BDF006ACF3B /* AllContactsViewController.m */,
 				9D7122291CACC6570006D1D8 /* ContactDetailInfoVC.h */,
 				9D71222A1CACC6570006D1D8 /* ContactDetailInfoVC.m */,
+				9D83D75C1CAE0CE1004A8B2A /* mbox_addmember_icon@2x.png */,
+				9D83D7581CAE0B28004A8B2A /* addfriend_icon@2x.png */,
+				9D83D7561CAE0B17004A8B2A /* add_friend_icon@2x.png */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1242,12 +1562,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DCA14721CA8FE66006BB95A /* 20.png in Resources */,
+				9D83D8601CAE4F5B004A8B2A /* InfoPlist.strings in Resources */,
+				9D83D7591CAE0B28004A8B2A /* addfriend_icon@2x.png in Resources */,
 				9DD0D94A1C9F885A006ACF3B /* MJRefresh.bundle in Resources */,
 				9D9A2E691CA116C0007739F0 /* home-拷贝@3x.png in Resources */,
 				9D9A2E771CA11713007739F0 /* iconfont-wodexuanzhong-拷贝@2x.png in Resources */,
 				9DCA14731CA8FE66006BB95A /* 21.png in Resources */,
+				9D83D7721CAE1CA0004A8B2A /* UzysAssetPickerController.bundle in Resources */,
 				9DCA14631CA8FABC006BB95A /* 18.png in Resources */,
+				9D83D8861CAE59C9004A8B2A /* IDMPBLocalizations.bundle in Resources */,
 				9DCA146A1CA8FABC006BB95A /* 8.png in Resources */,
+				9D83D7571CAE0B17004A8B2A /* add_friend_icon@2x.png in Resources */,
 				9DCA14641CA8FABC006BB95A /* 2.png in Resources */,
 				9D74D2AF1CAA1A110090B8A0 /* bg.png in Resources */,
 				9DCA145E1CA8FABC006BB95A /* 13.png in Resources */,
@@ -1268,13 +1593,16 @@
 				9D86D8621CA23F5200D2E514 /* LCActionSheet.bundle in Resources */,
 				9D9A2E6C1CA116C0007739F0 /* home@3x.png in Resources */,
 				9DCA14651CA8FABC006BB95A /* 3.png in Resources */,
+				9D83D8881CAE59C9004A8B2A /* IDMPhotoBrowser.bundle in Resources */,
 				9D369BC01CABD2AA00EE7D4C /* main_menu_btn_team@2x.png in Resources */,
 				9D9A2E681CA116C0007739F0 /* home-拷贝@2x.png in Resources */,
 				9D9A2E651CA116C0007739F0 /* heart@2x.png in Resources */,
 				9DCA146B1CA8FABC006BB95A /* 9.png in Resources */,
 				9D9A2E711CA116D9007739F0 /* iconfont-icon-拷贝-2@2x.png in Resources */,
 				9DCA14751CA8FE66006BB95A /* 23.png in Resources */,
+				9D83D8A01CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton.png in Resources */,
 				9DCA145F1CA8FABC006BB95A /* 14.png in Resources */,
+				9D83D7741CAE1CA0004A8B2A /* UzysAssetsPickerController.xib in Resources */,
 				9D369BBC1CABD29000EE7D4C /* iPhone_main_menu_offline_icon@2x.png in Resources */,
 				9DCA14671CA8FABC006BB95A /* 5.png in Resources */,
 				9D9A2E661CA116C0007739F0 /* heart@3x.png in Resources */,
@@ -1284,6 +1612,7 @@
 				9D9A2E761CA11713007739F0 /* iconfont-wodexuanzhong-拷贝.png in Resources */,
 				9DCA14621CA8FABC006BB95A /* 17.png in Resources */,
 				9DD0D8A21C9F84DD006ACF3B /* Assets.xcassets in Resources */,
+				9D83D8611CAE4F5B004A8B2A /* pop-Info.plist in Resources */,
 				9DCA148E1CA915CD006BB95A /* aboutTop.jpg in Resources */,
 				9DCA14871CA906F9006BB95A /* adeleAva.jpg in Resources */,
 				9DD0D9A91C9F990D006ACF3B /* SVProgressHUD.bundle in Resources */,
@@ -1292,11 +1621,13 @@
 				9D369BC41CABD2C200EE7D4C /* main_menu_logout_icon.png in Resources */,
 				9D9A2E781CA11713007739F0 /* iconfont-wodexuanzhong-拷贝@3x.png in Resources */,
 				9D74D2B51CAA1D570090B8A0 /* ok.jpg in Resources */,
+				9D83D8A11CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton@2x.png in Resources */,
 				9DCA14611CA8FABC006BB95A /* 16.png in Resources */,
 				9D369BBE1CABD29E00EE7D4C /* main_menu_recycle_icon.png in Resources */,
 				9D86D8891CA26FDB00D2E514 /* stockList.plist in Resources */,
 				9D9A2E701CA116D9007739F0 /* iconfont-icon-拷贝-2.png in Resources */,
 				9DCA14601CA8FABC006BB95A /* 15.png in Resources */,
+				9D83D75D1CAE0CE1004A8B2A /* mbox_addmember_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1325,8 +1656,11 @@
 				9DD0D9421C9F885A006ACF3B /* MJRefreshAutoNormalFooter.m in Sources */,
 				9D86D88F1CA2876500D2E514 /* FFNavbarMenu.m in Sources */,
 				9DD0D9D21C9F9A63006ACF3B /* ASINetworkQueue.m in Sources */,
+				9D83D7D51CAE4DE3004A8B2A /* DALabeledCircularProgressView.m in Sources */,
 				9D86D8871CA26FCF00D2E514 /* NDSearchTool.m in Sources */,
+				9D83D88A1CAE59C9004A8B2A /* IDMTapDetectingImageView.m in Sources */,
 				9DD0D9731C9F8B88006ACF3B /* AllFilesViewController.m in Sources */,
+				9D83D8731CAE4F5B004A8B2A /* TransformationMatrix.cpp in Sources */,
 				9DD0D9CF1C9F9A63006ACF3B /* ASIFormDataRequest.m in Sources */,
 				9DD0D9CD1C9F9A63006ACF3B /* ASIDataDecompressor.m in Sources */,
 				9DD0D9411C9F885A006ACF3B /* MJRefreshAutoGifFooter.m in Sources */,
@@ -1335,7 +1669,10 @@
 				9DD0D89A1C9F84DD006ACF3B /* AppDelegate.m in Sources */,
 				9DD0D93E1C9F885A006ACF3B /* MJRefreshComponent.m in Sources */,
 				9DD0D9401C9F885A006ACF3B /* MJRefreshHeader.m in Sources */,
+				9D83D7761CAE1CA0004A8B2A /* UzysGroupPickerView.m in Sources */,
+				9D83D8681CAE4F5B004A8B2A /* POPAnimator.mm in Sources */,
 				9DD0D9521C9F885A006ACF3B /* SBJsonBase.m in Sources */,
+				9D83D8721CAE4F5B004A8B2A /* POPVector.mm in Sources */,
 				9DD0D95B1C9F885A006ACF3B /* SDWebImageDownloaderOperation.m in Sources */,
 				9DD0D95D1C9F885A006ACF3B /* SDWebImagePrefetcher.m in Sources */,
 				9DD0D9461C9F885A006ACF3B /* MJRefreshBackStateFooter.m in Sources */,
@@ -1349,9 +1686,12 @@
 				9D86D8661CA265E900D2E514 /* ChineseToPinyin.m in Sources */,
 				9DD0D9501C9F885A006ACF3B /* NSString+SBJSON.m in Sources */,
 				9DD0D9821C9F8C05006ACF3B /* MyDetailsViewController.m in Sources */,
+				9D83D7771CAE1CA0004A8B2A /* UzysGroupViewCell.m in Sources */,
 				9DCA147B1CA90073006BB95A /* QYNavigationController.m in Sources */,
+				9D83D86C1CAE4F5B004A8B2A /* POPDecayAnimation.mm in Sources */,
 				9D86D85A1CA2320800D2E514 /* ConfigCoustomView.m in Sources */,
 				9DD0D94D1C9F885A006ACF3B /* UIScrollView+MJRefresh.m in Sources */,
+				9D83D8691CAE4F5B004A8B2A /* POPBasicAnimation.mm in Sources */,
 				9DD0D9AA1C9F990D006ACF3B /* SVProgressHUD.m in Sources */,
 				9DD0D9601C9F885A006ACF3B /* UIImage+MultiFormat.m in Sources */,
 				9D7122261CACB3370006D1D8 /* OtherJumpVc.m in Sources */,
@@ -1360,18 +1700,23 @@
 				9DD0D94E1C9F885A006ACF3B /* UIView+MJExtension.m in Sources */,
 				9DD0D9A81C9F990D006ACF3B /* SVIndefiniteAnimatedView.m in Sources */,
 				9DD0D98B1C9F935F006ACF3B /* ConfigUITools.m in Sources */,
+				9D83D8871CAE59C9004A8B2A /* IDMPhoto.m in Sources */,
 				9DD0D95E1C9F885A006ACF3B /* UIButton+WebCache.m in Sources */,
+				9D83D86B1CAE4F5B004A8B2A /* POPCustomAnimation.mm in Sources */,
 				9DD0D9B11C9F9921006ACF3B /* HorizontalMenu.m in Sources */,
 				9D9A2E881CA123F6007739F0 /* RWDropdownMenuTransitionController.m in Sources */,
 				9DD0D95F1C9F885A006ACF3B /* UIImage+GIF.m in Sources */,
 				9DCA148C1CA911FE006BB95A /* AboutMyTableViewCell.m in Sources */,
 				9DD0D93C1C9F885A006ACF3B /* MJRefreshAutoFooter.m in Sources */,
 				9DD0D9441C9F885A006ACF3B /* MJRefreshBackGifFooter.m in Sources */,
+				9D83D7731CAE1CA0004A8B2A /* UzysAssetsPickerController.m in Sources */,
 				9DD0D9481C9F885A006ACF3B /* MJRefreshNormalHeader.m in Sources */,
 				9DD0D9431C9F885A006ACF3B /* MJRefreshAutoStateFooter.m in Sources */,
 				9DABC2CB1CAB67060046260C /* EntryModel.m in Sources */,
 				9DCA147F1CA90087006BB95A /* QYTableViewHeader.m in Sources */,
 				9DD0D9D01C9F9A63006ACF3B /* ASIHTTPRequest.m in Sources */,
+				9D83D86D1CAE4F5B004A8B2A /* POPGeometry.mm in Sources */,
+				9D83D8851CAE59C9004A8B2A /* IDMCaptionView.m in Sources */,
 				9DD0D9531C9F885A006ACF3B /* SBJsonParser.m in Sources */,
 				9DD0D93D1C9F885A006ACF3B /* MJRefreshBackFooter.m in Sources */,
 				9DD0D9571C9F885A006ACF3B /* SDImageCache.m in Sources */,
@@ -1382,7 +1727,10 @@
 				9D86D8901CA2876500D2E514 /* UIView+FFExtension.m in Sources */,
 				9DD0D9611C9F885A006ACF3B /* UIImage+WebP.m in Sources */,
 				9DD0D9CB1C9F9A63006ACF3B /* ASIAuthenticationDialog.m in Sources */,
+				9D83D8631CAE4F5B004A8B2A /* POPAnimation.mm in Sources */,
 				9DD0D9511C9F885A006ACF3B /* SBJSON.m in Sources */,
+				9D83D8661CAE4F5B004A8B2A /* POPAnimationRuntime.mm in Sources */,
+				9D83D8621CAE4F5B004A8B2A /* POPAnimatableProperty.mm in Sources */,
 				9DD0D8971C9F84DD006ACF3B /* main.m in Sources */,
 				9DD0D9CE1C9F9A63006ACF3B /* ASIDownloadCache.m in Sources */,
 				9DD0D9CC1C9F9A63006ACF3B /* ASIDataCompressor.m in Sources */,
@@ -1391,31 +1739,47 @@
 				9DD0D9B21C9F9921006ACF3B /* Utility.m in Sources */,
 				9DD0D94B1C9F885A006ACF3B /* MJRefreshConst.m in Sources */,
 				9D9A2E861CA123F6007739F0 /* RWDropdownMenu.m in Sources */,
+				9D83D8891CAE59C9004A8B2A /* IDMPhotoBrowser.m in Sources */,
 				9DD0D9991C9F9806006ACF3B /* FMDatabaseAdditions.m in Sources */,
 				9DD0D9D31C9F9A63006ACF3B /* Reachability.m in Sources */,
 				9DD0D9631C9F885A006ACF3B /* UIImageView+WebCache.m in Sources */,
 				9DD0D95A1C9F885A006ACF3B /* SDWebImageDownloader.m in Sources */,
+				9D83D7D41CAE4DE3004A8B2A /* DACircularProgressView.m in Sources */,
+				9D83D7781CAE1CA0004A8B2A /* UzysWrapperPickerController.m in Sources */,
 				9DD0D99A1C9F9806006ACF3B /* FMDatabasePool.m in Sources */,
 				9DD2F6E91CA3CFD500573F21 /* FileModel.m in Sources */,
+				9D83D7711CAE1CA0004A8B2A /* UzysAppearanceConfig.m in Sources */,
+				9D83D88B1CAE59C9004A8B2A /* IDMTapDetectingView.m in Sources */,
+				9D83D8651CAE4F5B004A8B2A /* POPAnimationExtras.mm in Sources */,
 				9D9668C21CA4E6B400EA0DBC /* FatherViewController.m in Sources */,
 				9DCA14911CA91F34006BB95A /* MessageTableViewCell.m in Sources */,
+				9D83D7751CAE1CA0004A8B2A /* UzysAssetsViewCell.m in Sources */,
 				9DD0D99C1C9F9806006ACF3B /* FMResultSet.m in Sources */,
 				9DD0D9791C9F8BAF006ACF3B /* MessagesViewController.m in Sources */,
+				9D83D88C1CAE59C9004A8B2A /* IDMZoomingScrollView.m in Sources */,
+				9D83D7701CAE1CA0004A8B2A /* UIImage+UzysExtension.m in Sources */,
 				9DD0D9451C9F885A006ACF3B /* MJRefreshBackNormalFooter.m in Sources */,
 				9DD0D9551C9F885A006ACF3B /* MKAnnotationView+WebCache.m in Sources */,
+				9D83D86F1CAE4F5B004A8B2A /* POPMath.mm in Sources */,
 				9DD0D9491C9F885A006ACF3B /* MJRefreshStateHeader.m in Sources */,
 				9DD0D9AB1C9F990D006ACF3B /* SVRadialGradientLayer.m in Sources */,
 				9DD0D99B1C9F9806006ACF3B /* FMDatabaseQueue.m in Sources */,
 				9DD0D96D1C9F8996006ACF3B /* MainTabBarController.m in Sources */,
 				9DD0D9591C9F885A006ACF3B /* SDWebImageDecoder.m in Sources */,
 				9DD0D9581C9F885A006ACF3B /* SDWebImageCompat.m in Sources */,
+				9D83D8701CAE4F5B004A8B2A /* POPPropertyAnimation.mm in Sources */,
 				9D86D8561CA2275900D2E514 /* RequestBlockManager.m in Sources */,
 				9D86D85D1CA2395500D2E514 /* CustonVCView.m in Sources */,
 				9DD0D9D11C9F9A63006ACF3B /* ASIInputStream.m in Sources */,
 				9DD0D9621C9F885A006ACF3B /* UIImageView+HighlightedWebCache.m in Sources */,
+				9D83D8711CAE4F5B004A8B2A /* POPSpringAnimation.mm in Sources */,
+				9D83D86A1CAE4F5B004A8B2A /* POPCGUtils.mm in Sources */,
+				9D83D8671CAE4F5B004A8B2A /* POPAnimationTracer.mm in Sources */,
 				9DD0D9561C9F885A006ACF3B /* NSData+ImageContentType.m in Sources */,
 				9DD0D93F1C9F885A006ACF3B /* MJRefreshFooter.m in Sources */,
+				9D83D8641CAE4F5B004A8B2A /* POPAnimationEvent.mm in Sources */,
 				9DCA147C1CA90073006BB95A /* QYNavigationBar.m in Sources */,
+				9D83D86E1CAE4F5B004A8B2A /* POPLayerExtras.mm in Sources */,
 				9DCA14941CA929E5006BB95A /* MessageModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1450,6 +1814,17 @@
 			targetProxy = 9DD0D8B71C9F84DE006ACF3B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9D83D8281CAE4F5B004A8B2A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D83D8291CAE4F5B004A8B2A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9DD0D8BD1C9F84DE006ACF3B /* Debug */ = {
@@ -1545,6 +1920,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Quan (WCTJ975P5S)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jun Quan (WCTJ975P5S)";
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QXT/PrefixHeader.pch";
 				INFOPLIST_FILE = QXT/Info.plist;
@@ -1563,6 +1939,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Quan (WCTJ975P5S)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jun Quan (WCTJ975P5S)";
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QXT/PrefixHeader.pch";
 				INFOPLIST_FILE = QXT/Info.plist;

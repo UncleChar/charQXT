@@ -69,7 +69,7 @@
     
     
         urgLabel = [[UILabel alloc]init];
-        urgLabel.text = @"uncleChar 于 2016-3-24 13:35 上传";
+//        urgLabel.text = @"uncleChar 于 2016-3-24 13:35 上传";
         urgLabel.textAlignment = 0;
         urgLabel.font = [UIFont systemFontOfSize:12];
         urgLabel.textColor = [UIColor lightGrayColor];
@@ -96,6 +96,7 @@
     _model = model;
 //    NSLog(@"--- %i",_model.isSelected);
 
+    urgLabel.text = _model.time;
      nameLabel.text = _model.fileName;
     if (model.isSelected) {
         

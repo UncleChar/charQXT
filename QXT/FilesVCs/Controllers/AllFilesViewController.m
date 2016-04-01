@@ -8,14 +8,20 @@
 
 #import "AllFilesViewController.h"
 #import "MessagesViewController.h"
+#import "UzysAssetsPickerController.h"
+#import <AVFoundation/AVFoundation.h>
 #import "FileTableViewCell.h"
 #import "CharActionSheet.h"
 #import "FFNavbarMenu.h"
 #import "NDSearchTool.h"
 #import "EntryModel.h"
-@interface AllFilesViewController ()<ASIHTTPRequestDelegate,FFNavbarMenuDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,FileBtnSelectedDelegate>
+#import "IDMPhoto.h"
+#import "IDMPhotoBrowser.h"
+@interface AllFilesViewController ()<ASIHTTPRequestDelegate,FFNavbarMenuDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,FileBtnSelectedDelegate,UzysAssetsPickerControllerDelegate,IDMPhotoBrowserDelegate>
 {
-
+    NSMutableArray *photos;
+    IDMPhotoBrowser *browser;
+    NSInteger     indextPhontoDelete;
 }
 @property (nonatomic, strong) NSArray *menuItems;
 @property (assign, nonatomic) NSInteger numberOfItemsInRow;
@@ -32,6 +38,9 @@
 @property (nonatomic, strong) UIButton *selectAllBtn;
 @property (nonatomic, strong) MJRefreshHeader     *header;
 
+@property (nonatomic,strong) UIImageView *imageView;
+@property (nonatomic,strong) UILabel *labelDescription;
+
 @end
 
 @implementation AllFilesViewController
@@ -39,7 +48,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:YES];
-    
+    indextPhontoDelete = 100;
     if (_isNeedSort) {
         
         self.navigationController.tabBarController.tabBar.hidden = 1;
@@ -57,8 +66,8 @@
     if (nil == _menu) {
         FFNavbarMenuItem *item1 = [FFNavbarMenuItem ItemWithTitle:@"新建文件夹" icon:[UIImage imageNamed:@"0"]];
         FFNavbarMenuItem *item2 = [FFNavbarMenuItem ItemWithTitle:@"新建笔记" icon:[UIImage imageNamed:@"1"]];
-        FFNavbarMenuItem *item3 = [FFNavbarMenuItem ItemWithTitle:@"上传照片或视频" icon:[UIImage imageNamed:@"2"]];
-        FFNavbarMenuItem *item4 = [FFNavbarMenuItem ItemWithTitle:@"拍摄照片或视频" icon:[UIImage imageNamed:@"3"]];
+        FFNavbarMenuItem *item3 = [FFNavbarMenuItem ItemWithTitle:@"上传照片" icon:[UIImage imageNamed:@"2"]];
+        FFNavbarMenuItem *item4 = [FFNavbarMenuItem ItemWithTitle:@"上传视频" icon:[UIImage imageNamed:@"3"]];
         _menu = [[FFNavbarMenu alloc] initWithItems:@[item1,item2,item3,item4] width:kScreenWidth maximumNumberInRow:_numberOfItemsInRow];
         _menu.backgroundColor = [UIColor whiteColor];
         _menu.separatarColor = [ConfigUITools colorWithR:164 G:164 B:164 A:1];
@@ -181,77 +190,84 @@
 //    }
     if (self.isRootVC) {
         
-        for (int i = 0 ; i < 100; i ++) {
+        for (int i = 0 ; i < 20; i ++) {
             
             EntryModel *model = [[EntryModel alloc]init];
             model.isSelected = NO;
             NSString *fileName;
             NSString *fileArtb;
-            
+            NSString *time;
             NSInteger k = arc4random() % 11 + 1;
             switch (k) {
                 case 1:
                     fileName = [NSString stringWithFormat:@"测试笔记_1735.note"];
                     fileArtb = @"note";
+                    time = @"2013-12-16";
                     break;
                     
                 case 2:
                     fileName = [NSString stringWithFormat:@"测试Txt_12515.txt"];
                     fileArtb = @"txt";
-                    
+                    time = @"2013-10-16";
                     break;
                 case 3:
                     fileName = [NSString stringWithFormat:@"关于习大大在莅临灵利的指导.doc"];
                     fileArtb = @"doc";
-                    
+                    time = @"2013-12-16";
                     break;
                 case 4:
                     fileName = [NSString stringWithFormat:@"我的图片.jpg"];
                     fileArtb = @"pic";
-                    
+                    time = @"2014-08-09";
                     break;
                 case 5:
                     fileName = [NSString stringWithFormat:@"线性规划形成.pdf"];
                     fileArtb = @"pdf";
-                    
+                    time = @"2016-12-07";
                     break;
                 case 6:
                     
                     fileName = [NSString stringWithFormat:@"文件夹的测试"];
                     fileArtb = @"floder";
+                    time = @"2013-12-16";
                     break;
                 case 7:
                     fileName = [NSString stringWithFormat:@"分享文件夹的诞生"];
                     fileArtb = @"isShareFloder";
-                    
+                    time = @"2013-12-26";
                     break;
                 case 8:
                     
                     fileName = [NSString stringWithFormat:@"习大大的工资单.excel"];
                     fileArtb = @"excel";
+                    time = @"2018-12-16";
                     break;
                 case 9:
                     
                     fileName = [NSString stringWithFormat:@"种子压缩包.zip"];
                     fileArtb = @"zip";
+                    time = @"2017-03-16";
                     break;
                     
                 case 10:
                     
                     fileName = [NSString stringWithFormat:@"李克强在灵利的演讲稿.ppt"];
                     fileArtb = @"ppt";
+                    time = @"2013-12-16";
                     break;
                     
                 case 11:
                     
                     fileName = [NSString stringWithFormat:@"卧虎藏龙.video"];
                     fileArtb = @"video";
+                    time = @"2013-12-16";
                     break;
                 default:
                     break;
             }
             
             model.fileName = fileName;
+            model.time = time;
             model.fileAttribute = fileArtb;
             [_dataSource addObject:model];
             
@@ -442,21 +458,62 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
      [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    AllFilesViewController *allFvc = [[AllFilesViewController alloc]init];
-    if (_fileTableView == tableView) {
-        
-        allFvc.dataSource = self.dataSource;
-        
-    }else {
-        
-        allFvc.dataSource = self.searchDataSource;
-        
-    }
-    allFvc.isRootVC = NO;
-    allFvc.title = [allFvc.dataSource[indexPath.row] fileName];
-    NSLog(@"CLICKED : %@",[allFvc.dataSource[indexPath.row] fileName]);
-    [self.navigationController pushViewController:allFvc animated:YES];
+
+//    AllFilesViewController *allFvc = [[AllFilesViewController alloc]init];
+//    if (_fileTableView == tableView) {
+//        
+//        allFvc.dataSource = self.dataSource;
+//        
+//    }else {
+//        
+//        allFvc.dataSource = self.searchDataSource;
+//        
+//    }
+//    allFvc.isRootVC = NO;
+//    
+////    // 从路径中获得完整的文件名（带后缀）
+////    exestr = [filePath lastPathComponent];
+////    NSLog(@"%@",exestr);
+////    // 获得文件名（不带后缀）
+////    exestr = [exestr stringByDeletingPathExtension];
+////    NSLog(@"%@",exestr);
+////    
+////    // 获得文件的后缀名（不带'.'）
+////    exestr = [filePath pathExtension];
+////    NSLog(@"%@",exestr);
+//    
+//    allFvc.title = [[allFvc.dataSource[indexPath.row] fileName] stringByDeletingPathExtension];
+//    NSLog(@"CLICKED : %@",[allFvc.dataSource[indexPath.row] fileName]);
+//    [self.navigationController pushViewController:allFvc animated:YES];
     
+
+    
+   
+    NSArray *photosWithURL = [IDMPhoto photosWithURLs:[NSArray arrayWithObjects:[NSURL URLWithString:@"http://pic.to8to.com/attch/day_160218/20160218_6410eaeeba9bc1b3e944xD5gKKhPEuEv.png"], @"http://img15.3lian.com/2015/f2/50/d/75.jpg",@"http://g.hiphotos.baidu.com/image/pic/item/241f95cad1c8a7866f726fe06309c93d71cf5087.jpg", @"http://pic9.nipic.com/20100817/3320946_114627281129_2.jpg", nil]];
+    
+    photos = [NSMutableArray arrayWithArray:photosWithURL];
+
+    if (indextPhontoDelete != 100) {
+        
+        [photos removeObjectAtIndex:indextPhontoDelete];
+    }
+    
+    // Create and setup browser
+    browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
+    browser.delegate = self;
+
+    browser.actionButtonTitles      = @[@"打开", @"评论", @"分享", @"保存到相册",@"删除"];
+    browser.displayCounterLabel     = YES;
+    browser.useWhiteBackgroundColor = NO;
+    browser.displayArrowButton = NO;
+    browser.displayDoneButton = NO;
+    browser.doneButtonImage         = [UIImage imageNamed:@"IDMPhotoBrowser_customDoneButton.png"];
+    browser.view.tintColor          = [UIColor whiteColor];
+    browser.progressTintColor       = [UIColor whiteColor];
+    browser.trackTintColor          = [UIColor colorWithWhite:0.8 alpha:1];
+
+    [self presentViewController:browser animated:YES completion:nil];
+   
 }
 
 
@@ -501,6 +558,191 @@
     }
     
 }
+
+#pragma mark - IDMPhotoBrowser Delegate
+
+- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didShowPhotoAtIndex:(NSUInteger)pageIndex
+{
+    id <IDMPhoto> photo = [photoBrowser photoAtIndex:pageIndex];
+    NSLog(@"Did show photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
+}
+
+- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser willDismissAtPageIndex:(NSUInteger)pageIndex
+{
+    id <IDMPhoto> photo = [photoBrowser photoAtIndex:pageIndex];
+    NSLog(@"Will dismiss photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
+}
+
+- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didDismissAtPageIndex:(NSUInteger)pageIndex
+{
+    id <IDMPhoto> photo = [photoBrowser photoAtIndex:pageIndex];
+    NSLog(@"Did dismiss photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
+}
+
+- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didDismissActionSheetWithButtonIndex:(NSUInteger)buttonIndex photoIndex:(NSUInteger)photoIndex
+{
+    id <IDMPhoto> photo = [photoBrowser photoAtIndex:photoIndex];
+
+//    if (buttonIndex == 4) {
+//      
+//        [browser prepareForClosePhotoBrowser];
+//        [browser dismissPhotoBrowserAnimated:YES];
+//        indextPhontoDelete = photoIndex;
+//    }
+
+    NSLog(@"Did dismiss actionSheet with photo index: %zu, photo caption: %@", photoIndex, photo.caption);
+    
+    NSString *title = [NSString stringWithFormat:@"Option %zu", buttonIndex+1];
+
+}
+
+
+
+#pragma mark - UzysAssetsPickerControllerDelegate methods
+- (void)uzysAssetsPickerController:(UzysAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets
+{
+//    self.imageView.backgroundColor = [UIColor clearColor];
+//    DLog(@"assets %@",assets);
+//    if(assets.count ==1)
+//    {
+//        self.labelDescription.text = [NSString stringWithFormat:@"%ld asset selected",(unsigned long)assets.count];
+//    }
+//    else
+//    {
+//        self.labelDescription.text = [NSString stringWithFormat:@"%ld assets selected",(unsigned long)assets.count];
+//    }
+    __weak typeof(self) weakSelf = self;
+    if([[assets[0] valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"]) //Photo
+    {
+        [assets enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            ALAsset *representation = obj;
+            
+            UIImage *img = [UIImage imageWithCGImage:representation.defaultRepresentation.fullResolutionImage
+                                               scale:representation.defaultRepresentation.scale
+                                         orientation:(UIImageOrientation)representation.defaultRepresentation.orientation];
+//            weakSelf.imageView.image = img;
+            *stop = YES;
+        }];
+        
+        
+    }
+    else //Video
+    {
+        ALAsset *alAsset = assets[0];
+        
+        UIImage *img = [UIImage imageWithCGImage:alAsset.defaultRepresentation.fullResolutionImage
+                                           scale:alAsset.defaultRepresentation.scale
+                                     orientation:(UIImageOrientation)alAsset.defaultRepresentation.orientation];
+//        weakSelf.imageView.image = img;
+        
+        
+        
+        ALAssetRepresentation *representation = alAsset.defaultRepresentation;
+        NSURL *movieURL = representation.url;
+        NSURL *uploadURL = [NSURL fileURLWithPath:[[NSTemporaryDirectory() stringByAppendingPathComponent:@"test"] stringByAppendingString:@".mp4"]];
+        AVAsset *asset      = [AVURLAsset URLAssetWithURL:movieURL options:nil];
+        AVAssetExportSession *session =
+        [AVAssetExportSession exportSessionWithAsset:asset presetName:AVAssetExportPresetMediumQuality];
+        
+        session.outputFileType  = AVFileTypeQuickTimeMovie;
+        session.outputURL       = uploadURL;
+        
+        [session exportAsynchronouslyWithCompletionHandler:^{
+            
+            if (session.status == AVAssetExportSessionStatusCompleted)
+            {
+                DLog(@"output Video URL %@",uploadURL);
+            }
+            
+        }];
+        
+    }
+    
+}
+
+- (void)uzysAssetsPickerControllerDidExceedMaximumNumberOfSelection:(UzysAssetsPickerController *)picker
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:NSLocalizedStringFromTable(@"Exceed Maximum Number Of Selection", @"UzysAssetsPickerController", nil)
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+
+
+
+- (int)compareOneDay:(NSString *)oneDayStr withAnotherDay:(NSString *)anotherDayStr
+{
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];//df.dateFormat = @"yyyy-MM-dd HH:mm";
+//    NSString *oneDayStr = [dateFormatter stringFromDate:oneDay];
+//    NSString *anotherDayStr = [dateFormatter stringFromDate:anotherDay];
+//    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+
+    NSDate *dateA = [dateFormatter dateFromString:oneDayStr];
+    NSDate *dateB = [dateFormatter dateFromString:anotherDayStr];
+    NSComparisonResult result = [dateA compare:dateB];
+    NSLog(@"date1 : %@, date2 : %@", dateA, dateB);
+    if (result == NSOrderedDescending) {
+        //NSLog(@"Date1  is in the future");
+        return 1;
+    }
+    else if (result == NSOrderedAscending){
+        //NSLog(@"Date1 is in the past");
+        return -1;
+    }
+    //NSLog(@"Both dates are the same");
+    return 0;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pragma mark - 初始化导航 Btn clicked fun
 
@@ -551,6 +793,60 @@
     
     if (_isMenu) {
         
+        if (index == 2) {
+            
+//            self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(60, 50, 200, 200)];
+//            self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+//            self.imageView.backgroundColor = [UIColor lightGrayColor];
+//            self.imageView.center = CGPointMake(self.view.center.x, self.imageView.center.y);
+//            [self.view addSubview:self.imageView];
+//            
+//            self.labelDescription = [[UILabel alloc] initWithFrame:CGRectMake(60, 260, 200, 20)];
+//            self.labelDescription.textAlignment = NSTextAlignmentCenter;
+//            self.labelDescription.font = [UIFont systemFontOfSize:12];
+//            self.labelDescription.textColor = [UIColor lightGrayColor];
+//            [self.view addSubview:self.labelDescription];
+            
+            
+            UzysAssetsPickerController *picker = [[UzysAssetsPickerController alloc] init];
+            picker.delegate = self;
+
+            picker.maximumNumberOfSelectionVideo = 0;
+            picker.maximumNumberOfSelectionPhoto = 5;
+//            picker.maximumNumberOfSelectionMedia = 2;
+            [self presentViewController:picker animated:YES completion:^{
+                
+            }];
+            
+        }
+        
+        if (index == 3) {
+            
+//            self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(60, 50, 200, 200)];
+//            self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+//            self.imageView.backgroundColor = [UIColor lightGrayColor];
+//            self.imageView.center = CGPointMake(self.view.center.x, self.imageView.center.y);
+//            [self.view addSubview:self.imageView];
+//            
+//            self.labelDescription = [[UILabel alloc] initWithFrame:CGRectMake(60, 260, 200, 20)];
+//            self.labelDescription.textAlignment = NSTextAlignmentCenter;
+//            self.labelDescription.font = [UIFont systemFontOfSize:12];
+//            self.labelDescription.textColor = [UIColor lightGrayColor];
+//            [self.view addSubview:self.labelDescription];
+            
+            
+            UzysAssetsPickerController *picker = [[UzysAssetsPickerController alloc] init];
+            picker.delegate = self;
+
+            picker.maximumNumberOfSelectionVideo = 2;
+            picker.maximumNumberOfSelectionPhoto = 0;
+
+            [self presentViewController:picker animated:YES completion:^{
+                
+            }];
+            
+        }
+        
 
         
     }else {
@@ -560,10 +856,32 @@
             _isNeedSort = YES;
             [_fileTableView reloadData];
         }
-        if (index == 1) {
+        if (index == 2) {
 //             self.navigationController.tabBarController.tabBar.hidden = 0;
             _isNeedSort = NO;
             [_fileTableView reloadData];
+        }
+        if (index == 1) {
+            
+
+            NSArray *ARR = [NSArray arrayWithArray:(NSArray *)_dataSource];
+            ARR = [ARR sortedArrayUsingComparator:^NSComparisonResult(EntryModel *obj1, EntryModel *obj2) {
+                return [self compareOneDay:obj1.time withAnotherDay:obj2.time];
+            }];
+            
+            [_dataSource removeAllObjects];
+            for (EntryModel *model in ARR) {
+                
+                [_dataSource addObject:model];
+            }
+
+            [_fileTableView reloadData];
+            
+//            NSLog(@"O--  %d",[self compareOneDay:@"2013-06-13" withAnotherDay:@"2013-06-17"]);
+//            
+//            NSLog(@"T--  %d",[self compareOneDay:@"2013-06-20" withAnotherDay:@"2013-06-17"]);
+//            
+//            NSLog(@"TH--  %d",[self compareOneDay:@"2013-06-13" withAnotherDay:@"2013-06-13"]);
         }
     
     }

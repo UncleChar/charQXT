@@ -50,8 +50,8 @@
     
 //    titleArray = @[@"我的离线文件",@"我的团队",@"设置",@"清空缓存",@"我的XXX",@"我的XX11XXXX",@"我的XX22XXXX",@"我的XX33XXXX",@"我的XX44XXXX"];
     
-    titleArray = [[NSMutableArray alloc]initWithObjects:@"最近讨论",@"传输列表",@"离线列表",@"回收中心",@"我的团队",@"系统设置",@"退出登录", nil];
-    picArray = [[NSMutableArray alloc]initWithObjects:@"main_menu_comment_btn@2x.png",@"main_menu_transfer_icon.png",@"iPhone_main_menu_offline_icon@2x.png",@"main_menu_recycle_icon.png",@"main_menu_btn_team@2x.png",@"main_menu_setting_icon.png",@"main_menu_logout_icon.png", nil];
+    titleArray = [[NSMutableArray alloc]initWithObjects:@"最近讨论",@"传输列表",@"离线列表",@"回收中心",@"我的团队",@"系统设置",@"",@"退出登录", nil];
+    picArray = [[NSMutableArray alloc]initWithObjects:@"main_menu_comment_btn@2x.png",@"main_menu_transfer_icon.png",@"iPhone_main_menu_offline_icon@2x.png",@"main_menu_recycle_icon.png",@"main_menu_btn_team@2x.png",@"main_menu_setting_icon.png",@"main_menu_recycle_icon.png",@"main_menu_logout_icon.png", nil];
     
     
     [self.view addSubview: self.tableView];
@@ -151,8 +151,18 @@
         cell = [[AboutMyTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
 
+    if (indexPath.row == 6) {
+        
+        cell.name = [NSString stringWithFormat:@"清空缓存(%.2lf MB)",[[SDImageCache sharedImageCache] getSize]/1024.0/1024.0];
+        cell.avatarStr = picArray[indexPath.row];
+        
+    }else {
+    
         cell.name = titleArray[indexPath.row];
         cell.avatarStr = picArray[indexPath.row];
+    
+    }
+    
 
     
     return cell;
@@ -166,12 +176,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    OtherJumpVc *otvc = [[OtherJumpVc alloc]init];
-    otvc.title = titleArray[indexPath.row];
-    [self.navigationController pushViewController:otvc animated:YES];
-    
-    
 
+    if (indexPath.row == 6) {
+        
+        [[SDImageCache sharedImageCache] clearDisk];
+        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"清除%.2lf MB缓存",[[SDImageCache sharedImageCache] getSize]/1024.0/1024.0]];
+        [_tableView reloadData];
+    }else {
+    
+        OtherJumpVc *otvc = [[OtherJumpVc alloc]init];
+        otvc.title = titleArray[indexPath.row];
+        [self.navigationController pushViewController:otvc animated:YES];
+        
+    
+    }
+    
 }
 
 
@@ -227,6 +246,10 @@
 
 
     [super viewWillAppear:YES];
+    if (_tableView) {
+        
+        [_tableView reloadData];
+    }
      self.navigationController.navigationBarHidden = YES;
 }
 @end

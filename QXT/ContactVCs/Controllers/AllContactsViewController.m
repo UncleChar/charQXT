@@ -51,12 +51,16 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     self.view.backgroundColor = [ConfigUITools colorWithR:90 G:192 B:246 A:1];
-    self.title = @"通讯录";
+    self.title = @"同事";
     _Index = 0;
     [self initArray];
     [self configSegumentController]; //配置选择器
     [self.view addSubview:self.searchBar];
     [self.view addSubview:[self configTableView]];
+    
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(addContactBtnClicked:)];
+    leftItem.image = [UIImage imageNamed:@"add_friend_icon"];//add_friend_icon@2x
+    self.navigationItem.rightBarButtonItem = leftItem;
     
     
 }
@@ -344,8 +348,6 @@
         
     }
     
-
-    NSLog(@"section %ld  roe %ld",indexPath.section,indexPath.row);
     [self.navigationController pushViewController:Convc animated:YES];
     
 }
@@ -464,6 +466,11 @@
 - (void)ww {
 
 //    [self.navigationController pushViewController:[[NDDefaultSearchViewController alloc]init] animated:YES];
+}
+
+- (void)addContactBtnClicked:(UIButton *)sender {
+
+    [SVProgressHUD showSuccessWithStatus:@"将要增加联系人"];
 }
 
 @end

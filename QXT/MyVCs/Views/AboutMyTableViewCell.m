@@ -43,7 +43,6 @@
     nameLabel = [[UILabel alloc]init];
     nameLabel.textColor = [ConfigUITools colorWithR:33 G:126 B:198 A:1];
     nameLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
-    nameLabel.font = [UIFont systemFontOfSize:12];
     [self.contentView addSubview:nameLabel];
     indexIV.frame = CGRectMake(20, 24.5, 23, 21);
 //    indexIV.layer.cornerRadius = 15;
