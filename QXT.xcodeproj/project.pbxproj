@@ -72,6 +72,15 @@
 		9D83D88C1CAE59C9004A8B2A /* IDMZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83D8841CAE59C9004A8B2A /* IDMZoomingScrollView.m */; };
 		9D83D8A01CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D8961CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton.png */; };
 		9D83D8A11CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D8971CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton@2x.png */; };
+		9D84E1091CB353A900EEA75C /* 022@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D84E1081CB353A900EEA75C /* 022@2x.png */; };
+		9D84E10B1CB35DCF00EEA75C /* xjp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D84E10A1CB35DCF00EEA75C /* xjp.jpg */; };
+		9D84E10D1CB35DF200EEA75C /* bxl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D84E10C1CB35DF200EEA75C /* bxl.jpg */; };
+		9D84E10F1CB35E0B00EEA75C /* bgkl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D84E10E1CB35E0B00EEA75C /* bgkl.jpg */; };
+		9D84E1111CB35E2600EEA75C /* abm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D84E1101CB35E2600EEA75C /* abm.jpg */; };
+		9D84E1131CB35E3800EEA75C /* lkq.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D84E1121CB35E3800EEA75C /* lkq.jpg */; };
+		9D84E1151CB35E4700EEA75C /* qjb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D84E1141CB35E4700EEA75C /* qjb.jpg */; };
+		9D84E1171CB35E5800EEA75C /* ylq.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D84E1161CB35E5800EEA75C /* ylq.jpg */; };
+		9D84E11C1CB36B3F00EEA75C /* ContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D84E11B1CB36B3F00EEA75C /* ContactModel.m */; };
 		9D86D8561CA2275900D2E514 /* RequestBlockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D86D8551CA2275900D2E514 /* RequestBlockManager.m */; };
 		9D86D85A1CA2320800D2E514 /* ConfigCoustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D86D8591CA2320800D2E514 /* ConfigCoustomView.m */; };
 		9D86D85D1CA2395500D2E514 /* CustonVCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D86D85C1CA2395500D2E514 /* CustonVCView.m */; };
@@ -359,6 +368,16 @@
 		9D83D8841CAE59C9004A8B2A /* IDMZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDMZoomingScrollView.m; sourceTree = "<group>"; };
 		9D83D8961CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IDMPhotoBrowser_customDoneButton.png; sourceTree = "<group>"; };
 		9D83D8971CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IDMPhotoBrowser_customDoneButton@2x.png"; sourceTree = "<group>"; };
+		9D84E1081CB353A900EEA75C /* 022@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "022@2x.png"; sourceTree = "<group>"; };
+		9D84E10A1CB35DCF00EEA75C /* xjp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xjp.jpg; sourceTree = "<group>"; };
+		9D84E10C1CB35DF200EEA75C /* bxl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bxl.jpg; sourceTree = "<group>"; };
+		9D84E10E1CB35E0B00EEA75C /* bgkl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgkl.jpg; sourceTree = "<group>"; };
+		9D84E1101CB35E2600EEA75C /* abm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = abm.jpg; sourceTree = "<group>"; };
+		9D84E1121CB35E3800EEA75C /* lkq.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lkq.jpg; sourceTree = "<group>"; };
+		9D84E1141CB35E4700EEA75C /* qjb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = qjb.jpg; sourceTree = "<group>"; };
+		9D84E1161CB35E5800EEA75C /* ylq.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ylq.jpg; sourceTree = "<group>"; };
+		9D84E11A1CB36B3F00EEA75C /* ContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactModel.h; sourceTree = "<group>"; };
+		9D84E11B1CB36B3F00EEA75C /* ContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactModel.m; sourceTree = "<group>"; };
 		9D86D8541CA2275900D2E514 /* RequestBlockManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestBlockManager.h; sourceTree = "<group>"; };
 		9D86D8551CA2275900D2E514 /* RequestBlockManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestBlockManager.m; sourceTree = "<group>"; };
 		9D86D8571CA2287E00D2E514 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
@@ -1137,6 +1156,14 @@
 				9DD0D97E1C9F8BDF006ACF3B /* AllContactsViewController.m */,
 				9D7122291CACC6570006D1D8 /* ContactDetailInfoVC.h */,
 				9D71222A1CACC6570006D1D8 /* ContactDetailInfoVC.m */,
+				9D84E1081CB353A900EEA75C /* 022@2x.png */,
+				9D84E1141CB35E4700EEA75C /* qjb.jpg */,
+				9D84E10A1CB35DCF00EEA75C /* xjp.jpg */,
+				9D84E1121CB35E3800EEA75C /* lkq.jpg */,
+				9D84E10C1CB35DF200EEA75C /* bxl.jpg */,
+				9D84E10E1CB35E0B00EEA75C /* bgkl.jpg */,
+				9D84E1101CB35E2600EEA75C /* abm.jpg */,
+				9D84E1161CB35E5800EEA75C /* ylq.jpg */,
 				9D83D75C1CAE0CE1004A8B2A /* mbox_addmember_icon@2x.png */,
 				9D83D7581CAE0B28004A8B2A /* addfriend_icon@2x.png */,
 				9D83D7561CAE0B17004A8B2A /* add_friend_icon@2x.png */,
@@ -1147,6 +1174,8 @@
 		9DD0D8D91C9F87E5006ACF3B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D84E11A1CB36B3F00EEA75C /* ContactModel.h */,
+				9D84E11B1CB36B3F00EEA75C /* ContactModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1525,6 +1554,7 @@
 				TargetAttributes = {
 					9DD0D8911C9F84DD006ACF3B = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = XP83374CHB;
 					};
 					9DD0D8AA1C9F84DE006ACF3B = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -1573,15 +1603,18 @@
 				9D83D8861CAE59C9004A8B2A /* IDMPBLocalizations.bundle in Resources */,
 				9DCA146A1CA8FABC006BB95A /* 8.png in Resources */,
 				9D83D7571CAE0B17004A8B2A /* add_friend_icon@2x.png in Resources */,
+				9D84E10F1CB35E0B00EEA75C /* bgkl.jpg in Resources */,
 				9DCA14641CA8FABC006BB95A /* 2.png in Resources */,
 				9D74D2AF1CAA1A110090B8A0 /* bg.png in Resources */,
 				9DCA145E1CA8FABC006BB95A /* 13.png in Resources */,
+				9D84E10B1CB35DCF00EEA75C /* xjp.jpg in Resources */,
 				9DCA14691CA8FABC006BB95A /* 7.png in Resources */,
 				9DCA145D1CA8FABC006BB95A /* 12.png in Resources */,
 				9DCA145B1CA8FABC006BB95A /* 10.png in Resources */,
 				9DCA145A1CA8FABC006BB95A /* 1.png in Resources */,
 				9D9A2E6B1CA116C0007739F0 /* home@2x.png in Resources */,
 				9D9A2E671CA116C0007739F0 /* home-拷贝.png in Resources */,
+				9D84E1151CB35E4700EEA75C /* qjb.jpg in Resources */,
 				9DCA14681CA8FABC006BB95A /* 6.png in Resources */,
 				9D9A2E721CA116D9007739F0 /* iconfont-icon-拷贝-2@3x.png in Resources */,
 				9D74D2B71CAA1FD20090B8A0 /* 1212.jpg in Resources */,
@@ -1599,6 +1632,7 @@
 				9D9A2E651CA116C0007739F0 /* heart@2x.png in Resources */,
 				9DCA146B1CA8FABC006BB95A /* 9.png in Resources */,
 				9D9A2E711CA116D9007739F0 /* iconfont-icon-拷贝-2@2x.png in Resources */,
+				9D84E1111CB35E2600EEA75C /* abm.jpg in Resources */,
 				9DCA14751CA8FE66006BB95A /* 23.png in Resources */,
 				9D83D8A01CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton.png in Resources */,
 				9DCA145F1CA8FABC006BB95A /* 14.png in Resources */,
@@ -1606,11 +1640,14 @@
 				9D369BBC1CABD29000EE7D4C /* iPhone_main_menu_offline_icon@2x.png in Resources */,
 				9DCA14671CA8FABC006BB95A /* 5.png in Resources */,
 				9D9A2E661CA116C0007739F0 /* heart@3x.png in Resources */,
+				9D84E1131CB35E3800EEA75C /* lkq.jpg in Resources */,
 				9DCA145C1CA8FABC006BB95A /* 11.png in Resources */,
 				9DCA14711CA8FE66006BB95A /* 19.png in Resources */,
+				9D84E1091CB353A900EEA75C /* 022@2x.png in Resources */,
 				9D9A2E6A1CA116C0007739F0 /* home.png in Resources */,
 				9D9A2E761CA11713007739F0 /* iconfont-wodexuanzhong-拷贝.png in Resources */,
 				9DCA14621CA8FABC006BB95A /* 17.png in Resources */,
+				9D84E10D1CB35DF200EEA75C /* bxl.jpg in Resources */,
 				9DD0D8A21C9F84DD006ACF3B /* Assets.xcassets in Resources */,
 				9D83D8611CAE4F5B004A8B2A /* pop-Info.plist in Resources */,
 				9DCA148E1CA915CD006BB95A /* aboutTop.jpg in Resources */,
@@ -1620,6 +1657,7 @@
 				9DCA14661CA8FABC006BB95A /* 4.png in Resources */,
 				9D369BC41CABD2C200EE7D4C /* main_menu_logout_icon.png in Resources */,
 				9D9A2E781CA11713007739F0 /* iconfont-wodexuanzhong-拷贝@3x.png in Resources */,
+				9D84E1171CB35E5800EEA75C /* ylq.jpg in Resources */,
 				9D74D2B51CAA1D570090B8A0 /* ok.jpg in Resources */,
 				9D83D8A11CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton@2x.png in Resources */,
 				9DCA14611CA8FABC006BB95A /* 16.png in Resources */,
@@ -1766,6 +1804,7 @@
 				9DD0D99B1C9F9806006ACF3B /* FMDatabaseQueue.m in Sources */,
 				9DD0D96D1C9F8996006ACF3B /* MainTabBarController.m in Sources */,
 				9DD0D9591C9F885A006ACF3B /* SDWebImageDecoder.m in Sources */,
+				9D84E11C1CB36B3F00EEA75C /* ContactModel.m in Sources */,
 				9DD0D9581C9F885A006ACF3B /* SDWebImageCompat.m in Sources */,
 				9D83D8701CAE4F5B004A8B2A /* POPPropertyAnimation.mm in Sources */,
 				9D86D8561CA2275900D2E514 /* RequestBlockManager.m in Sources */,
@@ -1918,8 +1957,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Quan (WCTJ975P5S)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jun Quan (WCTJ975P5S)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QXT/PrefixHeader.pch";
@@ -1928,7 +1967,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.char;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "255dde29-1e41-4ba8-8dc4-26ad2720f5c5";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1937,8 +1976,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Quan (WCTJ975P5S)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jun Quan (WCTJ975P5S)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QXT/PrefixHeader.pch";
@@ -1947,7 +1986,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.char;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "255dde29-1e41-4ba8-8dc4-26ad2720f5c5";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

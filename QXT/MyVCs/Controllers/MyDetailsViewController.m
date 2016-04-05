@@ -37,6 +37,7 @@
         _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 49)];
         _tableView.delegate=self;
         _tableView.dataSource=self;
+        _tableView.rowHeight = (kScreenHeight / 3 * 2 + 64 + 49) / 8;
         _tableView.showsVerticalScrollIndicator = NO;
     }
     return _tableView;
@@ -162,16 +163,16 @@
         cell.avatarStr = picArray[indexPath.row];
     
     }
-    
+    cell.cellHeight = (kScreenHeight / 3 * 2 + 64 + 49) / 8;
 
     
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return 70;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    return 60;
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 

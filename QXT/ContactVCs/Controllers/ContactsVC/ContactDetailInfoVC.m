@@ -7,7 +7,7 @@
 //
 
 #import "ContactDetailInfoVC.h"
-#import "FileModel.h"
+#import "ContactModel.h"
 #define kWidthToLeft 15
 @interface ContactDetailInfoVC ()
 {

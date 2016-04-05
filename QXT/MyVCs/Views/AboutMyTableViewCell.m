@@ -44,11 +44,12 @@
     nameLabel.textColor = [ConfigUITools colorWithR:33 G:126 B:198 A:1];
     nameLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
     [self.contentView addSubview:nameLabel];
-    indexIV.frame = CGRectMake(20, 24.5, 23, 21);
+    indexIV.frame = CGRectMake(0, 0, 23, 21);
+    
 //    indexIV.layer.cornerRadius = 15;
 //    indexIV.layer.masksToBounds = 1;
     nameLabel.font = [UIFont systemFontOfSize:16];
-    nameLabel.frame = CGRectMake(60, 15, kScreenWidth - 100,40 );
+    nameLabel.frame = CGRectMake(60, 10, kScreenWidth - 100,40 );
     
     
 }
@@ -57,7 +58,10 @@
     
     nameLabel.text = name;
 }
+- (void)setCellHeight:(CGFloat)cellHeight {
 
+    indexIV.center = CGPointMake(31.5, cellHeight / 2);
+}
 - (void)setAvatarStr:(NSString *)avatarStr {
     
     indexIV.image = [UIImage imageNamed:avatarStr];

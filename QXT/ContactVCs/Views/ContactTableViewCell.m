@@ -7,12 +7,12 @@
 //
 
 #import "ContactTableViewCell.h"
-
+#import "ContactModel.h"
 @interface ContactTableViewCell ()
 {
     
     UILabel      *nameLabel;
-    UILabel      *urgLabel;
+    UILabel      *emailLabel;
     UILabel      *otherLabel;
     UIImageView  *indexIV;
     UIButton     *moreBtn;
@@ -42,25 +42,42 @@
     indexIV = [[UIImageView alloc]init];
     
     [self.contentView addSubview:indexIV];
-    
-    
+
     nameLabel = [[UILabel alloc]init];
     nameLabel.textColor = [UIColor blackColor];
     nameLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
-    nameLabel.font = [UIFont systemFontOfSize:12];
+    nameLabel.font = [UIFont systemFontOfSize:15];
     [self.contentView addSubview:nameLabel];
-    indexIV.frame = CGRectMake(20, 2, 40, 40);
-    indexIV.layer.cornerRadius = 20;
+    
+    emailLabel = [[UILabel alloc]init];
+    emailLabel.textColor = [UIColor grayColor];
+    emailLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
+    emailLabel.font = [UIFont systemFontOfSize:11];
+    [self.contentView addSubview:emailLabel];
+    
+    indexIV.frame = CGRectMake(20, 2, 46, 46);
+    indexIV.layer.cornerRadius = 23;
     indexIV.layer.masksToBounds = 1;
-    nameLabel.frame = CGRectMake(80, 12, 200, 20);
+    
 
     
 }
-- (void)setModel:(FileModel *)model {
+
+- (void)setModel:(ContactModel *)model {
     
     _model = model;
 
-    nameLabel.text = _model.fileName;
+    nameLabel.text  = _model.fileName;
+    emailLabel.text = _model.email;
     indexIV.image = [UIImage imageNamed:model.avatarId];
+    if ([model.avatarId isEqualToString:@"022"]) {
+        nameLabel.frame = CGRectMake(80, 10, kScreenWidth - 120, 30);
+        emailLabel.frame = CGRectMake(0, 0, 0, 0);
+//        emailLabel.text = @"";
+    }else {
+        nameLabel.frame = CGRectMake(80, 0, kScreenWidth - 120, 30);
+        emailLabel.frame = CGRectMake(80, 25, kScreenWidth - 120, 20);
+        emailLabel.text = _model.email;
+    }
 }
 @end

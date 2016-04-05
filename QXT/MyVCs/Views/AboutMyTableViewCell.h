@@ -11,5 +11,5 @@
 @interface AboutMyTableViewCell : UITableViewCell
 @property (nonatomic, strong)NSString *name;
 @property (nonatomic, strong)NSString *avatarStr;
-
+@property (nonatomic, assign)CGFloat  cellHeight;
 @end

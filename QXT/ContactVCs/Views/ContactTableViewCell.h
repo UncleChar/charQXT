@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ContactModel;
 @interface ContactTableViewCell : UITableViewCell
-@property (nonatomic, strong) FileModel *model;
+@property (nonatomic, strong) ContactModel *model;
 @end

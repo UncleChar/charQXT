@@ -459,6 +459,117 @@
 
      [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
+    if (_fileTableView == tableView) {
+        
+        if ([[[self.dataSource[indexPath.row] fileName]pathExtension]isEqualToString:@"jpg"] ) {
+            
+            
+            NSArray *photosWithURL = [IDMPhoto photosWithURLs:[NSArray arrayWithObjects:[NSURL URLWithString:@"http://pic.to8to.com/attch/day_160218/20160218_6410eaeeba9bc1b3e944xD5gKKhPEuEv.png"], @"http://img15.3lian.com/2015/f2/50/d/75.jpg",@"http://g.hiphotos.baidu.com/image/pic/item/241f95cad1c8a7866f726fe06309c93d71cf5087.jpg", @"http://pic9.nipic.com/20100817/3320946_114627281129_2.jpg", nil]];
+            
+            photos = [NSMutableArray arrayWithArray:photosWithURL];
+            
+            if (indextPhontoDelete != 100) {
+                
+                [photos removeObjectAtIndex:indextPhontoDelete];
+            }
+            
+            // Create and setup browser
+            browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
+            browser.delegate = self;
+            
+            browser.actionButtonTitles      = @[@"打开", @"评论", @"分享", @"保存到相册",@"删除"];
+            browser.displayCounterLabel     = YES;
+            browser.useWhiteBackgroundColor = NO;
+            browser.displayArrowButton = NO;
+            browser.displayDoneButton = NO;
+            browser.doneButtonImage         = [UIImage imageNamed:@"IDMPhotoBrowser_customDoneButton.png"];
+            browser.view.tintColor          = [UIColor whiteColor];
+            browser.progressTintColor       = [UIColor whiteColor];
+            browser.trackTintColor          = [UIColor colorWithWhite:0.8 alpha:1];
+            
+            [self presentViewController:browser animated:YES completion:nil];
+            
+        }else {
+        
+                AllFilesViewController *allFvc = [[AllFilesViewController alloc]init];
+                allFvc.dataSource = self.dataSource;
+                allFvc.isRootVC = NO;
+            
+            //    // 从路径中获得完整的文件名（带后缀）
+            //    exestr = [filePath lastPathComponent];
+            //    NSLog(@"%@",exestr);
+            //    // 获得文件名（不带后缀）
+            //    exestr = [exestr stringByDeletingPathExtension];
+            //    NSLog(@"%@",exestr);
+            //
+            //    // 获得文件的后缀名（不带'.'）
+            //    exestr = [filePath pathExtension];
+            //    NSLog(@"%@",exestr);
+                
+                allFvc.title = [[allFvc.dataSource[indexPath.row] fileName] stringByDeletingPathExtension];
+                NSLog(@"CLICKED : %@",[allFvc.dataSource[indexPath.row] fileName]);
+                [self.navigationController pushViewController:allFvc animated:YES];
+        
+        }
+        
+    }else {
+    
+        if ([[[self.searchDataSource[indexPath.row] fileName]pathExtension]isEqualToString:@"jpg"] ) {
+            
+            
+            NSArray *photosWithURL = [IDMPhoto photosWithURLs:[NSArray arrayWithObjects:[NSURL URLWithString:@"http://pic.to8to.com/attch/day_160218/20160218_6410eaeeba9bc1b3e944xD5gKKhPEuEv.png"], @"http://img15.3lian.com/2015/f2/50/d/75.jpg",@"http://g.hiphotos.baidu.com/image/pic/item/241f95cad1c8a7866f726fe06309c93d71cf5087.jpg", @"http://pic9.nipic.com/20100817/3320946_114627281129_2.jpg", nil]];
+            
+            photos = [NSMutableArray arrayWithArray:photosWithURL];
+            
+            if (indextPhontoDelete != 100) {
+                
+                [photos removeObjectAtIndex:indextPhontoDelete];
+            }
+            
+            // Create and setup browser
+            browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
+            browser.delegate = self;
+            
+            browser.actionButtonTitles      = @[@"打开", @"评论", @"分享", @"保存到相册",@"删除"];
+            browser.displayCounterLabel     = YES;
+            browser.useWhiteBackgroundColor = NO;
+            browser.displayArrowButton = NO;
+            browser.displayDoneButton = NO;
+            browser.doneButtonImage         = [UIImage imageNamed:@"IDMPhotoBrowser_customDoneButton.png"];
+            browser.view.tintColor          = [UIColor whiteColor];
+            browser.progressTintColor       = [UIColor whiteColor];
+            browser.trackTintColor          = [UIColor colorWithWhite:0.8 alpha:1];
+            
+            [self presentViewController:browser animated:YES completion:nil];
+            
+        }else {
+            
+                AllFilesViewController *allFvc = [[AllFilesViewController alloc]init];
+                allFvc.dataSource = self.searchDataSource;
+                allFvc.isRootVC = NO;
+            
+            //    // 从路径中获得完整的文件名（带后缀）
+            //    exestr = [filePath lastPathComponent];
+            //    NSLog(@"%@",exestr);
+            //    // 获得文件名（不带后缀）
+            //    exestr = [exestr stringByDeletingPathExtension];
+            //    NSLog(@"%@",exestr);
+            //
+            //    // 获得文件的后缀名（不带'.'）
+            //    exestr = [filePath pathExtension];
+            //    NSLog(@"%@",exestr);
+                
+                allFvc.title = [[allFvc.dataSource[indexPath.row] fileName] stringByDeletingPathExtension];
+                NSLog(@"CLICKED : %@",[allFvc.dataSource[indexPath.row] fileName]);
+                [self.navigationController pushViewController:allFvc animated:YES];
+            
+        }
+    
+    
+    }
+    
+    
+    
 //    AllFilesViewController *allFvc = [[AllFilesViewController alloc]init];
 //    if (_fileTableView == tableView) {
 //        
@@ -488,31 +599,7 @@
     
 
     
-   
-    NSArray *photosWithURL = [IDMPhoto photosWithURLs:[NSArray arrayWithObjects:[NSURL URLWithString:@"http://pic.to8to.com/attch/day_160218/20160218_6410eaeeba9bc1b3e944xD5gKKhPEuEv.png"], @"http://img15.3lian.com/2015/f2/50/d/75.jpg",@"http://g.hiphotos.baidu.com/image/pic/item/241f95cad1c8a7866f726fe06309c93d71cf5087.jpg", @"http://pic9.nipic.com/20100817/3320946_114627281129_2.jpg", nil]];
-    
-    photos = [NSMutableArray arrayWithArray:photosWithURL];
 
-    if (indextPhontoDelete != 100) {
-        
-        [photos removeObjectAtIndex:indextPhontoDelete];
-    }
-    
-    // Create and setup browser
-    browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
-    browser.delegate = self;
-
-    browser.actionButtonTitles      = @[@"打开", @"评论", @"分享", @"保存到相册",@"删除"];
-    browser.displayCounterLabel     = YES;
-    browser.useWhiteBackgroundColor = NO;
-    browser.displayArrowButton = NO;
-    browser.displayDoneButton = NO;
-    browser.doneButtonImage         = [UIImage imageNamed:@"IDMPhotoBrowser_customDoneButton.png"];
-    browser.view.tintColor          = [UIColor whiteColor];
-    browser.progressTintColor       = [UIColor whiteColor];
-    browser.trackTintColor          = [UIColor colorWithWhite:0.8 alpha:1];
-
-    [self presentViewController:browser animated:YES completion:nil];
    
 }
 
@@ -561,29 +648,29 @@
 
 #pragma mark - IDMPhotoBrowser Delegate
 
-- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didShowPhotoAtIndex:(NSUInteger)pageIndex
-{
-    id <IDMPhoto> photo = [photoBrowser photoAtIndex:pageIndex];
-    NSLog(@"Did show photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
-}
-
-- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser willDismissAtPageIndex:(NSUInteger)pageIndex
-{
-    id <IDMPhoto> photo = [photoBrowser photoAtIndex:pageIndex];
-    NSLog(@"Will dismiss photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
-}
-
-- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didDismissAtPageIndex:(NSUInteger)pageIndex
-{
-    id <IDMPhoto> photo = [photoBrowser photoAtIndex:pageIndex];
-    NSLog(@"Did dismiss photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
-}
+//- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didShowPhotoAtIndex:(NSUInteger)pageIndex
+//{
+//    id <IDMPhoto> photo = [photoBrowser photoAtIndex:pageIndex];
+//    NSLog(@"Did show photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
+//}
+//
+//- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser willDismissAtPageIndex:(NSUInteger)pageIndex
+//{
+//    id <IDMPhoto> photo = [photoBrowser photoAtIndex:pageIndex];
+//    NSLog(@"Will dismiss photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
+//}
+//
+//- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didDismissAtPageIndex:(NSUInteger)pageIndex
+//{
+//    id <IDMPhoto> photo = [photoBrowser photoAtIndex:pageIndex];
+//    NSLog(@"Did dismiss photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
+//}
 
 - (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didDismissActionSheetWithButtonIndex:(NSUInteger)buttonIndex photoIndex:(NSUInteger)photoIndex
 {
     id <IDMPhoto> photo = [photoBrowser photoAtIndex:photoIndex];
 
-//    if (buttonIndex == 4) {
+//    if (buttonIndex == 4) {//这里是删除用的代码块
 //      
 //        [browser prepareForClosePhotoBrowser];
 //        [browser dismissPhotoBrowserAnimated:YES];
@@ -592,7 +679,7 @@
 
     NSLog(@"Did dismiss actionSheet with photo index: %zu, photo caption: %@", photoIndex, photo.caption);
     
-    NSString *title = [NSString stringWithFormat:@"Option %zu", buttonIndex+1];
+//    NSString *title = [NSString stringWithFormat:@"Option %zu", buttonIndex+1];
 
 }
 

@@ -10,4 +10,7 @@
 
 @interface AllContactsViewController : BaseVCElements
 
+@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *requestDataSource;
+@property (nonatomic, assign) BOOL  isNotRootVC;
 @end

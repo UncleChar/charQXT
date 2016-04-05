@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@class FileModel;
+@class ContactModel;
 @interface ContactDetailInfoVC : UIViewController
 
-@property (nonatomic, strong) FileModel *model;
+@property (nonatomic, strong) ContactModel *model;
 
 @end
