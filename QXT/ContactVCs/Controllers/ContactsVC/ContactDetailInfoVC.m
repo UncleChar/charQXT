@@ -113,7 +113,7 @@
     
     UILabel *emailLabelDE = [[UILabel  alloc]initWithFrame:CGRectMake(kWidthToLeft, 180, kScreenWidth - kWidthToLeft - 40, 30)];
     emailLabelDE.backgroundColor = [UIColor clearColor];
-    emailLabelDE.text = @"xhljob@sharpinteract.com";
+    emailLabelDE.text = self.model.email;
     emailLabelDE.font = [UIFont systemFontOfSize:15];
     emailLabelDE.textColor = [UIColor blackColor];
     [scv addSubview:emailLabelDE];

@@ -41,7 +41,7 @@
 //#import "LoginViewController.h"
 #import "BaseVCs/BaseVCElements.h"
 #define kDriftDuration     0.40
-#import "RequestBlockManager.h"
+#import "QXTRequest.h"
 //jmwl
 //#define kPersonalizedSignature @"userSign"
 #define kUserLoginStatus       @"isLoginSuccess"
@@ -52,7 +52,7 @@
 #define kContentHeight  [UIScreen mainScreen].bounds.size.height - 64
 #define kDisplayHeight   [UIScreen mainScreen].bounds.size.height - 64 - 49
 //#define kTestColor [ConfigUITools colorWithR:90 G:173 B:243 A:1]
-#define kTestColor [UIColor whiteColor]
+#define kBaseColor [ConfigUITools colorWithR:33 G:126 B:198 A:1]
 #define kBackColor [ConfigUITools colorWithR:235 G:235 B:235 A:1]
 #define kTinColor  [ConfigUITools colorWithR:214 G:35 B:36 A:1]
 #define kBtnColor  [ConfigUITools colorWithR:200 G:60 B:61 A:1]

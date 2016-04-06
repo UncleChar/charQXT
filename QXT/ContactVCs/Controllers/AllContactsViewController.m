@@ -59,7 +59,7 @@
     [self.view addSubview:[self configTableView]];
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(addContactBtnClicked:)];
-    rightItem.image = [UIImage imageNamed:@"add_friend_icon"];//add_friend_icon@2x
+    rightItem.image = [UIImage imageNamed:@"Contact_Male@2x"];//add_friend_icon@2x
     self.navigationItem.rightBarButtonItem = rightItem;
     
     
@@ -81,7 +81,7 @@
         
     }else {
         
-          modelArray = @[@{@"portrait":@"12",@"name":@"125"},@{@"portrait":@"2",@"name":@"多弗朗明哥"},@{@"portrait":@"3",@"name":@"蒙奇.D.多拉格"},@{@"portrait":@"4",@"name":@"乌索普"},@{@"portrait":@"5",@"name":@"弗兰奇"},@{@"portrait":@"6",@"name":@"西尔巴兹.雷利"},@{@"portrait":@"13",@"name":@"诺诺罗亚.卓洛"},@{@"portrait":@"8",@"name":@"乔巴"},@{@"portrait":@"9",@"name":@"波斯卡帝.D.艾斯"},@{@"portrait":@"10",@"name":@"陈晨"},@{@"portrait":@"11",@"name":@"多多"},@{@"portrait":@"12",@"name":@"峨嵋山"},@{@"portrait":@"7",@"name":@"山治"},@{@"portrait":@"14",@"name":@"香克斯"},@{@"portrait":@"15",@"name":@"罗宾"},@{@"portrait":@"16",@"name":@"58赶集"},@{@"portrait":@"17",@"name":@"搜房网"},@{@"portrait":@"18",@"name":@"欧弟"},@{@"portrait":@"19",@"name":@"小胖"},@{@"portrait":@"20",@"name":@"蒙奇.D.路飞"},@{@"portrait":@"21",@"name":@"鸣人"},@{@"portrait":@"22",@"name":@"佐助"},@{@"portrait":@"23",@"name":@"自来也"},@{@"portrait":@"022",@"name":@"灵利技术部"},@{@"portrait":@"022",@"name":@"国务院"},@{@"portrait":@"022",@"name":@"作战指挥部"}];
+          modelArray = @[@{@"portrait":@"12",@"name":@"125"},@{@"portrait":@"2",@"name":@"多弗朗明哥"},@{@"portrait":@"3",@"name":@"蒙奇.D.多拉格"},@{@"portrait":@"4",@"name":@"乌索普"},@{@"portrait":@"5",@"name":@"弗兰奇"},@{@"portrait":@"6",@"name":@"西尔巴兹.雷利"},@{@"portrait":@"13",@"name":@"诺诺罗亚.卓洛"},@{@"portrait":@"8",@"name":@"乔巴"},@{@"portrait":@"9",@"name":@"波斯卡帝.D.艾斯"},@{@"portrait":@"10",@"name":@"陈晨"},@{@"portrait":@"11",@"name":@"多多"},@{@"portrait":@"12",@"name":@"峨嵋山"},@{@"portrait":@"7",@"name":@"山治"},@{@"portrait":@"14",@"name":@"香克斯"},@{@"portrait":@"15",@"name":@"罗宾"},@{@"portrait":@"16",@"name":@"58赶集"},@{@"portrait":@"17",@"name":@"搜房网"},@{@"portrait":@"18",@"name":@"欧弟"},@{@"portrait":@"19",@"name":@"小胖"},@{@"portrait":@"20",@"name":@"蒙奇.D.路飞"},@{@"portrait":@"21",@"name":@"鸣人"},@{@"portrait":@"22",@"name":@"佐助"},@{@"portrait":@"23",@"name":@"自来也"},@{@"portrait":@"section.jpg",@"name":@"灵利技术部"},@{@"portrait":@"section.jpg",@"name":@"国务院"},@{@"portrait":@"section.jpg",@"name":@"作战指挥部"}];
     
     }
   
@@ -102,7 +102,7 @@
             model.sex = NO;
         }
         model.fileName = dict[@"name"];
-        model.email = [NSString stringWithFormat:@"%@@126.com",[ChineseToPinyin pinyinFromChiniseString:model.fileName]];
+        model.email = [[NSString stringWithFormat:@"%@@126.com",[ChineseToPinyin pinyinFromChiniseString:model.fileName]] lowercaseString];
         [_requestDataSource addObject:model];
         [_contactDict setObject:model forKey:model.fileName];
     }
@@ -355,7 +355,7 @@
             NSString *str = _indexTitleArr[indexPath.section];
             model =  [_contactDict objectForKey: [_dict objectForKey:str][indexPath.row]];
             
-            if ([model.avatarId isEqualToString:@"022"]) {
+            if ([model.avatarId isEqualToString:@"section.jpg"]) {
         
                             AllContactsViewController *allConVC = [[AllContactsViewController alloc]init];
                             allConVC.isNotRootVC = YES;
@@ -391,7 +391,7 @@
             NSString *str = _indexSearchTitleArr[indexPath.section];
             model =  [_searchDict objectForKey: [_sdict objectForKey:str][indexPath.row]];
             
-            if ([model.avatarId isEqualToString:@"022"]) {
+            if ([model.avatarId isEqualToString:@"section.jpg"]) {
                 
                 AllContactsViewController *allConVC = [[AllContactsViewController alloc]init];
                 allConVC.isNotRootVC = YES;
@@ -466,7 +466,7 @@
 
        
 //
-        if ([model.avatarId isEqualToString:@"022"]) {
+        if ([model.avatarId isEqualToString:@"section.jpg"]) {
                 
 //            NSMutableArray *namesArr = dict[[NSString stringWithFormat:@"%c",[ChineseToPinyin sortSectionTitle:model.fileName]]];
             [indezeroArr addObject:model.fileName];

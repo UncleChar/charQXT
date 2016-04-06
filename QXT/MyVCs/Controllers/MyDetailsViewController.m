@@ -52,7 +52,7 @@
 //    titleArray = @[@"我的离线文件",@"我的团队",@"设置",@"清空缓存",@"我的XXX",@"我的XX11XXXX",@"我的XX22XXXX",@"我的XX33XXXX",@"我的XX44XXXX"];
     
     titleArray = [[NSMutableArray alloc]initWithObjects:@"最近讨论",@"传输列表",@"离线列表",@"回收中心",@"我的团队",@"系统设置",@"",@"退出登录", nil];
-    picArray = [[NSMutableArray alloc]initWithObjects:@"main_menu_comment_btn@2x.png",@"main_menu_transfer_icon.png",@"iPhone_main_menu_offline_icon@2x.png",@"main_menu_recycle_icon.png",@"main_menu_btn_team@2x.png",@"main_menu_setting_icon.png",@"main_menu_recycle_icon.png",@"main_menu_logout_icon.png", nil];
+    picArray = [[NSMutableArray alloc]initWithObjects:@"main_menu_comment_btn.png",@"main_menu_transfer_icon.png",@"iPhone_main_menu_offline_icon.png",@"main_menu_recycle_icon.png",@"main_menu_btn_team.png",@"main_menu_setting_icon.png",@"main_menu_recycle_icon.png",@"main_menu_logout_icon.png", nil];
     
     
     [self.view addSubview: self.tableView];

@@ -286,6 +286,8 @@
 - (void)configNavBarElementsUI {
     
     UIBarButtonItem *rightAddBtn = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(presentMenuFromNav:)];
+//    UIBarButtonItem *rightAddBtn = [[UIBarButtonItem alloc]init];
+//    rightAddBtn.image = [UIImage imageNamed:@""]
     rightAddBtn.tag = 120;
     UIBarButtonItem *rightMoreBtn = [[UIBarButtonItem alloc]initWithTitle:@"More" style:UIBarButtonItemStylePlain target:self action:@selector(presentMenuFromNav:)];
     rightMoreBtn.tag = 121;
