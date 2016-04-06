@@ -42,12 +42,12 @@
 
 - (void)creatSelectBtn {
 
-    UIView *backView = [[UIView alloc]init];
-    backView.backgroundColor = kBaseColor;
-    [self.contentView addSubview:backView];
+//    UIView *backView = [[UIView alloc]init];
+//    backView.backgroundColor = kBaseColor;
+//    [self.contentView addSubview:backView];
     
     indexIV = [[UIImageView alloc]init];
-    [backView addSubview:indexIV];
+    [self.contentView addSubview:indexIV];
     
     sexIV = [[UIImageView alloc]init];
     [self.contentView addSubview:sexIV];
@@ -67,13 +67,12 @@
     [self.contentView addSubview:emailLabel];
     
     
-    backView.frame = CGRectMake(20, 1, 48, 48);
-    backView.layer.cornerRadius = 24;
-    backView.layer.masksToBounds = 1;
+//    backView.frame = CGRectMake(20, 1, 48, 48);
+//    backView.layer.cornerRadius = 24;
+//    backView.layer.masksToBounds = 1;
     
-    indexIV.frame = CGRectMake(1, 1, 46, 46);
-    indexIV.layer.cornerRadius = 23;
-    indexIV.layer.masksToBounds = 1;
+    indexIV.frame = CGRectMake(20, 2, 46, 46);
+    
     
     
     
@@ -92,9 +91,13 @@
         emailLabel.frame = CGRectMake(0, 0, 0, 0);
         sexIV.frame = CGRectMake(0, 0, 0, 0);
    
+        indexIV.layer.cornerRadius = 2;
+        indexIV.layer.masksToBounds = 1;
 //        emailLabel.text = @"";
     }else {
 
+        indexIV.layer.cornerRadius = 23;
+        indexIV.layer.masksToBounds = 1;
         CGFloat sizeWidth = [_model.fileName widthWithFont:[UIFont systemFontOfSize:15] constrainedToHeight:30];
 
         nameLabel.frame = CGRectMake(80, 0, sizeWidth, 30);
