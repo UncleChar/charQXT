@@ -22,7 +22,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
     [btn setTitle:@"下载" forState:UIControlStateNormal];
-    btn.backgroundColor = [UIColor redColor];
+    btn.backgroundColor = [UIColor purpleColor];
     [self.view addSubview:btn];
     [btn addTarget:self action:@selector(resumeInterruptedDownload) forControlEvents:UIControlEventTouchUpInside];
     

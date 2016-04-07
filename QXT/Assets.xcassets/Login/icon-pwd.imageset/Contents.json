@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "share_twitter.png",
+      "filename" : "icon-pwd.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "share_twitter@2x.png",
       "scale" : "2x"
     },
     {

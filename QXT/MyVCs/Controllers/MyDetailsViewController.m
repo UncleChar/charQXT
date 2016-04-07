@@ -11,7 +11,7 @@
 #import "QYTableViewHeader.h"
 #import "QYNavigationBar.h"
 #import "OtherJumpVc.h"
-
+#import "LoginViewController.h"
 #define kBgH      kScreenHeight / 3
 #define KLevelH  (kScreenHeight / 3 - 64) / 4
 #define kLabelAlpha  0.9
@@ -47,7 +47,7 @@
     
     [super viewDidLoad];
 
-    
+    NSLog(@"--- %@",[[AppEngineManager sharedInstance] getEmail]);
     
 //    titleArray = @[@"我的离线文件",@"我的团队",@"设置",@"清空缓存",@"我的XXX",@"我的XX11XXXX",@"我的XX22XXXX",@"我的XX33XXXX",@"我的XX44XXXX"];
     
@@ -72,6 +72,11 @@
     
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth / 2 - 80, 20, 160, 44)];
     titleLabel.text = @"关于我";
+//
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btn.frame = CGRectMake(kScreenWidth - 50, 30, 24, 24);
+//    btn.backgroundColor = [UIColor whiteColor];
+//    [self.NavbgImg addSubview:btn];
     titleLabel.textAlignment = 1;
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.font = [UIFont systemFontOfSize:20];
@@ -181,14 +186,22 @@
     if (indexPath.row == 6) {
         
         [[SDImageCache sharedImageCache] clearDisk];
-        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"清除%.2lf MB缓存",[[SDImageCache sharedImageCache] getSize]/1024.0/1024.0]];
+        [SVProgressHUD showSuccessWithStatus:@"清除缓存成功"];
         [_tableView reloadData];
+    }else if(indexPath.row == 7){
+    
+        LoginViewController *divideVC = [[LoginViewController alloc]init];
+        self.tabBarController.tabBar.hidden = 1;
+        [self.navigationController pushViewController:divideVC animated:YES];
+        NSUserDefaults *store = [NSUserDefaults standardUserDefaults];
+        [store setBool:NO forKey:kUserLoginStatus];
+        [store synchronize];
+        
     }else {
     
         OtherJumpVc *otvc = [[OtherJumpVc alloc]init];
         otvc.title = titleArray[indexPath.row];
         [self.navigationController pushViewController:otvc animated:YES];
-        
     
     }
     

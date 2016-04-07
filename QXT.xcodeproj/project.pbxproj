@@ -133,6 +133,15 @@
 		9D9A2E871CA123F6007739F0 /* RWDropdownMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9A2E831CA123F6007739F0 /* RWDropdownMenuCell.m */; };
 		9D9A2E881CA123F6007739F0 /* RWDropdownMenuTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9A2E851CA123F6007739F0 /* RWDropdownMenuTransitionController.m */; };
 		9DABC2CB1CAB67060046260C /* EntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DABC2CA1CAB67060046260C /* EntryModel.m */; };
+		9DC7FDA41CB5EDF1004BB860 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC7FDA31CB5EDF1004BB860 /* LoginViewController.m */; };
+		9DC7FDA71CB5EFE9004BB860 /* AppEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC7FDA61CB5EFE9004BB860 /* AppEngine.m */; };
+		9DC7FDAA1CB5F01F004BB860 /* Users.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC7FDA91CB5F01F004BB860 /* Users.m */; };
+		9DC7FDAC1CB60CD3004BB860 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC7FDAB1CB60CD3004BB860 /* icon120.png */; };
+		9DC7FDAF1CB629E5004BB860 /* Fav_Img_Download_Fail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC7FDAD1CB629E5004BB860 /* Fav_Img_Download_Fail@2x.png */; };
+		9DC7FDB01CB629E5004BB860 /* Fav_Img_Download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC7FDAE1CB629E5004BB860 /* Fav_Img_Download@2x.png */; };
+		9DC7FDB21CB6505F004BB860 /* icon-pwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC7FDB11CB6505F004BB860 /* icon-pwd.png */; };
+		9DC7FDB81CB65A4C004BB860 /* Add-to-Cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC7FDB71CB65A4C004BB860 /* Add-to-Cloud.png */; };
+		9DC7FDBE1CB65CC1004BB860 /* Add-to-Cloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC7FDBD1CB65CC1004BB860 /* Add-to-Cloud@2x.png */; };
 		9DCA14441CA8C415006BB95A /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DCA14431CA8C415006BB95A /* ContactTableViewCell.m */; };
 		9DCA145A1CA8FABC006BB95A /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DCA14481CA8FABB006BB95A /* 1.png */; };
 		9DCA145B1CA8FABC006BB95A /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DCA14491CA8FABB006BB95A /* 10.png */; };
@@ -488,6 +497,18 @@
 		9D9A2E851CA123F6007739F0 /* RWDropdownMenuTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDropdownMenuTransitionController.m; sourceTree = "<group>"; };
 		9DABC2C91CAB67060046260C /* EntryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryModel.h; sourceTree = "<group>"; };
 		9DABC2CA1CAB67060046260C /* EntryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryModel.m; sourceTree = "<group>"; };
+		9DC7FDA21CB5EDF1004BB860 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		9DC7FDA31CB5EDF1004BB860 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		9DC7FDA51CB5EFE9004BB860 /* AppEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppEngine.h; sourceTree = "<group>"; };
+		9DC7FDA61CB5EFE9004BB860 /* AppEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppEngine.m; sourceTree = "<group>"; };
+		9DC7FDA81CB5F01F004BB860 /* Users.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Users.h; sourceTree = "<group>"; };
+		9DC7FDA91CB5F01F004BB860 /* Users.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Users.m; sourceTree = "<group>"; };
+		9DC7FDAB1CB60CD3004BB860 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
+		9DC7FDAD1CB629E5004BB860 /* Fav_Img_Download_Fail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fav_Img_Download_Fail@2x.png"; sourceTree = "<group>"; };
+		9DC7FDAE1CB629E5004BB860 /* Fav_Img_Download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fav_Img_Download@2x.png"; sourceTree = "<group>"; };
+		9DC7FDB11CB6505F004BB860 /* icon-pwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pwd.png"; sourceTree = "<group>"; };
+		9DC7FDB71CB65A4C004BB860 /* Add-to-Cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-to-Cloud.png"; sourceTree = "<group>"; };
+		9DC7FDBD1CB65CC1004BB860 /* Add-to-Cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add-to-Cloud@2x.png"; sourceTree = "<group>"; };
 		9DCA14421CA8C415006BB95A /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
 		9DCA14431CA8C415006BB95A /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
 		9DCA14481CA8FABB006BB95A /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -1185,10 +1206,20 @@
 		9DD0D8CB1C9F8738006ACF3B /* BaseVCs */ = {
 			isa = PBXGroup;
 			children = (
+				9DC7FDA81CB5F01F004BB860 /* Users.h */,
+				9DC7FDA91CB5F01F004BB860 /* Users.m */,
 				9DD0D96B1C9F8996006ACF3B /* MainTabBarController.h */,
 				9DD0D96C1C9F8996006ACF3B /* MainTabBarController.m */,
 				9DD0D9861C9F9117006ACF3B /* BaseVCElements.h */,
 				9DD0D9871C9F9117006ACF3B /* BaseVCElements.m */,
+				9DC7FDAD1CB629E5004BB860 /* Fav_Img_Download_Fail@2x.png */,
+				9DC7FDAE1CB629E5004BB860 /* Fav_Img_Download@2x.png */,
+				9DC7FDAB1CB60CD3004BB860 /* icon120.png */,
+				9DC7FDB11CB6505F004BB860 /* icon-pwd.png */,
+				9DC7FDBD1CB65CC1004BB860 /* Add-to-Cloud@2x.png */,
+				9DC7FDB71CB65A4C004BB860 /* Add-to-Cloud.png */,
+				9DC7FDA21CB5EDF1004BB860 /* LoginViewController.h */,
+				9DC7FDA31CB5EDF1004BB860 /* LoginViewController.m */,
 			);
 			path = BaseVCs;
 			sourceTree = "<group>";
@@ -1598,6 +1629,8 @@
 			isa = PBXGroup;
 			children = (
 				9D86D8571CA2287E00D2E514 /* Common.h */,
+				9DC7FDA51CB5EFE9004BB860 /* AppEngine.h */,
+				9DC7FDA61CB5EFE9004BB860 /* AppEngine.m */,
 				9DD0D9DF1C9FCE99006ACF3B /* ASIHttpUtil.h */,
 				9DD0D9E01C9FCE99006ACF3B /* ASIHttpUtil.m */,
 				9D9A2E541CA0EBEF007739F0 /* AppEngineManager.h */,
@@ -1737,7 +1770,9 @@
 				9D84E1151CB35E4700EEA75C /* qjb.jpg in Resources */,
 				9DCA14681CA8FABC006BB95A /* 6.png in Resources */,
 				9D8EAF8D1CB501EC00435CD8 /* Assets.xcassets in Resources */,
+				9DC7FDBE1CB65CC1004BB860 /* Add-to-Cloud@2x.png in Resources */,
 				9D9A2E721CA116D9007739F0 /* iconfont-icon-拷贝-2@3x.png in Resources */,
+				9DC7FDAC1CB60CD3004BB860 /* icon120.png in Resources */,
 				9D8EAF911CB503D400435CD8 /* Contact_Male@2x.png in Resources */,
 				9DCA14741CA8FE66006BB95A /* 22.png in Resources */,
 				9D9A2E641CA116C0007739F0 /* heart.png in Resources */,
@@ -1747,6 +1782,8 @@
 				9D83D8881CAE59C9004A8B2A /* IDMPhotoBrowser.bundle in Resources */,
 				9D9A2E681CA116C0007739F0 /* home-拷贝@2x.png in Resources */,
 				9D9A2E651CA116C0007739F0 /* heart@2x.png in Resources */,
+				9DC7FDAF1CB629E5004BB860 /* Fav_Img_Download_Fail@2x.png in Resources */,
+				9DC7FDB01CB629E5004BB860 /* Fav_Img_Download@2x.png in Resources */,
 				9DCA146B1CA8FABC006BB95A /* 9.png in Resources */,
 				9D9A2E711CA116D9007739F0 /* iconfont-icon-拷贝-2@2x.png in Resources */,
 				9D84E1111CB35E2600EEA75C /* abm.jpg in Resources */,
@@ -1761,6 +1798,7 @@
 				9DCA145C1CA8FABC006BB95A /* 11.png in Resources */,
 				9DCA14711CA8FE66006BB95A /* 19.png in Resources */,
 				9D84E1091CB353A900EEA75C /* 022@2x.png in Resources */,
+				9DC7FDB21CB6505F004BB860 /* icon-pwd.png in Resources */,
 				9D9A2E6A1CA116C0007739F0 /* home.png in Resources */,
 				9D9A2E761CA11713007739F0 /* iconfont-wodexuanzhong-拷贝.png in Resources */,
 				9DCA14621CA8FABC006BB95A /* 17.png in Resources */,
@@ -1772,6 +1810,7 @@
 				9D84E1171CB35E5800EEA75C /* ylq.jpg in Resources */,
 				9D83D8A11CAE59E7004A8B2A /* IDMPhotoBrowser_customDoneButton@2x.png in Resources */,
 				9DCA14611CA8FABC006BB95A /* 16.png in Resources */,
+				9DC7FDB81CB65A4C004BB860 /* Add-to-Cloud.png in Resources */,
 				9D86D8891CA26FDB00D2E514 /* stockList.plist in Resources */,
 				9D9A2E701CA116D9007739F0 /* iconfont-icon-拷贝-2.png in Resources */,
 				9DCA14601CA8FABC006BB95A /* 15.png in Resources */,
@@ -1802,6 +1841,7 @@
 			files = (
 				9DD0D9641C9F885A006ACF3B /* UIView+WebCacheOperation.m in Sources */,
 				9DD0D9421C9F885A006ACF3B /* MJRefreshAutoNormalFooter.m in Sources */,
+				9DC7FDA41CB5EDF1004BB860 /* LoginViewController.m in Sources */,
 				9D86D88F1CA2876500D2E514 /* FFNavbarMenu.m in Sources */,
 				9DD0D9D21C9F9A63006ACF3B /* ASINetworkQueue.m in Sources */,
 				9D8EAF881CB49F8C00435CD8 /* NSData+Gzip.m in Sources */,
@@ -1832,6 +1872,7 @@
 				9DD0D97F1C9F8BDF006ACF3B /* AllContactsViewController.m in Sources */,
 				9D71222B1CACC6570006D1D8 /* ContactDetailInfoVC.m in Sources */,
 				9D8EAF851CB49F8C00435CD8 /* NSData+APNSToken.m in Sources */,
+				9DC7FDA71CB5EFE9004BB860 /* AppEngine.m in Sources */,
 				9D8EAF651CB49F3900435CD8 /* NSString+Contains.m in Sources */,
 				9D9A2E871CA123F6007739F0 /* RWDropdownMenuCell.m in Sources */,
 				9DD2F6DC1CA3BA1B00573F21 /* FileTableViewCell.m in Sources */,
@@ -1894,6 +1935,7 @@
 				9D83D8631CAE4F5B004A8B2A /* POPAnimation.mm in Sources */,
 				9DD0D9511C9F885A006ACF3B /* SBJSON.m in Sources */,
 				9D83D8661CAE4F5B004A8B2A /* POPAnimationRuntime.mm in Sources */,
+				9DC7FDAA1CB5F01F004BB860 /* Users.m in Sources */,
 				9D83D8621CAE4F5B004A8B2A /* POPAnimatableProperty.mm in Sources */,
 				9DD0D8971C9F84DD006ACF3B /* main.m in Sources */,
 				9DD0D9CE1C9F9A63006ACF3B /* ASIDownloadCache.m in Sources */,
