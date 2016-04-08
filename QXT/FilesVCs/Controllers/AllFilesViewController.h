@@ -11,4 +11,5 @@
 @interface AllFilesViewController : FatherViewController
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, assign) BOOL isRootVC;
+@property (nonatomic, strong) NSString       *folderId;
 @end

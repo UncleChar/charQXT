@@ -17,7 +17,7 @@
 #import "EntryModel.h"
 #import "IDMPhoto.h"
 #import "IDMPhotoBrowser.h"
-@interface AllFilesViewController ()<ASIHTTPRequestDelegate,FFNavbarMenuDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,FileBtnSelectedDelegate,UzysAssetsPickerControllerDelegate,IDMPhotoBrowserDelegate>
+@interface AllFilesViewController ()<ASIHTTPRequestDelegate,FFNavbarMenuDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,FileBtnSelectedDelegate,UzysAssetsPickerControllerDelegate,IDMPhotoBrowserDelegate,QXTRequestDelegate>
 {
     NSMutableArray *photos;
     IDMPhotoBrowser *browser;
@@ -169,6 +169,7 @@
     [self configNavBarElementsUI];
     [self.view addSubview:[self configTableView]];
 
+    [self getObjListRequest];
 }
 
 - (void)initArray {
@@ -190,88 +191,88 @@
 //    }
     if (self.isRootVC) {
         
-        for (int i = 0 ; i < 20; i ++) {
-            
-            EntryModel *model = [[EntryModel alloc]init];
-            model.isSelected = NO;
-            NSString *fileName;
-            NSString *fileArtb;
-            NSString *time;
-            NSInteger k = arc4random() % 11 + 1;
-            switch (k) {
-                case 1:
-                    fileName = [NSString stringWithFormat:@"测试笔记_1735.note"];
-                    fileArtb = @"note";
-                    time = @"2013-12-16";
-                    break;
-                    
-                case 2:
-                    fileName = [NSString stringWithFormat:@"测试Txt_12515.txt"];
-                    fileArtb = @"txt";
-                    time = @"2013-10-16";
-                    break;
-                case 3:
-                    fileName = [NSString stringWithFormat:@"关于习大大在莅临灵利的指导.doc"];
-                    fileArtb = @"doc";
-                    time = @"2013-12-16";
-                    break;
-                case 4:
-                    fileName = [NSString stringWithFormat:@"我的图片.jpg"];
-                    fileArtb = @"pic";
-                    time = @"2014-08-09";
-                    break;
-                case 5:
-                    fileName = [NSString stringWithFormat:@"线性规划形成.pdf"];
-                    fileArtb = @"pdf";
-                    time = @"2016-12-07";
-                    break;
-                case 6:
-                    
-                    fileName = [NSString stringWithFormat:@"文件夹的测试"];
-                    fileArtb = @"floder";
-                    time = @"2013-12-16";
-                    break;
-                case 7:
-                    fileName = [NSString stringWithFormat:@"分享文件夹的诞生"];
-                    fileArtb = @"isShareFloder";
-                    time = @"2013-12-26";
-                    break;
-                case 8:
-                    
-                    fileName = [NSString stringWithFormat:@"习大大的工资单.excel"];
-                    fileArtb = @"excel";
-                    time = @"2018-12-16";
-                    break;
-                case 9:
-                    
-                    fileName = [NSString stringWithFormat:@"种子压缩包.zip"];
-                    fileArtb = @"zip";
-                    time = @"2017-03-16";
-                    break;
-                    
-                case 10:
-                    
-                    fileName = [NSString stringWithFormat:@"李克强在灵利的演讲稿.ppt"];
-                    fileArtb = @"ppt";
-                    time = @"2013-12-16";
-                    break;
-                    
-                case 11:
-                    
-                    fileName = [NSString stringWithFormat:@"卧虎藏龙.video"];
-                    fileArtb = @"video";
-                    time = @"2013-12-16";
-                    break;
-                default:
-                    break;
-            }
-            
-            model.fileName = fileName;
-            model.time = time;
-            model.fileAttribute = fileArtb;
-            [_dataSource addObject:model];
-            
-        }
+//        for (int i = 0 ; i < 20; i ++) {
+//            
+//            EntryModel *model = [[EntryModel alloc]init];
+//            model.isSelected = NO;
+//            NSString *fileName;
+//            NSString *fileArtb;
+//            NSString *time;
+//            NSInteger k = arc4random() % 11 + 1;
+//            switch (k) {
+//                case 1:
+//                    fileName = [NSString stringWithFormat:@"测试笔记_1735.note"];
+//                    fileArtb = @"note";
+//                    time = @"2013-12-16";
+//                    break;
+//                    
+//                case 2:
+//                    fileName = [NSString stringWithFormat:@"测试Txt_12515.txt"];
+//                    fileArtb = @"txt";
+//                    time = @"2013-10-16";
+//                    break;
+//                case 3:
+//                    fileName = [NSString stringWithFormat:@"关于习大大在莅临灵利的指导.doc"];
+//                    fileArtb = @"doc";
+//                    time = @"2013-12-16";
+//                    break;
+//                case 4:
+//                    fileName = [NSString stringWithFormat:@"我的图片.jpg"];
+//                    fileArtb = @"pic";
+//                    time = @"2014-08-09";
+//                    break;
+//                case 5:
+//                    fileName = [NSString stringWithFormat:@"线性规划形成.pdf"];
+//                    fileArtb = @"pdf";
+//                    time = @"2016-12-07";
+//                    break;
+//                case 6:
+//                    
+//                    fileName = [NSString stringWithFormat:@"文件夹的测试"];
+//                    fileArtb = @"floder";
+//                    time = @"2013-12-16";
+//                    break;
+//                case 7:
+//                    fileName = [NSString stringWithFormat:@"分享文件夹的诞生"];
+//                    fileArtb = @"isShareFloder";
+//                    time = @"2013-12-26";
+//                    break;
+//                case 8:
+//                    
+//                    fileName = [NSString stringWithFormat:@"习大大的工资单.excel"];
+//                    fileArtb = @"excel";
+//                    time = @"2018-12-16";
+//                    break;
+//                case 9:
+//                    
+//                    fileName = [NSString stringWithFormat:@"种子压缩包.zip"];
+//                    fileArtb = @"zip";
+//                    time = @"2017-03-16";
+//                    break;
+//                    
+//                case 10:
+//                    
+//                    fileName = [NSString stringWithFormat:@"李克强在灵利的演讲稿.ppt"];
+//                    fileArtb = @"ppt";
+//                    time = @"2013-12-16";
+//                    break;
+//                    
+//                case 11:
+//                    
+//                    fileName = [NSString stringWithFormat:@"卧虎藏龙.video"];
+//                    fileArtb = @"video";
+//                    time = @"2013-12-16";
+//                    break;
+//                default:
+//                    break;
+//            }
+//            
+//            model.fileName = fileName;
+//            model.time = time;
+//            model.fileAttribute = fileArtb;
+//            [_dataSource addObject:model];
+//            
+//        }
         
         
     }else {
@@ -327,7 +328,16 @@
 
     if (!_fileTableView) {
         
+       
         _fileTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64) style:UITableViewStylePlain];
+        if (self.isRootVC) {
+            
+            _fileTableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64);
+            
+        }else {
+            
+             _fileTableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - 15);
+        }
         _fileTableView.delegate = self;
         _fileTableView.dataSource = self;
         _fileTableView.contentOffset = CGPointMake(0, 44);
@@ -494,9 +504,9 @@
         }else {
         
                 AllFilesViewController *allFvc = [[AllFilesViewController alloc]init];
-                allFvc.dataSource = self.dataSource;
+//                allFvc.dataSource = self.dataSource;
                 allFvc.isRootVC = NO;
-            
+                allFvc.folderId = @"3247";
             //    // 从路径中获得完整的文件名（带后缀）
             //    exestr = [filePath lastPathComponent];
             //    NSLog(@"%@",exestr);
@@ -604,6 +614,77 @@
 
    
 }
+
+- (void)getObjListRequest {
+
+    NSString *url;
+    if(_folderId)
+    {
+      url = [NSString stringWithFormat:@"%@folder/obj/list?folder_id=%@",SERVER_HOST,_folderId];
+    }else
+    {
+        url = [NSString stringWithFormat:@"%@folder/obj/list",SERVER_HOST];
+    }
+    NSDictionary *dict = @{@"url":url,@"tag":@"1001"};
+    QXTRequest *request = [[QXTRequest alloc]init];
+    [request requestDataByDictionary:dict  requestType:RequestType_ObjList requsetMethod:REQUEST_METHOD_GET delegate:self];
+    
+
+
+}
+
+
+
+- (void)requsetFinshedByResponseData:(NSData *)responseData requestType:(RequestType)requestType {
+    
+//    NSLog(@" --------------- %@",responseData);
+
+    NSString *dataString = [[NSString alloc] initWithData:responseData
+                                                 encoding:NSUTF8StringEncoding];
+    SBJSON *jsonParser = [[SBJSON alloc] init];
+    
+    NSError *parseError = nil;
+    NSDictionary * result = [jsonParser objectWithString:dataString
+                                                   error:&parseError];
+    NSLog(@"jsonParserresult:%@",result[@"result"]);
+    
+     NSLog(@"###ffff %@",[result[@"result"] class]);
+    for (NSDictionary *dict in result[@"result"]) {
+        
+        
+//        NSLog(@"### %@",[dictArray class]);
+ 
+        
+            EntryModel *requestModel = [[EntryModel alloc]init];
+            
+            [requestModel setValuesForKeysWithDictionary:dict];
+        
+        requestModel.isSelected = NO;
+            NSLog(@"### %@",requestModel.action);
+
+        [_dataSource addObject:requestModel];
+        
+        
+    }
+    
+    [_fileTableView reloadData];
+    NSLog(@"  type %d",requestType);
+    
+    
+}
+
+- (void)requestFailedByError:(NSError *)responseError errorCode:(NSInteger)code {
+
+    NSLog(@"------------ %@",responseError);
+
+
+}
+
+
+
+
+
+
 
 
 

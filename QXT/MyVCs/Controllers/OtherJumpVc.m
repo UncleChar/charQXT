@@ -44,7 +44,16 @@
 - (void)requsetFinshedByResponseData:(NSData *)responseData requestType:(RequestType)requestType {
 
     NSLog(@" --------------- %@",responseData);
-      NSLog(@"  type %d",requestType);
+
+    NSString *dataString = [[NSString alloc] initWithData:responseData
+                                                 encoding:NSUTF8StringEncoding];
+    SBJSON *jsonParser = [[SBJSON alloc] init];
+    
+    NSError *parseError = nil;
+    NSDictionary * result = [jsonParser objectWithString:dataString
+                                                   error:&parseError];
+    NSLog(@"jsonParserresult:%@",result);
+    
     
 
 }

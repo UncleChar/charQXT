@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSString      *avatar;
 @property (nonatomic, strong) NSString      *user_id;
 @property (nonatomic, retain) NSString      *user_name;
+@property (nonatomic, retain) NSString      *cloud_id;
+@property (nonatomic, retain) NSString      *cloud_name;
 @property (nonatomic, retain) NSString      *password;
 @property (nonatomic, retain) NSString      *email;
 @property (nonatomic, retain) NSString      *real_name;

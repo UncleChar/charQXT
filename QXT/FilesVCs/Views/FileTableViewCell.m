@@ -96,8 +96,31 @@
     _model = model;
 //    NSLog(@"--- %i",_model.isSelected);
 
-    urgLabel.text = _model.time;
-     nameLabel.text = _model.fileName;
+    urgLabel.text = _model.action;
+    if ([_model.isFolder boolValue]) {
+        
+         nameLabel.text = _model.folder_name;
+        if (![_model.isShared boolValue]) {
+            
+            indexIV.image = [UIImage imageNamed:@"file_personal"];
+        }else{
+            
+            indexIV.image = [UIImage imageNamed:@"file_shared"];
+        }
+        
+        
+    }else {
+    
+         nameLabel.text = _model.file_name;
+
+        NSString *exestr = [_model.file_name pathExtension];
+
+        [self fileAvatarType:exestr];
+        
+    
+        
+    }
+    
     if (model.isSelected) {
         
         selectedBtn.selected = YES;
@@ -105,51 +128,10 @@
         selectedBtn.selected = NO;
     }
 
-    if ([model.fileAttribute isEqualToString:@"note"]) {
-        
-        indexIV.image = [UIImage imageNamed:@"file_note"];
-    }
-    if ([model.fileAttribute isEqualToString:@"txt"]) {
-        
-        indexIV.image = [UIImage imageNamed:@"preview_txt_icon"];
-    }
-    if ([model.fileAttribute isEqualToString:@"doc"]) {
-        
-        indexIV.image = [UIImage imageNamed:@"preview_doc_icon"];
-    }
-    if ([model.fileAttribute isEqualToString:@"pic"]) {
-        
-        indexIV.image = [UIImage imageNamed:@"preview_pic_icon"];
-    }
-    if ([model.fileAttribute isEqualToString:@"pdf"]) {
-        
-        indexIV.image = [UIImage imageNamed:@"preview_pdf_icon"];
-    }
-    if ([model.fileAttribute isEqualToString:@"floder"]) {
-        
-        indexIV.image = [UIImage imageNamed:@"file_personal"];
-    }
-    if ([model.fileAttribute isEqualToString:@"isShareFloder"]) {
-        
-        indexIV.image = [UIImage imageNamed:@"file_shared"];
-    }
-    if ([model.fileAttribute isEqualToString:@"excel"]) {
-        
-        indexIV.image = [UIImage imageNamed:@"preview_xls_icon"];
-    }
-    if ([model.fileAttribute isEqualToString:@"zip"]) {
-        
-        indexIV.image = [UIImage imageNamed:@"preview_rar_icon"];
-    }
-    if ([model.fileAttribute isEqualToString:@"ppt"]) {
-        
-        indexIV.image = [UIImage imageNamed:@"preview_ppt_icon"];
-    }
-    if ([model.fileAttribute isEqualToString:@"video"]) {
-        
-        indexIV.image = [UIImage imageNamed:@"preview_video_icon"];
-    }
 
+    
+    
+    
 }
 
 - (void)selectedBtnClecked:(UIButton *)sender {
@@ -219,6 +201,59 @@
         urgLabel.frame = CGRectMake(70 , 40, 200, 20);
 
     }
+}
+
+
+
+- (void)fileAvatarType:(NSString *)type {
+
+    if ([type isEqualToString:@"note"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"file_note"];
+    }
+    if ([type isEqualToString:@"txt"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_txt_icon"];
+    }
+    if ([type isEqualToString:@"doc"]||[type isEqualToString:@"docx"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_doc_icon"];
+    }
+    if ([type isEqualToString:@"PNG"]||[type isEqualToString:@"png"]||[type isEqualToString:@"jpej"]||[type isEqualToString:@"jpg"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_pic_icon"];
+    }
+    if ([type isEqualToString:@"pdf"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_pdf_icon"];
+    }
+    if ([type isEqualToString:@"floder"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"file_personal"];
+    }
+    if ([type isEqualToString:@"isShareFloder"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"file_shared"];
+    }
+    if ([type isEqualToString:@"xlsx"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_xls_icon"];
+    }
+    if ([type isEqualToString:@"zip"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_rar_icon"];
+    }
+    if ([type isEqualToString:@"ppt"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_ppt_icon"];
+    }
+    if ([type isEqualToString:@"video"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_video_icon"];
+    }
+
+    
+
 }
 
 @end

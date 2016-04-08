@@ -46,6 +46,9 @@
 
 //获取用户令牌，放入HTTP的Header中
 -(NSString*) GetAccessToken;
+
+-(NSString*) GetCloud_Id;
+
 //获取refreshToken
 - (NSString *)GetRefreshToken;
 //获取用户的id

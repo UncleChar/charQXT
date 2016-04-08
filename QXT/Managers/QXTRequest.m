@@ -41,6 +41,14 @@
 
             ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[parmDict[@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 
+            [request setValidatesSecureCertificate:NO];   //-----https
+            [request setQueuePriority:NSOperationQueuePriorityNormal];
+            [request addRequestHeader:@"Content-Type"
+                                value:@"application/x-www-form-urlencoded"];
+            
+            [request addRequestHeader:@"HTTP_X_OAUTH"
+                                value:[[AppEngineManager sharedInstance] GetAccessToken]];
+            [request addRequestHeader:@"CLOUD_ID" value:[[AppEngineManager sharedInstance] GetCloud_Id]];
             [request setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:parmDict[@"tag"],@"tag",nil]];
 
             __block ASIHTTPRequest *blockRequest = request;

@@ -84,6 +84,8 @@ static  AppEngineManager *sharedElement = nil;
     _user.avatar = [userDict objectForKey:@"avatar"];
     _user.user_id = [userDict objectForKey:@"user_id"];
     _user.user_name = [userDict objectForKey:@"user_name"];
+    _user.cloud_id = [userDict objectForKey:@"cloud_id"];
+    _user.cloud_name = [userDict objectForKey:@"cloud_name"];
     _user.password = [userDict objectForKey:@"password"];
     _user.email = [userDict objectForKey:@"email"];
     _user.real_name = [userDict objectForKey:@"real_name"];
@@ -106,6 +108,8 @@ static  AppEngineManager *sharedElement = nil;
     [_defaults setObject:_user.avatar forKey:@"avatar"];
     [_defaults setObject:_user.user_id forKey:@"user_id"];
     [_defaults setObject:_user.user_name forKey:@"user_name"];
+    [_defaults setObject:_user.cloud_id forKey:@"cloud_id"];
+    [_defaults setObject:_user.cloud_name forKey:@"cloud_name"];
     [_defaults setObject:_user.password forKey:@"password"];
     [_defaults setObject:_user.email forKey:@"email"];
     [_defaults setObject:_user.real_name forKey:@"real_name"];
@@ -125,6 +129,16 @@ static  AppEngineManager *sharedElement = nil;
     if (_user) {
         return [_defaults objectForKey:@"date"];
     }
+    return nil;
+}
+
+-(NSString*)GetCloud_Id
+{
+    if(_user)
+    {
+        return [_defaults objectForKey:@"cloud_id"];
+    }
+    
     return nil;
 }
 
