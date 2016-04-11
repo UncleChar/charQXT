@@ -10,7 +10,11 @@
 #import "Common.h"
 
 @interface QXTRequest ()<ASIHTTPRequestDelegate>
+{
 
+    ASIHTTPRequest *asiRequest;
+    ASIHTTPRequest *tokenRequest;
+}
 @end
 
 @implementation QXTRequest
@@ -39,29 +43,31 @@
         case REQUEST_METHOD_GET:
         {
 
-            ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[parmDict[@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+            asiRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[parmDict[@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 
-            [request setValidatesSecureCertificate:NO];   //-----https
-            [request setQueuePriority:NSOperationQueuePriorityNormal];
-            [request addRequestHeader:@"Content-Type"
+            [asiRequest setValidatesSecureCertificate:NO];   //-----https
+            [asiRequest setQueuePriority:NSOperationQueuePriorityNormal];
+            [asiRequest addRequestHeader:@"Content-Type"
                                 value:@"application/x-www-form-urlencoded"];
             
-            [request addRequestHeader:@"HTTP_X_OAUTH"
-                                value:[[AppEngineManager sharedInstance] GetAccessToken]];
-            [request addRequestHeader:@"CLOUD_ID" value:[[AppEngineManager sharedInstance] GetCloud_Id]];
-            [request setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:parmDict[@"tag"],@"tag",nil]];
+            [asiRequest addRequestHeader:@"HTTP_X_OAUTH"
+                                value:[[AppEngineManager sharedInstance] GetAccessToken]];//[[AppEngineManager sharedInstance] GetAccessToken]
+            [asiRequest addRequestHeader:@"CLOUD_ID" value:[[AppEngineManager sharedInstance] GetCloud_Id]];
+            [asiRequest setUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:parmDict[@"tag"],@"tag",nil]];
 
-            __block ASIHTTPRequest *blockRequest = request;
-            [request setCompletionBlock:^{
-                [self requestFinished:blockRequest];
+            NSLog(@"rrtttt %@",[[AppEngineManager sharedInstance] GetAccessToken]);
+            __block ASIHTTPRequest *blockRequest = asiRequest;
+            __weak typeof(self) weakSelf = self;
+            [asiRequest setCompletionBlock:^{
+                [weakSelf requestFinished:blockRequest];
             }];
-            [request setFailedBlock:^{
-                [self requestFailed:blockRequest];
+            [asiRequest setFailedBlock:^{
+                [weakSelf requestFailed:blockRequest];
             }];
-            [request setNumberOfTimesToRetryOnTimeout:0];
-            [request setTimeOutSeconds:30.0f];
+            [asiRequest setNumberOfTimesToRetryOnTimeout:0];
+            [asiRequest setTimeOutSeconds:30.0f];
 
-            [request startAsynchronous];
+            [asiRequest startAsynchronous];
         }
             
             break;
@@ -148,6 +154,43 @@
     
 }
 
+- (void)changeTokenWithDelegate:(id<QXTRequestDelegate>)delegate requestType:(RequestType )requestType {
+    
+    _delegate        = delegate;
+    _requestType     = requestType;
+    NSString *changeStr = [NSString stringWithFormat:@"%@oauth2/token?grant_type=refresh_token&refresh_token=%@&client_id=UmxT6CuwQYrtJGFp&client_secret=GxsxayamApUSwTq9",SERVER_HOST,[[AppEngineManager sharedInstance] GetRefreshToken]];
+    
+    tokenRequest = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:changeStr]];
+
+
+    [tokenRequest setValidatesSecureCertificate:NO];   //-----https
+    [tokenRequest setQueuePriority:NSOperationQueuePriorityNormal];
+    [tokenRequest addRequestHeader:@"Content-Type"
+                        value:@"application/x-www-form-urlencoded"];
+
+    [asiRequest addRequestHeader:@"HTTP_X_OAUTH"
+                           value:[[AppEngineManager sharedInstance] GetAccessToken]];
+    [asiRequest addRequestHeader:@"CLOUD_ID" value:[[AppEngineManager sharedInstance] GetCloud_Id]];
+    
+
+    __block ASIHTTPRequest *blockRequest = tokenRequest;
+    __weak typeof(self) weakSelf = self;
+    [tokenRequest setCompletionBlock:^{
+        [weakSelf requestFinished:blockRequest];
+    }];
+    [tokenRequest setFailedBlock:^{
+        [weakSelf requestFailed:blockRequest];
+    }];
+    [tokenRequest setNumberOfTimesToRetryOnTimeout:0];
+    [tokenRequest setTimeOutSeconds:30.0f];
+    
+    [tokenRequest startAsynchronous];
+
+    
+      
+}
+
+
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
@@ -165,9 +208,27 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request {
 
-    if ([_delegate respondsToSelector:@selector(requestFailedByError:errorCode:)])
+    
+    if ([_delegate respondsToSelector:@selector(requestFailedByError:errorCode:forRequest:withRequestType:)])
     {
-        [_delegate requestFailedByError:request.error errorCode:112];
+        [_delegate requestFailedByError:request.error errorCode:112 forRequest:request withRequestType:_requestType];
+        
+    }
+
+}
+
+- (void)clearDelegatesAndCancel {
+
+
+    if (asiRequest) {
+        
+        [asiRequest clearDelegatesAndCancel];
+        asiRequest.delegate = nil;
+    }
+    if (tokenRequest) {
+        
+        [tokenRequest clearDelegatesAndCancel];
+        tokenRequest.delegate = nil;
         
     }
 

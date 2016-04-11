@@ -219,7 +219,7 @@
         
         indexIV.image = [UIImage imageNamed:@"preview_doc_icon"];
     }
-    if ([type isEqualToString:@"PNG"]||[type isEqualToString:@"png"]||[type isEqualToString:@"jpej"]||[type isEqualToString:@"jpg"]) {
+    if ([type isEqualToString:@"PNG"]||[type isEqualToString:@"png"]||[type isEqualToString:@"jpeg"]||[type isEqualToString:@"jpg"]) {
         
         indexIV.image = [UIImage imageNamed:@"preview_pic_icon"];
     }

@@ -43,7 +43,7 @@
 //#import "MultiTextView.h"
 //#import "DBManager.h"
 #import "MJRefresh.h"
-//
+#import "NSString+Extension.h"
 //#import "AppDelegate.h"
 //#import "NSString+JHXMLEntities.h"
 //#import "JHSoapRequest.h"

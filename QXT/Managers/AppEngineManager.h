@@ -44,6 +44,9 @@
 -(void)saveUserLoginInfo:(NSMutableDictionary*) userDict;
 
 
+- (void)saveRefreshTokenInfoWithAccesstoken:(NSString *)accessToken refreshToken:(NSString *)refreshToken;
+
+
 //获取用户令牌，放入HTTP的Header中
 -(NSString*) GetAccessToken;
 

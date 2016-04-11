@@ -10,11 +10,7 @@
 
 @interface EntryModel : NSObject
 @property (nonatomic, assign) BOOL       isSelected;
-@property (nonatomic, strong) NSString   *fileName;
-@property (nonatomic, strong) NSString   *fileAttribute;
-@property (nonatomic, strong) NSString   *time;
-@property (nonatomic, strong) NSString   *actionOpreat;
-
+//@property (nonatomic, assign) BOOL       isSelected;
 
 @property (nonatomic, strong) NSString   *action;
 @property (nonatomic, strong) NSString   *create_uid;
@@ -42,9 +38,12 @@
 @property (nonatomic, strong) NSString   *owner_uid;
 @property (nonatomic, strong) NSString   *parent_id;
 @property (nonatomic, strong) NSString   *permission;
-//@property (nonatomic, strong) NSDictionary   *tags;
+@property (nonatomic, strong) NSDictionary   *tags;
 @property (nonatomic, strong) NSString   *update_date;
 @property (nonatomic, strong) NSString   *user_count;
+
+@property (nonatomic, strong) NSString   *version_count;
+@property (nonatomic, strong) NSString   *version_id;
 
 
 @end

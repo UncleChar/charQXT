@@ -116,7 +116,7 @@ typedef void(^FailureBlock)(NSString *errorDesc);
 
 - (void)requsetFinshedByResponseData:(NSData *)responseData requestType:(RequestType)requestType;
 
-- (void)requestFailedByError:(NSError *)responseError errorCode:(NSInteger)code  ;
+- (void)requestFailedByError:(NSError *)responseError errorCode:(NSInteger)code forRequest:(ASIHTTPRequest *)errorRequest withRequestType:(RequestType)requestType;
 
 @end
 
@@ -145,12 +145,13 @@ typedef void(^FailureBlock)(NSString *errorDesc);
 
 
 
+- (void)clearDelegatesAndCancel;
 
 
 
 
-
-
+- (void)changeTokenWithDelegate:(id<QXTRequestDelegate>)delegate
+                    requestType:(RequestType )requestType;
 
 
 

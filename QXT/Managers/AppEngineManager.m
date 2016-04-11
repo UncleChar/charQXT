@@ -124,6 +124,18 @@ static  AppEngineManager *sharedElement = nil;
     [_defaults synchronize];//同步写入到文件
 }
 
+- (void)saveRefreshTokenInfoWithAccesstoken:(NSString *)accessToken refreshToken:(NSString *)refreshToken {
+    
+    _user.refresh_token = refreshToken;
+    _user.access_token  = accessToken;
+    [_defaults setObject:_user.refresh_token forKey:@"refresh_token"];
+    [_defaults setObject:_user.access_token forKey:@"access_token"];
+    [_defaults synchronize];//同步写入到文件
+    
+    
+    
+}
+
 - (NSDate *)GetCurrentDate
 {
     if (_user) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D3A4E8C1CBB862D00CEAF23 /* OtherFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A4E8B1CBB862D00CEAF23 /* OtherFileController.m */; };
 		9D7122261CACB3370006D1D8 /* OtherJumpVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7122251CACB3370006D1D8 /* OtherJumpVc.m */; };
 		9D71222B1CACC6570006D1D8 /* ContactDetailInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71222A1CACC6570006D1D8 /* ContactDetailInfoVC.m */; };
 		9D83D7571CAE0B17004A8B2A /* add_friend_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D83D7561CAE0B17004A8B2A /* add_friend_icon@2x.png */; };
@@ -273,6 +274,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D3A4E8A1CBB862D00CEAF23 /* OtherFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherFileController.h; sourceTree = "<group>"; };
+		9D3A4E8B1CBB862D00CEAF23 /* OtherFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherFileController.m; sourceTree = "<group>"; };
 		9D7122241CACB3370006D1D8 /* OtherJumpVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherJumpVc.h; sourceTree = "<group>"; };
 		9D7122251CACB3370006D1D8 /* OtherJumpVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherJumpVc.m; sourceTree = "<group>"; };
 		9D7122291CACC6570006D1D8 /* ContactDetailInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactDetailInfoVC.h; path = ContactsVC/ContactDetailInfoVC.h; sourceTree = "<group>"; };
@@ -1241,6 +1244,8 @@
 				9D9668C11CA4E6B400EA0DBC /* FatherViewController.m */,
 				9DD0D9711C9F8B88006ACF3B /* AllFilesViewController.h */,
 				9DD0D9721C9F8B88006ACF3B /* AllFilesViewController.m */,
+				9D3A4E8A1CBB862D00CEAF23 /* OtherFileController.h */,
+				9D3A4E8B1CBB862D00CEAF23 /* OtherFileController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1925,6 +1930,7 @@
 				9DD0D93D1C9F885A006ACF3B /* MJRefreshBackFooter.m in Sources */,
 				9DD0D9571C9F885A006ACF3B /* SDImageCache.m in Sources */,
 				9DD0D9881C9F9117006ACF3B /* BaseVCElements.m in Sources */,
+				9D3A4E8C1CBB862D00CEAF23 /* OtherFileController.m in Sources */,
 				9DD0D94F1C9F885A006ACF3B /* NSObject+SBJSON.m in Sources */,
 				9DD0D95C1C9F885A006ACF3B /* SDWebImageManager.m in Sources */,
 				9DD0D9E11C9FCE99006ACF3B /* ASIHttpUtil.m in Sources */,

@@ -85,6 +85,8 @@ static AppEngine * AppEngineInstance = nil; //单例对象
     [defaults synchronize];//同步写入到文件
 }
 
+
+
 - (NSDate *)GetCurrentDate
 {
     if (_owner) {

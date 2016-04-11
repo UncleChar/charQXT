@@ -17,11 +17,13 @@
 #import "EntryModel.h"
 #import "IDMPhoto.h"
 #import "IDMPhotoBrowser.h"
+#import "OtherFileController.h"
 @interface AllFilesViewController ()<ASIHTTPRequestDelegate,FFNavbarMenuDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,FileBtnSelectedDelegate,UzysAssetsPickerControllerDelegate,IDMPhotoBrowserDelegate,QXTRequestDelegate>
 {
-    NSMutableArray *photos;
+    NSMutableArray  *photos;
     IDMPhotoBrowser *browser;
-    NSInteger     indextPhontoDelete;
+    NSInteger       indextPhontoDelete;
+    QXTRequest      *qxtRequest;
 }
 @property (nonatomic, strong) NSArray *menuItems;
 @property (assign, nonatomic) NSInteger numberOfItemsInRow;
@@ -169,7 +171,7 @@
     [self configNavBarElementsUI];
     [self.view addSubview:[self configTableView]];
 
-    [self getObjListRequest];
+    [self getObjListRequestAtLocalData];
 }
 
 - (void)initArray {
@@ -473,60 +475,71 @@
 
     if (_fileTableView == tableView) {
         
-        if ([[[self.dataSource[indexPath.row] fileName]pathExtension]isEqualToString:@"jpg"] ) {
-            
-            
-            NSArray *photosWithURL = [IDMPhoto photosWithURLs:[NSArray arrayWithObjects:[NSURL URLWithString:@"http://pic.to8to.com/attch/day_160218/20160218_6410eaeeba9bc1b3e944xD5gKKhPEuEv.png"], @"http://img15.3lian.com/2015/f2/50/d/75.jpg",@"http://g.hiphotos.baidu.com/image/pic/item/241f95cad1c8a7866f726fe06309c93d71cf5087.jpg", @"http://pic9.nipic.com/20100817/3320946_114627281129_2.jpg", nil]];
-            
-            photos = [NSMutableArray arrayWithArray:photosWithURL];
-            
-            if (indextPhontoDelete != 100) {
+            EntryModel *tableViewModel = self.dataSource[indexPath.row];
+
+            if ([[tableViewModel isFolder] boolValue]) {//文件夹
                 
-                [photos removeObjectAtIndex:indextPhontoDelete];
-            }
-            
-            // Create and setup browser
-            browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
-            browser.delegate = self;
-            
-            browser.actionButtonTitles      = @[@"打开", @"评论", @"分享", @"保存到相册",@"删除"];
-            browser.displayCounterLabel     = YES;
-            browser.useWhiteBackgroundColor = NO;
-            browser.displayArrowButton = NO;
-            browser.displayDoneButton = NO;
-            browser.doneButtonImage         = [UIImage imageNamed:@"IDMPhotoBrowser_customDoneButton.png"];
-            browser.view.tintColor          = [UIColor whiteColor];
-            browser.progressTintColor       = [UIColor whiteColor];
-            browser.trackTintColor          = [UIColor colorWithWhite:0.8 alpha:1];
-            
-            [self presentViewController:browser animated:YES completion:nil];
-            
-        }else {
-        
                 AllFilesViewController *allFvc = [[AllFilesViewController alloc]init];
-//                allFvc.dataSource = self.dataSource;
                 allFvc.isRootVC = NO;
-                allFvc.folderId = @"3247";
-            //    // 从路径中获得完整的文件名（带后缀）
-            //    exestr = [filePath lastPathComponent];
-            //    NSLog(@"%@",exestr);
-            //    // 获得文件名（不带后缀）
-            //    exestr = [exestr stringByDeletingPathExtension];
-            //    NSLog(@"%@",exestr);
-            //
-            //    // 获得文件的后缀名（不带'.'）
-            //    exestr = [filePath pathExtension];
-            //    NSLog(@"%@",exestr);
-                
-                allFvc.title = [[allFvc.dataSource[indexPath.row] fileName] stringByDeletingPathExtension];
-                NSLog(@"CLICKED : %@",[allFvc.dataSource[indexPath.row] fileName]);
+                allFvc.folderId = tableViewModel.folder_id;
+                allFvc.title = [tableViewModel.folder_name stringByDeletingPathExtension];
                 [self.navigationController pushViewController:allFvc animated:YES];
+                
+            }else if ([self isPicWithFileName:tableViewModel.file_name] ) {
+                
+                
+                NSArray *photosWithURL = [IDMPhoto photosWithURLs:[NSArray arrayWithObjects:[NSURL URLWithString:@"http://pic.to8to.com/attch/day_160218/20160218_6410eaeeba9bc1b3e944xD5gKKhPEuEv.png"], @"http://img15.3lian.com/2015/f2/50/d/75.jpg",@"http://g.hiphotos.baidu.com/image/pic/item/241f95cad1c8a7866f726fe06309c93d71cf5087.jpg", @"http://pic9.nipic.com/20100817/3320946_114627281129_2.jpg", nil]];
+                
+                photos = [NSMutableArray arrayWithArray:photosWithURL];
+                
+                if (indextPhontoDelete != 100) {
+                    
+                    [photos removeObjectAtIndex:indextPhontoDelete];
+                }
+                
+                // Create and setup browser
+                browser = [[IDMPhotoBrowser alloc] initWithPhotos:photos];
+                browser.delegate = self;
+                
+                browser.actionButtonTitles      = @[@"打开", @"评论", @"分享", @"保存到相册",@"删除"];
+                browser.displayCounterLabel     = YES;
+                browser.useWhiteBackgroundColor = NO;
+                browser.displayArrowButton = NO;
+                browser.displayDoneButton = NO;
+                browser.doneButtonImage         = [UIImage imageNamed:@"IDMPhotoBrowser_customDoneButton.png"];
+                browser.view.tintColor          = [UIColor whiteColor];
+                browser.progressTintColor       = [UIColor whiteColor];
+                browser.trackTintColor          = [UIColor colorWithWhite:0.8 alpha:1];
+                
+                [self presentViewController:browser animated:YES completion:nil];
+                
+            }else {  //文件
+
+                PRETTY_LOG(@"EXTR :%@",[tableViewModel.file_name pathExtension]);
+//                OtherFileController *otherVc = [[OtherFileController alloc]init];
+//                otherVc.
+//
+//                [self.navigationController pushViewController:otherVc animated:YES];
+                
+            }
+
         
-        }
+        
+      
         
     }else {
     
-        if ([[[self.searchDataSource[indexPath.row] fileName]pathExtension]isEqualToString:@"jpg"] ) {
+        EntryModel *searchTableViewModel = self.searchDataSource[indexPath.row];
+        
+        if ([[searchTableViewModel isFolder] boolValue]) {//文件夹
+            
+            AllFilesViewController *allFvc = [[AllFilesViewController alloc]init];
+            allFvc.isRootVC = NO;
+            allFvc.folderId = searchTableViewModel.folder_id;
+            allFvc.title = [searchTableViewModel.folder_name stringByDeletingPathExtension];
+            [self.navigationController pushViewController:allFvc animated:YES];
+            
+        }else if ([self isPicWithFileName:searchTableViewModel.file_name] ) {
             
             
             NSArray *photosWithURL = [IDMPhoto photosWithURLs:[NSArray arrayWithObjects:[NSURL URLWithString:@"http://pic.to8to.com/attch/day_160218/20160218_6410eaeeba9bc1b3e944xD5gKKhPEuEv.png"], @"http://img15.3lian.com/2015/f2/50/d/75.jpg",@"http://g.hiphotos.baidu.com/image/pic/item/241f95cad1c8a7866f726fe06309c93d71cf5087.jpg", @"http://pic9.nipic.com/20100817/3320946_114627281129_2.jpg", nil]];
@@ -554,128 +567,194 @@
             
             [self presentViewController:browser animated:YES completion:nil];
             
-        }else {
+        }else {  //文件
             
-                AllFilesViewController *allFvc = [[AllFilesViewController alloc]init];
-                allFvc.dataSource = self.searchDataSource;
-                allFvc.isRootVC = NO;
-            
-            //    // 从路径中获得完整的文件名（带后缀）
-            //    exestr = [filePath lastPathComponent];
-            //    NSLog(@"%@",exestr);
-            //    // 获得文件名（不带后缀）
-            //    exestr = [exestr stringByDeletingPathExtension];
-            //    NSLog(@"%@",exestr);
-            //
-            //    // 获得文件的后缀名（不带'.'）
-            //    exestr = [filePath pathExtension];
-            //    NSLog(@"%@",exestr);
-                
-                allFvc.title = [[allFvc.dataSource[indexPath.row] fileName] stringByDeletingPathExtension];
-                NSLog(@"CLICKED : %@",[allFvc.dataSource[indexPath.row] fileName]);
-                [self.navigationController pushViewController:allFvc animated:YES];
+            //                allFvc.title = [[self.dataSource[indexPath.row] file_name] stringByDeletingPathExtension];
+            PRETTY_LOG(@"SEARCHTEXTR :%@",[searchTableViewModel.file_name pathExtension]);
             
         }
-    
-    
+        
+        
+
     }
-    
-    
-    
-//    AllFilesViewController *allFvc = [[AllFilesViewController alloc]init];
-//    if (_fileTableView == tableView) {
-//        
-//        allFvc.dataSource = self.dataSource;
-//        
-//    }else {
-//        
-//        allFvc.dataSource = self.searchDataSource;
-//        
-//    }
-//    allFvc.isRootVC = NO;
-//    
-////    // 从路径中获得完整的文件名（带后缀）
-////    exestr = [filePath lastPathComponent];
-////    NSLog(@"%@",exestr);
-////    // 获得文件名（不带后缀）
-////    exestr = [exestr stringByDeletingPathExtension];
-////    NSLog(@"%@",exestr);
-////    
-////    // 获得文件的后缀名（不带'.'）
-////    exestr = [filePath pathExtension];
-////    NSLog(@"%@",exestr);
-//    
-//    allFvc.title = [[allFvc.dataSource[indexPath.row] fileName] stringByDeletingPathExtension];
-//    NSLog(@"CLICKED : %@",[allFvc.dataSource[indexPath.row] fileName]);
-//    [self.navigationController pushViewController:allFvc animated:YES];
-    
-
-    
-
-   
 }
-
-- (void)getObjListRequest {
+#pragma mark --ObjListRequest
+- (void)getObjListRequestAtLocalData {
 
     NSString *url;
     if(_folderId)
     {
-      url = [NSString stringWithFormat:@"%@folder/obj/list?folder_id=%@",SERVER_HOST,_folderId];
+        url = [NSString stringWithFormat:@"%@folder/obj/list?folder_id=%@",SERVER_HOST,_folderId];
+        
     }else
     {
         url = [NSString stringWithFormat:@"%@folder/obj/list",SERVER_HOST];
     }
+    
     NSDictionary *dict = @{@"url":url,@"tag":@"1001"};
-    QXTRequest *request = [[QXTRequest alloc]init];
-    [request requestDataByDictionary:dict  requestType:RequestType_ObjList requsetMethod:REQUEST_METHOD_GET delegate:self];
+     qxtRequest    = [[QXTRequest alloc]init];
+    [qxtRequest requestDataByDictionary:dict  requestType:RequestType_ObjList requsetMethod:REQUEST_METHOD_GET delegate:self];
     
 
 
 }
-
-
 
 - (void)requsetFinshedByResponseData:(NSData *)responseData requestType:(RequestType)requestType {
-    
-//    NSLog(@" --------------- %@",responseData);
 
-    NSString *dataString = [[NSString alloc] initWithData:responseData
-                                                 encoding:NSUTF8StringEncoding];
-    SBJSON *jsonParser = [[SBJSON alloc] init];
     
-    NSError *parseError = nil;
-    NSDictionary * result = [jsonParser objectWithString:dataString
-                                                   error:&parseError];
-    NSLog(@"jsonParserresult:%@",result[@"result"]);
-    
-     NSLog(@"###ffff %@",[result[@"result"] class]);
-    for (NSDictionary *dict in result[@"result"]) {
-        
-        
-//        NSLog(@"### %@",[dictArray class]);
- 
-        
-            EntryModel *requestModel = [[EntryModel alloc]init];
+    switch (requestType) {
+        case RequestType_ObjList:
+        {
             
-            [requestModel setValuesForKeysWithDictionary:dict];
-        
-        requestModel.isSelected = NO;
-            NSLog(@"### %@",requestModel.action);
+            NSString *dataString = [[NSString alloc] initWithData:responseData
+                                                         encoding:NSUTF8StringEncoding];
+            SBJSON *jsonParser = [[SBJSON alloc] init];
+            
+            NSError *parseError = nil;
+            NSDictionary * result = [jsonParser objectWithString:dataString
+                                                           error:&parseError];
+            PRETTY_LOG(@"RequestType_ObjList:%@",result[@"result"]);
+            
+            PRETTY_LOG(@"###ffff %@",[result[@"result"] class]);
+            
+            for (NSDictionary *dict in result[@"result"]) {//处理数据模型
+                
+                
+                //        PRETTY_LOG(@"### %@",[dictArray class]);
+                
+                
+                EntryModel *requestModel = [[EntryModel alloc]init];
+                
+                [requestModel setValuesForKeysWithDictionary:dict];
+                requestModel.isSelected = NO;
+                PRETTY_LOG(@"### %@",requestModel.action);
+                
+                [_dataSource addObject:requestModel];
+                
+                
+            }
+            
+            [_fileTableView reloadData];
+            PRETTY_LOG(@"  type %d",requestType);
 
-        [_dataSource addObject:requestModel];
+        }
+            break;
+        case RequestType_ChangeToken:
+        {
+            
+            NSString *dataString = [[NSString alloc] initWithData:responseData
+                                                         encoding:NSUTF8StringEncoding];
+            SBJSON *jsonParser = [[SBJSON alloc] init];
+            
+            NSError *parseError = nil;
+            NSDictionary * result = [jsonParser objectWithString:dataString
+                                                           error:&parseError];
+            PRETTY_LOG(@"RequestType_ChangeToken:%@",result[@"result"]);
+            NSObject * obj = [result objectForKey:@"result"];
+            if(obj == Nil)
+            {
+                return;
+                
+            }
+            if( [obj isKindOfClass:[NSDictionary class]] )
+            {
+                
+                PRETTY_LOG(@"classs:%@",result[@"result"]);
+                NSDictionary *resultNew = (NSDictionary *)obj;
+                NSString *newtoken = [resultNew objectForKey:@"access_token"];
+                NSString *newRefreshToken = [resultNew objectForKey:@"refresh_token"];
+                [[AppEngineManager sharedInstance]saveRefreshTokenInfoWithAccesstoken:newtoken refreshToken:newRefreshToken];
+                [self getObjListRequestAtLocalData];//以上存储完新的token后再请求一次接口
+            }
+           
         
-        
+        }
+            break;
+        default:
+            break;
     }
     
-    [_fileTableView reloadData];
-    NSLog(@"  type %d",requestType);
+    
+    
+
+    
+
     
     
 }
 
-- (void)requestFailedByError:(NSError *)responseError errorCode:(NSInteger)code {
+- (void)requestFailedByError:(NSError *)responseError errorCode:(NSInteger)code forRequest:(ASIHTTPRequest *)errorRequest withRequestType:(RequestType)requestType{
 
-    NSLog(@"------------ %@",responseError);
+    switch (requestType) {
+        case RequestType_ObjList:
+        {
+            
+            PRETTY_LOG(@"------------ %@",responseError);
+            NSString *dataString = [[NSString alloc] initWithData:[errorRequest responseData]
+                                                         encoding:NSUTF8StringEncoding];
+            SBJSON *jsonParser = [[SBJSON alloc] init];
+            
+            NSError *parseError = nil;
+            NSDictionary * result = [jsonParser objectWithString:dataString
+                                                           error:&parseError];
+            PRETTY_LOG(@"errorlt:%@",result);
+            NSObject * obj = [result objectForKey:@"result"];
+            if(obj == Nil)
+            {
+                return;
+                
+            }
+            if( [obj isKindOfClass:[NSDictionary class]] )
+            {
+
+                
+            }else{
+                
+                NSString *result1 = [result objectForKey:@"result"];
+                
+                if ([result1 isEqualToString:@"Error: Token has expired"])
+                {
+                    [qxtRequest changeTokenWithDelegate:self requestType:RequestType_ChangeToken];
+                }
+                if ([result1 isEqualToString:@"Error: Token is invalid"])
+                {
+                    [qxtRequest changeTokenWithDelegate:self requestType:RequestType_ChangeToken];
+                }
+                
+                if ([result1 isEqualToString:@"Not expired"])
+                {
+
+                }
+                if ([result1 isEqualToString:@"expired"])
+                {
+//                    //置换token
+                   
+                                 }
+            }
+
+
+        }
+            break;
+            case RequestType_ChangeToken:
+        {
+           
+            NSString *dataString = [[NSString alloc] initWithData:[errorRequest responseData]
+                                                         encoding:NSUTF8StringEncoding];
+            SBJSON *jsonParser = [[SBJSON alloc] init];
+            
+            NSError *parseError = nil;
+            NSDictionary * result = [jsonParser objectWithString:dataString
+                                                           error:&parseError];
+            PRETTY_LOG(@"token:%@",result);
+        }
+            break;
+        default:
+            break;
+    }
+    
+    
+    
+
 
 
 }
@@ -690,7 +769,7 @@
 
 - (void)tableViewMoreBtnClickedWithModel:(EntryModel *)model {
 
-    NSLog(@"ai ?? - %i",model.isSelected);
+    PRETTY_LOG(@"ai ?? - %i",model.isSelected);
 
     [self sheetViewWithModel:model];
 
@@ -701,7 +780,7 @@
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    self.searchDataSource = (NSMutableArray *)[[NDSearchTool tool] searchWithFieldArray:@[@"fileName"]
+    self.searchDataSource = (NSMutableArray *)[[NDSearchTool tool] searchWithFieldArray:@[@"folder_name",@"file_name"]
                                                                             inputString:searchText
                                                                                 inArray:self.dataSource];
     [self.searchDisplayController.searchResultsTableView reloadData];
@@ -734,19 +813,19 @@
 //- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didShowPhotoAtIndex:(NSUInteger)pageIndex
 //{
 //    id <IDMPhoto> photo = [photoBrowser photoAtIndex:pageIndex];
-//    NSLog(@"Did show photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
+//    PRETTY_LOG(@"Did show photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
 //}
 //
 //- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser willDismissAtPageIndex:(NSUInteger)pageIndex
 //{
 //    id <IDMPhoto> photo = [photoBrowser photoAtIndex:pageIndex];
-//    NSLog(@"Will dismiss photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
+//    PRETTY_LOG(@"Will dismiss photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
 //}
 //
 //- (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didDismissAtPageIndex:(NSUInteger)pageIndex
 //{
 //    id <IDMPhoto> photo = [photoBrowser photoAtIndex:pageIndex];
-//    NSLog(@"Did dismiss photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
+//    PRETTY_LOG(@"Did dismiss photoBrowser with photo index: %zu, photo caption: %@", pageIndex, photo.caption);
 //}
 
 - (void)photoBrowser:(IDMPhotoBrowser *)photoBrowser didDismissActionSheetWithButtonIndex:(NSUInteger)buttonIndex photoIndex:(NSUInteger)photoIndex
@@ -760,7 +839,7 @@
 //        indextPhontoDelete = photoIndex;
 //    }
 
-    NSLog(@"Did dismiss actionSheet with photo index: %zu, photo caption: %@", photoIndex, photo.caption);
+    PRETTY_LOG(@"Did dismiss actionSheet with photo index: %zu, photo caption: %@", photoIndex, photo.caption);
     
 //    NSString *title = [NSString stringWithFormat:@"Option %zu", buttonIndex+1];
 
@@ -841,9 +920,28 @@
 }
 
 
+#pragma mark boolSubject--
+- (int)compareOneDayDate:(NSString *)oneDayDate withAnotherDayDate:(NSString *)anotherDayDate
+{
+    
+    
+    NSComparisonResult result = [oneDayDate compare:anotherDayDate];
+    PRETTY_LOG(@"date1 : %@, date2 : %@", oneDayDate, anotherDayDate);
+    if (result == NSOrderedDescending) {
+        //PRETTY_LOG(@"Date1  is in the future");
+        return 1;
+    }
+    else if (result == NSOrderedAscending){
+        //PRETTY_LOG(@"Date1 is in the past");
+        return -1;
+    }
+    //PRETTY_LOG(@"Both dates are the same");
+    return 0;
 
+    return 1;
+}
 
-- (int)compareOneDay:(NSString *)oneDayStr withAnotherDay:(NSString *)anotherDayStr
+- (int)compareOneDayStr:(NSString *)oneDayStr withAnotherDayStr:(NSString *)anotherDayStr
 {
 //    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 //    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];//df.dateFormat = @"yyyy-MM-dd HH:mm";
@@ -853,51 +951,38 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     
-    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    dateFormatter.dateFormat = @"yyyy/MM/dd HH:mm";
 
     NSDate *dateA = [dateFormatter dateFromString:oneDayStr];
     NSDate *dateB = [dateFormatter dateFromString:anotherDayStr];
     NSComparisonResult result = [dateA compare:dateB];
-    NSLog(@"date1 : %@, date2 : %@", dateA, dateB);
+    PRETTY_LOG(@"date1 : %@, date2 : %@", dateA, dateB);
     if (result == NSOrderedDescending) {
-        //NSLog(@"Date1  is in the future");
+        //PRETTY_LOG(@"Date1  is in the future");
         return 1;
     }
     else if (result == NSOrderedAscending){
-        //NSLog(@"Date1 is in the past");
+        //PRETTY_LOG(@"Date1 is in the past");
         return -1;
     }
-    //NSLog(@"Both dates are the same");
+    //PRETTY_LOG(@"Both dates are the same");
     return 0;
     
 }
 
+- (BOOL)isPicWithFileName:(NSString *)fileName{
 
+    NSString *str = [fileName stringExestrWithInt:2 forString:fileName];
+    if([str isEqualToString:@"jpg"]||[str isEqualToString:@"jpeg"]||[str isEqualToString:@"PNG"]||[str isEqualToString:@"png"]){
+    
+        return YES;
+    }else {
+    
+        return NO;
+    }
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -1036,7 +1121,7 @@
 
             NSArray *ARR = [NSArray arrayWithArray:(NSArray *)_dataSource];
             ARR = [ARR sortedArrayUsingComparator:^NSComparisonResult(EntryModel *obj1, EntryModel *obj2) {
-                return [self compareOneDay:obj1.time withAnotherDay:obj2.time];
+                return [self compareOneDayStr:obj1.format_date withAnotherDayStr:obj2.format_date];
             }];
             
             [_dataSource removeAllObjects];
@@ -1047,11 +1132,11 @@
 
             [_fileTableView reloadData];
             
-//            NSLog(@"O--  %d",[self compareOneDay:@"2013-06-13" withAnotherDay:@"2013-06-17"]);
+//            PRETTY_LOG(@"O--  %d",[self compareOneDay:@"2013-06-13" withAnotherDay:@"2013-06-17"]);
 //            
-//            NSLog(@"T--  %d",[self compareOneDay:@"2013-06-20" withAnotherDay:@"2013-06-17"]);
+//            PRETTY_LOG(@"T--  %d",[self compareOneDay:@"2013-06-20" withAnotherDay:@"2013-06-17"]);
 //            
-//            NSLog(@"TH--  %d",[self compareOneDay:@"2013-06-13" withAnotherDay:@"2013-06-13"]);
+//            PRETTY_LOG(@"TH--  %d",[self compareOneDay:@"2013-06-13" withAnotherDay:@"2013-06-13"]);
         }
     
     }
@@ -1092,7 +1177,11 @@
     
     [super viewWillDisappear:animated];
     [self.editView removeFromSuperview];
-    
+    if(qxtRequest){
+        
+        [qxtRequest clearDelegatesAndCancel];
+   
+    }
     if (_isMenu) {
         if (self.menu) {
             [self.menu dismissWithAnimation:NO];
@@ -1116,7 +1205,7 @@
     
     CharActionSheet *sheet = [CharActionSheet sheetWithEntry:model buttonTitles:@[@"协作共享", @"查看协作人",@"链接分享",@"重命名",@"移动",@"复制"] redButtonIndex:-1 clicked:^(NSInteger buttonIndex) {
         
-        NSLog(@"> Block way -> Clicked Index: %ld", (long)buttonIndex);
+        PRETTY_LOG(@"> Block way -> Clicked Index: %ld", (long)buttonIndex);
         
     } ];
     

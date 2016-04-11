@@ -40,4 +40,41 @@
     }
 }
 
+
+- (NSString *)stringExestrWithInt:(NSInteger)integer forString:(NSString *)nameStr {
+
+    
+    switch (integer) {
+        case 0://完整的文件名 abc.xxx
+            
+            return [nameStr lastPathComponent];
+            
+            break;
+        case 1://文件名不带后缀 abc
+            
+             return [nameStr stringByDeletingPathExtension];
+            break;
+        case 2://后缀    xxx
+            
+             return [nameStr pathExtension];
+            
+            break;
+            
+        default:
+            break;
+    }
+    //    // 从路径中获得完整的文件名（带后缀）
+    //    exestr = [filePath lastPathComponent];
+    //    NSLog(@"%@",exestr);
+    //    // 获得文件名（不带后缀）
+    //    exestr = [exestr stringByDeletingPathExtension];
+    //    NSLog(@"%@",exestr);
+    //
+    //    // 获得文件的后缀名（不带'.'）
+    //    exestr = [filePath pathExtension];
+    //    NSLog(@"%@",exestr);
+
+    return nil;
+
+}
 @end

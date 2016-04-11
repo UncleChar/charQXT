@@ -24,7 +24,10 @@
 #define LC_DEFAULT_BACKGROUND_OPACITY 0.3f
 
 @interface CharActionSheet ()
+{
 
+    UIImageView *indexIV;
+}
 /** 所有按钮 */
 @property (nonatomic, strong) NSMutableArray *buttonTitles;
 
@@ -144,58 +147,41 @@
         titleBgView.frame = CGRectMake(10, -vSpace, SCREEN_SIZE.width - 20, BUTTON_H + vSpace);
         [bottomView addSubview:titleBgView];
         
-        UIImageView *iv = [[UIImageView alloc]initWithFrame:CGRectMake(20, 10, 40, 40)];
+        indexIV = [[UIImageView alloc]initWithFrame:CGRectMake(20, 10, 40, 40)];
 //        iv.layer.cornerRadius = 3;
 //        iv.layer.masksToBounds = 1;
-        if ([self.entry.fileAttribute isEqualToString:@"note"]) {
+    
+    [titleBgView addSubview:indexIV];
+    
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(indexIV.frame) + 5, 10, kScreenWidth - 40 - CGRectGetMaxX(indexIV.frame) - 5, 40)];
+  
+    [titleBgView addSubview:titleLabel];
+    
+    if ([self.entry.isFolder boolValue]) {
+
+          titleLabel.text = self.entry.folder_name;
+        if (![self.entry.isShared boolValue]) {
             
-            iv.image = [UIImage imageNamed:@"file_note"];
-        }
-        if ([self.entry.fileAttribute isEqualToString:@"txt"]) {
+            indexIV.image = [UIImage imageNamed:@"file_personal"];
+        }else{
             
-            iv.image = [UIImage imageNamed:@"preview_txt_icon"];
+            indexIV.image = [UIImage imageNamed:@"file_shared"];
         }
-        if ([self.entry.fileAttribute isEqualToString:@"doc"]) {
-            
-            iv.image = [UIImage imageNamed:@"preview_doc_icon"];
-        }
-        if ([self.entry.fileAttribute isEqualToString:@"pic"]) {
-            
-            iv.image = [UIImage imageNamed:@"preview_pic_icon"];
-        }
-        if ([self.entry.fileAttribute isEqualToString:@"pdf"]) {
-            
-            iv.image = [UIImage imageNamed:@"preview_pdf_icon"];
-        }
-        if ([self.entry.fileAttribute isEqualToString:@"floder"]) {
-            
-            iv.image = [UIImage imageNamed:@"file_personal"];
-        }
-        if ([self.entry.fileAttribute isEqualToString:@"isShareFloder"]) {
-            
-            iv.image = [UIImage imageNamed:@"file_shared"];
-        }
-        if ([self.entry.fileAttribute isEqualToString:@"excel"]) {
-            
-            iv.image = [UIImage imageNamed:@"preview_xls_icon"];
-        }
-        if ([self.entry.fileAttribute isEqualToString:@"zip"]) {
-            
-            iv.image = [UIImage imageNamed:@"preview_rar_icon"];
-        }
-        if ([self.entry.fileAttribute isEqualToString:@"ppt"]) {
-            
-            iv.image = [UIImage imageNamed:@"preview_ppt_icon"];
-        }
-        if ([self.entry.fileAttribute isEqualToString:@"video"]) {
-            
-            iv.image = [UIImage imageNamed:@"preview_video_icon"];
-        }
-        [titleBgView addSubview:iv];
         
-        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(iv.frame) + 5, 10, kScreenWidth - 40 - CGRectGetMaxX(iv.frame) - 5, 40)];
-        titleLabel.text = self.entry.fileName;
-        [titleBgView addSubview:titleLabel];
+        
+    }else {
+        
+
+          titleLabel.text = self.entry.file_name;
+        NSString *exestr = [self.entry.file_name pathExtension];
+        
+        [self fileAvatarType:exestr];
+        
+        
+        
+    }
+
+
         // 标题
 //        UILabel *label = [[UILabel alloc] init];
 //        [label setText:self.title];
@@ -357,6 +343,58 @@
     }
     
     [_buttonTitles addObject:button];
+}
+
+
+- (void)fileAvatarType:(NSString *)type {
+    
+    if ([type isEqualToString:@"note"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"file_note"];
+    }
+    if ([type isEqualToString:@"txt"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_txt_icon"];
+    }
+    if ([type isEqualToString:@"doc"]||[type isEqualToString:@"docx"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_doc_icon"];
+    }
+    if ([type isEqualToString:@"PNG"]||[type isEqualToString:@"png"]||[type isEqualToString:@"jpej"]||[type isEqualToString:@"jpg"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_pic_icon"];
+    }
+    if ([type isEqualToString:@"pdf"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_pdf_icon"];
+    }
+    if ([type isEqualToString:@"floder"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"file_personal"];
+    }
+    if ([type isEqualToString:@"isShareFloder"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"file_shared"];
+    }
+    if ([type isEqualToString:@"xlsx"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_xls_icon"];
+    }
+    if ([type isEqualToString:@"zip"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_rar_icon"];
+    }
+    if ([type isEqualToString:@"ppt"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_ppt_icon"];
+    }
+    if ([type isEqualToString:@"video"]) {
+        
+        indexIV.image = [UIImage imageNamed:@"preview_video_icon"];
+    }
+    
+    
+    
 }
 
 @end
